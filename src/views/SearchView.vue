@@ -1,9 +1,9 @@
 <template>
   <MainLayout></MainLayout>
-  <section>
-    <div class="search container">
-      <h1>Поиск видео</h1>
-      <SearchForm></SearchForm>
+  <section class="search">
+    <div class="search__wrapper container" :class=searchClassName>
+      <h1 :class="{'search__title': isResultFormType}">Поиск видео</h1>
+      <SearchForm :size=formSize :has-icon=isResultFormType @search="search"></SearchForm>
     </div>
   </section>
 </template>
@@ -17,6 +17,27 @@ export default {
   components: {
     SearchForm,
     MainLayout,
+  },
+  data() {
+    return {
+      searchFormType: 'main',
+    };
+  },
+  computed: {
+    formSize() {
+      return this.searchFormType === 'main' ? 'small' : 'large';
+    },
+    searchClassName() {
+      return `search__wrapper--${this.searchFormType}`;
+    },
+    isResultFormType() {
+      return this.searchFormType !== 'main';
+    },
+  },
+  methods: {
+    search() {
+      this.searchFormType = 'results';
+    },
   },
 };
 </script>

@@ -10,7 +10,7 @@
         placeholder="Что хотите посмотреть?"
       />
     </div>
-    <AppButton text="Найти" :is-group=true />
+    <AppButton text="Найти" :is-group=true @click="search"/>
   </form>
 </template>
 
@@ -40,6 +40,11 @@ export default {
     },
     iconName() {
       return this.hasIcon ? 'IconHeart' : null;
+    },
+  },
+  methods: {
+    search() {
+      this.$emit('search');
     },
   },
 };
