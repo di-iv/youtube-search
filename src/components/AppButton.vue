@@ -2,6 +2,7 @@
   <button
     class="btn"
     :class="[buttonSize, {'btn--fill': isFill, 'btn--group': isGroup}]"
+    type="button"
   >
     {{ text }}
   </button>
