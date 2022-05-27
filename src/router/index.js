@@ -4,12 +4,12 @@ const routes = [
   {
     path: '/',
     name: 'search',
-    component: () => import('../views/SearchView.vue'),
+    component: () => import('../views/SearchView'),
   },
   {
     path: '/favorites',
     name: 'favorites',
-    component: () => import('../views/FavoritesView.vue'),
+    component: () => import('../views/FavoritesView'),
   },
 ];
 
