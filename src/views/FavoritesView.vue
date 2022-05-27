@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import MainLayout from '@/layouts/MainLayout.vue';
+import MainLayout from '@/layouts/MainLayout';
 
 export default {
   name: 'FavoritesView',

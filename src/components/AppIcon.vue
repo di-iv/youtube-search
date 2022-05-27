@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import IconLogo from '@/components/icons/IconLogo.vue';
+import IconLogo from '@/components/icons/IconLogo';
 
 export default {
   name: 'AppIcon',

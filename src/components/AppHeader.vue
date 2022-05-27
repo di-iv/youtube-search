@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import AppIcon from '@/components/AppIcon.vue';
+import AppIcon from '@/components/AppIcon';
 
 export default {
   name: 'AppHeader',
