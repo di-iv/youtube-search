@@ -8,7 +8,7 @@
             <router-link
               class="header__nav-link"
               active-class="header__nav-link--active"
-              to="/"
+              to="/search"
             >
               Поиск
             </router-link>
