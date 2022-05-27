@@ -1,0 +1,35 @@
+.btn {
+  padding: 14px 20px;
+
+  color: $blue;
+  font-size: 20px;
+  line-height: 24px;
+
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &--fill {
+    color: $white;
+
+    background-color: $blue;
+    border: none;
+  }
+
+  &--small {
+    width: 150px;
+  }
+
+  &--medium {
+    width: 176px;
+  }
+
+  &--large {
+    width: 210px;
+  }
+
+  &--group {
+    border-radius: 0 10px 10px 0;
+  }
+}
