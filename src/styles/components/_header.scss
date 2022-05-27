@@ -1,7 +1,8 @@
 .header {
-  background-color: $white;
   font-size: 18px;
   line-height: 28px;
+
+  background-color: $white;
 
   &__wrapper {
     display: flex;
@@ -22,8 +23,9 @@
     }
 
     &-item {
-      padding: 26px 20px;
       position: relative;
+
+      padding: 26px 23px;
     }
 
     &-link {
@@ -32,17 +34,20 @@
       &--active {
         color: $blue;
 
-        &:after {
-          content: '';
+        &::after {
           position: absolute;
-          width: auto;
-          height: 2px;
-          background-color: $blue;
+          right: 0;
           bottom: 0;
           left: 0;
-          right: 0;
+
+          width: auto;
+          height: 2px;
           margin-right: 20px;
           margin-left: 20px;
+
+          background-color: $blue;
+
+          content: "";
         }
       }
     }
@@ -50,7 +55,7 @@
 
   &__logout {
     margin-left: auto;
-    padding-right: 20px;
+    padding-right: 23px;
   }
 
   &__logout-link {
