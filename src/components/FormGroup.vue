@@ -19,6 +19,7 @@
         :name=id
         :placeholder=placeholder
         :disabled=disabled
+        autocomplete="off"
       >
       <AppIcon
         v-if="hasIcon"
