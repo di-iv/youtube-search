@@ -12,12 +12,12 @@ export default {
   name: 'IconLogo',
   props: {
     width: {
-      type: Number,
-      default: 48,
+      type: String,
+      default: '48',
     },
     height: {
-      type: Number,
-      default: 48,
+      type: String,
+      default: '48',
     },
   },
 };
