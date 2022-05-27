@@ -1,16 +1,21 @@
 <template>
   <MainLayout></MainLayout>
-  <div class="container">
-    <h1>search</h1>
-  </div>
+  <section>
+    <div class="search container">
+      <h1>Поиск видео</h1>
+      <SearchForm></SearchForm>
+    </div>
+  </section>
 </template>
 
 <script>
+import SearchForm from '@/components/SearchForm';
 import MainLayout from '@/layouts/MainLayout';
 
 export default {
   name: 'SearchView',
   components: {
+    SearchForm,
     MainLayout,
   },
 };
