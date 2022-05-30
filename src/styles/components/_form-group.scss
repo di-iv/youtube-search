@@ -21,7 +21,6 @@
 
   &__input-field {
     width: 100%;
-    padding: 13px;
 
     font-size: 20px;
     line-height: 24px;
@@ -40,6 +39,14 @@
     &[disabled] {
       background-color: $grey;
       cursor: not-allowed;
+    }
+
+    &--small {
+      padding: 11px;
+    }
+
+    &--large {
+      padding: 13px;
     }
 
     &--group {

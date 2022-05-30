@@ -12,8 +12,9 @@
         label="Поиск"
         is-group
         label-hidden
-        :icon-name="iconName"
         placeholder="Что хотите посмотреть?"
+        size="large"
+        :icon-name="iconName"
       />
     </div>
     <AppButton

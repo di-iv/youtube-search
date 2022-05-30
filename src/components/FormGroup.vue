@@ -11,10 +11,10 @@
       <input
         :id="id"
         class="form-group__input-field"
-        :class="{
+        :class="[inputSize, {
           'form-group__input-field--group': isGroup,
-          'form-group__input-field--icon': hasIcon
-        }"
+          'form-group__input-field--icon': hasIcon,
+        }]"
         :type="type"
         :name="id"
         :placeholder="placeholder"
@@ -71,10 +71,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    size: {
+      type: String,
+      default: 'small',
+    },
   },
   computed: {
     hasIcon() {
       return this.iconName;
+    },
+    inputSize() {
+      return `form-group__input-field--${this.size}`;
     },
   },
 };
