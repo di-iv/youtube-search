@@ -1,12 +1,12 @@
 <template>
-  <AppHeader />
+  <TheHeader />
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader.vue';
+import TheHeader from '@/components/TheHeader.vue';
 
 export default {
   name: 'MainLayout',
-  components: { AppHeader },
+  components: { TheHeader },
 };
 </script>
