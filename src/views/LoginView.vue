@@ -17,10 +17,11 @@
           />
           <FormGroup
             id="password"
-            icon-name="IconEyeOff"
+            :icon-name="iconName"
             label="Пароль"
-            type="password"
+            :type="type"
             class="login__form-group"
+            @icon-cliked="toggleVisibility"
           />
           <div>
             <router-link to="/search">
@@ -50,6 +51,22 @@ export default {
     FormGroup,
     ModalCard,
   },
-
+  data() {
+    return {
+      iconName: 'IconEyeOff',
+      type: 'password',
+    };
+  },
+  methods: {
+    toggleVisibility() {
+      if (this.type === 'password') {
+        this.iconName = 'IconEye';
+        this.type = 'text';
+      } else {
+        this.iconName = 'IconEyeOff';
+        this.type = 'password';
+      }
+    },
+  },
 };
 </script>

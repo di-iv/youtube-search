@@ -25,6 +25,7 @@
         v-if="hasIcon"
         class="form-group__icon"
         :icon-name="iconName"
+        @click="iconClicked"
       />
     </div>
   </div>
@@ -76,12 +77,18 @@ export default {
       default: 'small',
     },
   },
+  emits: ['iconCliked'],
   computed: {
     hasIcon() {
       return this.iconName;
     },
     inputSize() {
       return `form-group__input-field--${this.size}`;
+    },
+  },
+  methods: {
+    iconClicked() {
+      return this.$emit('iconCliked');
     },
   },
 };
