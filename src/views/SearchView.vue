@@ -1,5 +1,4 @@
 <template>
-  <MainLayout />
   <section class="search">
     <div
       class="search__wrapper container"
@@ -19,13 +18,11 @@
 
 <script>
 import SearchForm from '@/components/SearchForm';
-import MainLayout from '@/layouts/MainLayout';
 
 export default {
   name: 'SearchView',
   components: {
     SearchForm,
-    MainLayout,
   },
   data() {
     return {

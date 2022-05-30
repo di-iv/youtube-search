@@ -1,9 +1,13 @@
+import EmptyLayout from '@/layouts/EmptyLayout';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
     path: '/',
     name: 'login',
+    meta: {
+      layout: EmptyLayout,
+    },
     component: () => import('../views/LoginView'),
   },
   {
