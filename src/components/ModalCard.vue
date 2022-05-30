@@ -1,7 +1,10 @@
 <template>
   <div class="modal-card">
-    <div class="modal-card__modal" :class=className>
-      <slot></slot>
+    <div
+      class="modal-card__modal"
+      :class="className"
+    >
+      <slot />
     </div>
   </div>
 </template>

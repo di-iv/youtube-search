@@ -1,5 +1,5 @@
 <template>
-  <AppHeader></AppHeader>
+  <AppHeader />
 </template>
 
 <script>
@@ -10,7 +10,3 @@ export default {
   components: { AppHeader },
 };
 </script>
-
-<style scoped>
-
-</style>

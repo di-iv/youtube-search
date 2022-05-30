@@ -1,7 +1,10 @@
 <template>
   <header class="header">
     <div class="header__wrapper container">
-      <AppIcon class="header__logo" iconName="IconLogo"></AppIcon>
+      <AppIcon
+        class="header__logo"
+        icon-name="IconLogo"
+      />
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li class="header__nav-item">
@@ -25,7 +28,12 @@
         </ul>
       </nav>
       <div class="header__logout">
-        <router-link class="header__logout-link" to="/">Выйти</router-link>
+        <router-link
+          class="header__logout-link"
+          to="/"
+        >
+          Выйти
+        </router-link>
       </div>
     </div>
   </header>

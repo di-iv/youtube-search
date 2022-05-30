@@ -1,11 +1,20 @@
 <template>
   <div class="container">
-    <ModalCard>
+    <modal-card>
       <div class="login">
-        <AppIcon icon-name="IconLogo" width="88" height="88" class="login__icon"/>
+        <AppIcon
+          icon-name="IconLogo"
+          width="88"
+          height="88"
+          class="login__icon"
+        />
         <h3>Вход</h3>
         <form action="">
-          <FormGroup label="Логин" id="login" class="login__form-group"/>
+          <FormGroup
+            id="login"
+            label="Логин"
+            class="login__form-group"
+          />
           <FormGroup
             id="password"
             icon-name="IconEyeOff"
@@ -15,12 +24,15 @@
           />
           <div>
             <router-link to="/search">
-              <AppButton text="Войти" size="medium"/>
+              <AppButton
+                text="Войти"
+                size="medium"
+              />
             </router-link>
           </div>
         </form>
       </div>
-    </ModalCard>
+    </modal-card>
   </div>
 </template>
 

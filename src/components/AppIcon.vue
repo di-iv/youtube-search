@@ -1,5 +1,5 @@
 <template>
- <component :is="iconName"></component>
+  <component :is="iconName" />
 </template>
 
 <script>
@@ -19,6 +19,7 @@ export default {
   props: {
     iconName: {
       type: String,
+      default: null,
     },
   },
 };

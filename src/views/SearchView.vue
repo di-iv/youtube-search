@@ -1,9 +1,18 @@
 <template>
-  <MainLayout></MainLayout>
+  <MainLayout />
   <section class="search">
-    <div class="search__wrapper container" :class=searchClassName>
-      <h1 :class="{'search__title': isResultFormType}">Поиск видео</h1>
-      <SearchForm :size=formSize :has-icon=isResultFormType @search="search"></SearchForm>
+    <div
+      class="search__wrapper container"
+      :class="searchClassName"
+    >
+      <h1 :class="{'search__title': isResultFormType}">
+        Поиск видео
+      </h1>
+      <SearchForm
+        :size="formSize"
+        :has-icon="isResultFormType"
+        @search="search"
+      />
     </div>
   </section>
 </template>

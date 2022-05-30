@@ -1,16 +1,26 @@
 <template>
-  <form class="search-form" action="">
-    <div class="search-form__wrapper" :class="inputSize">
+  <form
+    class="search-form"
+    action=""
+  >
+    <div
+      class="search-form__wrapper"
+      :class="inputSize"
+    >
       <FormGroup
-        label="Поиск"
         id="search"
+        label="Поиск"
         is-group
         label-hidden
-        :icon-name=iconName
+        :icon-name="iconName"
         placeholder="Что хотите посмотреть?"
       />
     </div>
-    <AppButton text="Найти" :is-group=true @click="search"/>
+    <AppButton
+      text="Найти"
+      :is-group="true"
+      @click="search"
+    />
   </form>
 </template>
 
@@ -34,6 +44,7 @@ export default {
       default: false,
     },
   },
+  emits: ['search'],
   computed: {
     inputSize() {
       return `search-form__wrapper--${this.size}`;

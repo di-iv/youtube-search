@@ -3,28 +3,28 @@
     <label
       class="form-group__label"
       :class="{'form-group__label--hidden': labelHidden}"
-      :for=id
+      :for="id"
     >
       {{ label }}
     </label>
     <div class="form-group__input">
       <input
+        :id="id"
         class="form-group__input-field"
         :class="{
           'form-group__input-field--group': isGroup,
           'form-group__input-field--icon': hasIcon
         }"
-        :type=type
-        :id=id
-        :name=id
-        :placeholder=placeholder
-        :disabled=disabled
+        :type="type"
+        :name="id"
+        :placeholder="placeholder"
+        :disabled="disabled"
         autocomplete="off"
       >
       <AppIcon
         v-if="hasIcon"
         class="form-group__icon"
-        :iconName=iconName
+        :icon-name="iconName"
       />
     </div>
   </div>
