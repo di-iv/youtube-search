@@ -16,3 +16,9 @@
     }
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .login {
+    padding: 40px 10px 60px;
+  }
+}
