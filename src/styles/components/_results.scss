@@ -80,3 +80,48 @@
     }
   }
 }
+
+@include media-breakpoint-down(md) {
+  .results {
+    &__list {
+      &--grid {
+        grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .results {
+    &__list {
+      &--grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      }
+
+      &--list {
+        .results__item-img {
+          max-height: 70px;
+          margin-right: 15px;
+        }
+
+        .results__item-info {
+          overflow: hidden;
+        }
+
+        .results__item-title {
+          max-height: 32px;
+
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        .results__item-description {
+          max-height: 16px;
+
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
