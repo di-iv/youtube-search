@@ -1,7 +1,7 @@
 <template>
   <form
     class="search-form"
-    action=""
+    @submit.prevent
   >
     <div
       class="search-form__wrapper"
@@ -9,12 +9,14 @@
     >
       <FormGroup
         id="search"
+        v-model="searchRequest"
         label="Поиск"
         is-group
         label-hidden
         placeholder="Что хотите посмотреть?"
         size="large"
         :icon-name="iconName"
+        @keyup.enter="search"
       />
     </div>
     <AppButton
@@ -26,6 +28,7 @@
 </template>
 
 <script>
+import api from '@/api';
 import AppButton from '@/components/AppButton';
 import FormGroup from '@/components/FormGroup';
 
@@ -46,6 +49,11 @@ export default {
     },
   },
   emits: ['search'],
+  data() {
+    return {
+      searchRequest: '',
+    };
+  },
   computed: {
     inputSize() {
       return `search-form__wrapper--${this.size}`;
@@ -55,7 +63,18 @@ export default {
     },
   },
   methods: {
-    search() {
+    async search() {
+      const response = await api.get('search', {
+        params: {
+          part: 'snippet',
+          maxResults: 12,
+          q: this.searchRequest,
+        },
+      });
+      this.$store.dispatch(
+        'searchResults',
+        { request: this.searchRequest, results: response.data.items },
+      );
       this.$emit('search');
     },
   },
