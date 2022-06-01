@@ -62,3 +62,35 @@
     color: $blue;
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .header {
+    font-size: 14px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .header {
+    font-size: 14px;
+
+    &__logo {
+      margin: 0;
+    }
+
+    &__nav-item {
+      padding: 26px 12px;
+    }
+
+    &__nav-link {
+      &--active {
+        &::after {
+          margin: 0;
+        }
+      }
+    }
+
+    &__logout {
+      padding-right: 10px;
+    }
+  }
+}
