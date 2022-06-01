@@ -73,3 +73,11 @@
     }
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .form-group {
+    &__input-field {
+      font-size: 16px;
+    }
+  }
+}
