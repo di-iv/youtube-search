@@ -54,7 +54,9 @@
 @include media-breakpoint-down(sm) {
   .search {
     &__wrapper {
-      padding-top: 120px;
+      &--main {
+        padding-top: 120px;
+      }
     }
   }
 }
