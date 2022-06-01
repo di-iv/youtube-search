@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import IconGrid from '@/components/icons/IconGrid';
+import IconList from '@/components/icons/IconList';
 import IconLogo from '@/components/icons/IconLogo';
 import IconHeart from '@/components/icons/IconHeart';
 import IconEye from '@/components/icons/IconEye';
@@ -15,6 +17,8 @@ export default {
     IconHeart,
     IconEye,
     IconEyeOff,
+    IconList,
+    IconGrid,
   },
   props: {
     iconName: {
