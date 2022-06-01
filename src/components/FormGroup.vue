@@ -20,6 +20,8 @@
         :placeholder="placeholder"
         :disabled="disabled"
         autocomplete="off"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
       >
       <AppIcon
         v-if="hasIcon"
@@ -76,8 +78,12 @@ export default {
       type: String,
       default: 'small',
     },
+    modelValue: {
+      type: String,
+      default: 'test',
+    },
   },
-  emits: ['iconCliked'],
+  emits: ['iconCliked', 'update:modelValue'],
   computed: {
     hasIcon() {
       return this.iconName;
