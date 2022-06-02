@@ -1,0 +1,11 @@
+.modal-favorites {
+  &__form-group {
+    margin-bottom: 24px;
+  }
+
+  &__button {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}

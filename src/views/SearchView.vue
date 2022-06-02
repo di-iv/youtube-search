@@ -61,16 +61,23 @@
         </div>
       </div>
     </div>
+    <ModalAddFavourite
+      v-if="showModal"
+      @close-modal="switchModalVisibility(false)"
+      @cancel="switchModalVisibility(false)"
+    />
   </section>
 </template>
 
 <script>
 import AppIcon from '@/components/AppIcon';
+import ModalAddFavourite from '@/components/ModalAddFavourite';
 import SearchForm from '@/components/SearchForm';
 
 export default {
   name: 'SearchView',
   components: {
+    ModalAddFavourite,
     SearchForm,
     AppIcon,
   },
