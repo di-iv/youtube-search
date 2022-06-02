@@ -1,8 +1,15 @@
 .login {
-  width: 100%;
-  padding: 40px 88px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 
-  text-align: center;
+  &__card {
+    width: 100%;
+    padding: 40px 88px 60px;
+
+    text-align: center;
+  }
 
   &__icon {
     margin-bottom: 26px;

@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <modal-card>
-      <div class="login">
+  <div class="login container">
+    <app-card>
+      <div class="login__card">
         <AppIcon
           icon-name="IconLogo"
           width="88"
@@ -33,7 +33,7 @@
           </div>
         </form>
       </div>
-    </modal-card>
+    </app-card>
   </div>
 </template>
 
@@ -41,7 +41,7 @@
 import AppButton from '@/components/AppButton';
 import AppIcon from '@/components/AppIcon';
 import FormGroup from '@/components/FormGroup';
-import ModalCard from '@/components/ModalCard';
+import AppCard from '@/components/AppCard';
 
 export default {
   name: 'LoginView',
@@ -49,7 +49,7 @@ export default {
     AppIcon,
     AppButton,
     FormGroup,
-    ModalCard,
+    AppCard,
   },
   data() {
     return {

@@ -1,17 +1,15 @@
 <template>
-  <div class="modal-card">
-    <div
-      class="modal-card__modal"
-      :class="className"
-    >
-      <slot />
-    </div>
+  <div
+    class="card"
+    :class="className"
+  >
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ModalCard',
+  name: 'AppCard',
   props: {
     className: {
       type: String,
