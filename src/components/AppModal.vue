@@ -4,7 +4,7 @@
     @click.self="closeModal"
     @keydown="closeModal"
   >
-    <app-card>
+    <app-card class="modal__card">
       <slot />
     </app-card>
   </div>
