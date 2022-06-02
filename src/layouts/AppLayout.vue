@@ -1,6 +1,5 @@
 <template>
   <component :is="layoutComponent" />
-  <slot />
 </template>
 
 <script>
