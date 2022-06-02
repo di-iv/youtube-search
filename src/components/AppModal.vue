@@ -1,5 +1,9 @@
 <template>
-  <div class="modal">
+  <div
+    class="modal"
+    @click.self="closeModal"
+    @keydown="closeModal"
+  >
     <app-card>
       <slot />
     </app-card>
@@ -12,9 +16,11 @@ import AppCard from '@/components/AppCard';
 export default {
   name: 'AppModal',
   components: { AppCard },
+  emits: ['close-modal'],
+  methods: {
+    closeModal() {
+      this.$emit('close-modal');
+    },
+  },
 };
 </script>
-
-<style scoped>
-
-</style>
