@@ -12,6 +12,7 @@
         :has-icon="isResultFormType"
         :class="{'search__control': isResultFormType}"
         @search="search"
+        @add-favourite="switchModalVisibility(true)"
       />
 
       <div
@@ -78,6 +79,7 @@ export default {
       searchResults: null,
       searchRequest: '',
       viewType: 'grid', // list, grid
+      showModal: false,
     };
   },
   computed: {
@@ -105,6 +107,9 @@ export default {
     },
     switchView(type) {
       this.viewType = type;
+    },
+    switchModalVisibility(visibility) {
+      this.showModal = visibility;
     },
   },
 };

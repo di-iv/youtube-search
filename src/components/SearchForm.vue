@@ -17,6 +17,7 @@
         size="large"
         :icon-name="iconName"
         @keyup.enter="search"
+        @icon-clicked="addToFavourite"
       />
     </div>
     <AppButton
@@ -48,7 +49,7 @@ export default {
       default: false,
     },
   },
-  emits: ['search'],
+  emits: ['search', 'add-favourite'],
   data() {
     return {
       searchRequest: '',
@@ -76,6 +77,9 @@ export default {
         { request: this.searchRequest, results: response.data.items },
       );
       this.$emit('search');
+    },
+    addToFavourite() {
+      this.$emit('add-favourite');
     },
   },
 };
