@@ -83,7 +83,7 @@ export default {
       default: 'test',
     },
   },
-  emits: ['iconCliked', 'update:modelValue'],
+  emits: ['iconClicked', 'update:modelValue'],
   computed: {
     hasIcon() {
       return this.iconName;
@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     iconClicked() {
-      return this.$emit('iconCliked');
+      return this.$emit('iconClicked');
     },
   },
 };

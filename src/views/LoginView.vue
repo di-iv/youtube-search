@@ -21,7 +21,7 @@
             label="Пароль"
             :type="type"
             class="login__form-group"
-            @icon-cliked="toggleVisibility"
+            @icon-clicked="toggleVisibility"
           />
           <div>
             <router-link to="/search">
