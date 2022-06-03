@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import api from '@/api';
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
@@ -73,17 +72,7 @@ export default {
   },
   methods: {
     async search() {
-      const response = await api.get('search', {
-        params: {
-          part: 'snippet',
-          maxResults: 12,
-          q: this.searchRequest,
-        },
-      });
-      this.$store.dispatch(
-        'searchResults',
-        { request: this.searchRequest, results: response.data.items },
-      );
+      await this.$store.dispatch('search', { request: this.searchRequest });
       this.$emit('search');
     },
     addToFavourite() {

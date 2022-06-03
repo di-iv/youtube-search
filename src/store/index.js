@@ -1,3 +1,4 @@
+import Search from '@/services/Search';
 import { createStore } from 'vuex';
 
 export default createStore({
@@ -8,14 +9,15 @@ export default createStore({
   getters: {
   },
   mutations: {
-    searchResults(state, { request, results }) {
+    search(state, { request, results }) {
       state.request = request;
       state.results = results;
     },
   },
   actions: {
-    searchResults(context, { request, results }) {
-      context.commit('searchResults', { request, results });
+    async search({ commit }, { request, resultsCount }) {
+      const results = await Search.searchRequest(request, resultsCount);
+      commit('search', { request, results });
     },
   },
   modules: {
