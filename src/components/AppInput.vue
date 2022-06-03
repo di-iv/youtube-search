@@ -41,7 +41,7 @@ import AppIcon from '@/components/AppIcon';
 import params from '@/utilities/params';
 
 export default {
-  name: 'FormGroup',
+  name: 'AppInput',
   components: {
     AppIcon,
   },
