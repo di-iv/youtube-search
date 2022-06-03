@@ -101,7 +101,7 @@ export default {
       required: true,
     },
   },
-  emits: ['iconClicked', 'update:modelValue'],
+  emits: ['icon-clicked', 'update:modelValue'],
   computed: {
     hasIcon() {
       return this.iconName;
@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     iconClicked() {
-      return this.$emit('iconClicked');
+      return this.$emit('icon-clicked');
     },
   },
 };
