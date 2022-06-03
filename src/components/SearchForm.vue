@@ -65,7 +65,10 @@ export default {
   },
   computed: {
     iconName() {
-      return this.hasIcon ? 'IconHeart' : null;
+      if (this.hasIcon) {
+        return 'IconHeart';
+      }
+      return null;
     },
   },
   methods: {
