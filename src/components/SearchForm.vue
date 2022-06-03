@@ -43,10 +43,12 @@ export default {
     size: {
       type: String,
       default: 'small',
+      required: false,
     },
     hasIcon: {
       type: Boolean,
       default: false,
+      required: false,
     },
   },
   emits: ['search', 'add-favourite'],

@@ -15,18 +15,22 @@ export default {
     text: {
       type: String,
       default: 'Кнопка',
+      required: true,
     },
     isFill: {
       type: Boolean,
       default: true,
+      required: false,
     },
     size: {
       type: String,
       default: 'small',
+      required: false,
     },
     isGroup: {
       type: Boolean,
       default: false,
+      required: false,
     },
   },
   computed: {

@@ -45,42 +45,52 @@ export default {
     label: {
       type: String,
       default: 'Label',
+      required: true,
     },
     labelHidden: {
       type: Boolean,
       default: false,
+      required: false,
     },
     id: {
       type: String,
       default: 'label',
+      required: true,
     },
     type: {
       type: String,
       default: 'text',
+      required: false,
     },
     placeholder: {
       type: String,
       default: null,
+      required: false,
     },
     isGroup: {
       type: Boolean,
       default: false,
+      required: false,
     },
     iconName: {
       type: String,
       default: null,
+      required: false,
     },
     disabled: {
       type: Boolean,
       default: false,
+      required: false,
     },
     size: {
       type: String,
       default: 'small',
+      required: false,
     },
     modelValue: {
       type: String,
-      default: 'test',
+      default: '',
+      required: true,
     },
   },
   emits: ['iconClicked', 'update:modelValue'],

@@ -24,6 +24,7 @@ export default {
     iconName: {
       type: String,
       default: null,
+      required: true,
     },
   },
 };

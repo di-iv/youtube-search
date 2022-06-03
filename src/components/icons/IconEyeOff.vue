@@ -30,6 +30,7 @@ export default {
     stroke: {
       type: String,
       default: '#D1D1D1',
+      required: false,
     },
   },
 };

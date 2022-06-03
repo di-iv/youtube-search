@@ -34,10 +34,12 @@ export default {
     width: {
       type: Number,
       default: 48,
+      required: false,
     },
     height: {
       type: Number,
       default: 48,
+      required: false,
     },
   },
 };
