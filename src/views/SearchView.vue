@@ -2,7 +2,7 @@
   <section class="search">
     <div
       class="search__wrapper container"
-      :class="searchClassName"
+      :class="`search__wrapper--${formType}`"
     >
       <h1 :class="{'search__title': isResultFormType}">
         Поиск видео
@@ -91,13 +91,16 @@ export default {
   },
   computed: {
     formSize() {
-      return this.searchResults ? 'large' : 'small';
-    },
-    searchClassName() {
-      return `search__wrapper--${this.formType}`;
+      if (this.searchResults) {
+        return 'large';
+      }
+      return 'small';
     },
     formType() {
-      return this.searchResults ? 'results' : 'main';
+      if (this.searchResults) {
+        return 'results';
+      }
+      return 'main';
     },
     isResultFormType() {
       return this.searchResults !== null;
