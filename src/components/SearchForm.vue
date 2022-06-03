@@ -5,7 +5,7 @@
   >
     <div
       class="search-form__wrapper"
-      :class="inputSize"
+      :class="`search-form__wrapper--${size}`"
     >
       <FormGroup
         id="search"
@@ -63,9 +63,6 @@ export default {
     };
   },
   computed: {
-    inputSize() {
-      return `search-form__wrapper--${this.size}`;
-    },
     iconName() {
       return this.hasIcon ? 'IconHeart' : null;
     },

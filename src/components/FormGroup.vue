@@ -11,10 +11,13 @@
       <input
         :id="id"
         class="form-group__input-field"
-        :class="[inputSize, {
-          'form-group__input-field--group': isGroup,
-          'form-group__input-field--icon': hasIcon,
-        }]"
+        :class="[
+          `form-group__input-field--${size}`,
+          {
+            'form-group__input-field--group': isGroup,
+            'form-group__input-field--icon': hasIcon,
+          }
+        ]"
         :type="type"
         :name="id"
         :placeholder="placeholder"
@@ -102,9 +105,6 @@ export default {
   computed: {
     hasIcon() {
       return this.iconName;
-    },
-    inputSize() {
-      return `form-group__input-field--${this.size}`;
     },
   },
   methods: {
