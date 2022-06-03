@@ -3,11 +3,13 @@
     <h3>Сохранить запрос</h3>
     <FormGroup
       id="request"
+      v-model="request"
       label="Запрос"
       class="modal-favorites__form-group"
     />
     <FormGroup
       id="name"
+      v-model="name"
       label="* Название"
       class="modal-favorites__form-group"
     />
@@ -36,6 +38,12 @@ export default {
   name: 'ModalAddFavourite',
   components: { AppButton, FormGroup, AppModal },
   emits: ['cancel', 'save'],
+  data() {
+    return {
+      request: '',
+      name: '',
+    };
+  },
   methods: {
     cancel() {
       this.$emit('cancel');
