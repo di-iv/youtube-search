@@ -4,19 +4,21 @@
       <div class="login__card">
         <AppIcon
           icon-name="IconLogo"
-          width="88"
-          height="88"
+          :width="88"
+          :height="88"
           class="login__icon"
         />
         <h3>Вход</h3>
         <form action="">
           <FormGroup
             id="login"
+            v-model="email"
             label="Логин"
             class="login__form-group"
           />
           <FormGroup
             id="password"
+            v-model="password"
             :icon-name="iconName"
             label="Пароль"
             :type="type"
@@ -55,6 +57,8 @@ export default {
     return {
       iconName: 'IconEyeOff',
       type: 'password',
+      email: '',
+      password: '',
     };
   },
   methods: {
