@@ -14,7 +14,6 @@
         :class="[
           `input__field--${size}`,
           {
-            'input__field--group': isGroup,
             'input__field--icon': hasIcon,
           }
         ]"
@@ -69,11 +68,6 @@ export default {
     placeholder: {
       type: String,
       default: null,
-      required: false,
-    },
-    isGroup: {
-      type: Boolean,
-      default: false,
       required: false,
     },
     iconName: {
