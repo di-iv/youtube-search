@@ -5,7 +5,7 @@
     :icon-name="iconName"
     label="Пароль"
     :type="type"
-    @icon-clicked="toggleVisibility"
+    @on-icon-click="toggleVisibility"
   />
 </template>
 

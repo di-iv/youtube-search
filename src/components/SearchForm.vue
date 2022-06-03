@@ -17,7 +17,7 @@
         size="large"
         :icon-name="iconName"
         @keyup.enter="search"
-        @icon-clicked="addToFavourite"
+        @on-icon-click="addToFavourite"
       />
     </div>
     <AppButton

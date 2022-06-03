@@ -29,7 +29,7 @@
         v-if="hasIcon"
         class="input__icon"
         :icon-name="iconName"
-        @click="iconClicked"
+        @click="onIconClick"
       />
     </div>
   </div>
@@ -95,15 +95,15 @@ export default {
       required: true,
     },
   },
-  emits: ['icon-clicked', 'update:modelValue'],
+  emits: ['on-icon-click', 'update:modelValue'],
   computed: {
     hasIcon() {
       return Boolean(this.iconName);
     },
   },
   methods: {
-    iconClicked() {
-      return this.$emit('icon-clicked');
+    onIconClick() {
+      return this.$emit('on-icon-click');
     },
   },
 };
