@@ -7,22 +7,17 @@
       />
       <nav class="header__nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">
+          <li
+            v-for="nav in navs"
+            :key="nav"
+            class="header__nav-item"
+          >
             <router-link
               class="header__nav-link"
               active-class="header__nav-link--active"
-              to="/search"
+              :to="nav.link"
             >
-              Поиск
-            </router-link>
-          </li>
-          <li class="header__nav-item">
-            <router-link
-              class="header__nav-link"
-              active-class="header__nav-link--active"
-              to="/favorites"
-            >
-              Избранное
+              {{ nav.title }}
             </router-link>
           </li>
         </ul>
@@ -41,13 +36,15 @@
 
 <script>
 import AppIcon from '@/components/AppIcon';
+import params from '@/utilities/params';
 
 export default {
   name: 'AppHeader',
   components: { AppIcon },
+  data() {
+    return {
+      navs: params.navs,
+    };
+  },
 };
 </script>
-
-<style scoped>
-
-</style>
