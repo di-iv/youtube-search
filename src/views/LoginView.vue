@@ -16,14 +16,9 @@
             label="Логин"
             class="login__form-group"
           />
-          <AppInput
-            id="password"
+          <InputPassword
             v-model="password"
-            :icon-name="iconName"
-            label="Пароль"
-            :type="type"
             class="login__form-group"
-            @icon-clicked="toggleVisibility"
           />
           <div>
             <router-link to="/search">
@@ -44,10 +39,12 @@ import AppButton from '@/components/AppButton';
 import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
+import InputPassword from '@/components/InputPassword';
 
 export default {
   name: 'LoginView',
   components: {
+    InputPassword,
     AppIcon,
     AppButton,
     AppInput,
@@ -60,17 +57,6 @@ export default {
       email: '',
       password: '',
     };
-  },
-  methods: {
-    toggleVisibility() {
-      if (this.type === 'password') {
-        this.iconName = 'Eye';
-        this.type = 'text';
-      } else {
-        this.iconName = 'EyeOff';
-        this.type = 'password';
-      }
-    },
   },
 };
 </script>
