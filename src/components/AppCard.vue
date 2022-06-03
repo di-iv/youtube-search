@@ -1,7 +1,6 @@
 <template>
   <div
     class="card"
-    :class="className"
   >
     <slot />
   </div>
@@ -10,11 +9,5 @@
 <script>
 export default {
   name: 'AppCard',
-  props: {
-    className: {
-      type: String,
-      default: null,
-    },
-  },
 };
 </script>
