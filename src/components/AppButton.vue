@@ -5,7 +5,6 @@
       `btn--${size}`,
       {
         'btn--fill': isFill,
-        'btn--group': isGroup
       }
     ]"
     type="button"
@@ -38,11 +37,6 @@ export default {
         const { sizes } = params.button;
         return sizes.includes(value);
       },
-    },
-    isGroup: {
-      type: Boolean,
-      default: false,
-      required: false,
     },
   },
 };
