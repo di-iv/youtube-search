@@ -1,7 +1,13 @@
 <template>
   <button
     class="btn"
-    :class="[buttonSize, {'btn--fill': isFill, 'btn--group': isGroup}]"
+    :class="[
+      `btn--${size}`,
+      {
+        'btn--fill': isFill,
+        'btn--group': isGroup
+      }
+    ]"
     type="button"
   >
     {{ text }}
@@ -37,11 +43,6 @@ export default {
       type: Boolean,
       default: false,
       required: false,
-    },
-  },
-  computed: {
-    buttonSize() {
-      return `btn--${this.size}`;
     },
   },
 };
