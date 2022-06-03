@@ -25,13 +25,13 @@
           </p>
           <div class="search__view-switcher">
             <AppIcon
-              icon-name="IconList"
+              icon-name="List"
               class="search__view-switcher-icon"
               :class="{'search__view-switcher-icon--active': viewType === 'list'}"
               @click="switchView('list')"
             />
             <AppIcon
-              icon-name="IconGrid"
+              icon-name="Grid"
               class="search__view-switcher-icon"
               :class="{'search__view-switcher-icon--active': viewType === 'grid'}"
               @click="switchView('grid')"
