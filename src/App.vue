@@ -1,14 +1,14 @@
 <template>
-  <app-layout />
+  <the-layout />
 </template>
 
 <script>
-import AppLayout from '@/components/AppLayout';
+import TheLayout from '@/components/TheLayout';
 
 export default {
   name: 'App',
   components: {
-    AppLayout,
+    TheLayout,
   },
 };
 </script>

@@ -7,7 +7,7 @@ import EmptyLayout from '@/layouts/EmptyLayout';
 import MainLayout from '@/layouts/MainLayout';
 
 export default {
-  name: 'AppLayout',
+  name: 'TheLayout',
   components: {
     MainLayout,
     EmptyLayout,
