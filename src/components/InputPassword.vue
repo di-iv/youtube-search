@@ -5,7 +5,7 @@
     :icon-name="iconName"
     label="Пароль"
     :type="type"
-    @on-icon-click="toggleVisibility"
+    @on-icon-click="togglePasswordVisibility"
   />
 </template>
 
@@ -40,7 +40,7 @@ export default {
     },
   },
   methods: {
-    toggleVisibility() {
+    togglePasswordVisibility() {
       if (this.isPasswordHidden) {
         this.iconName = 'Eye';
         this.type = 'text';
