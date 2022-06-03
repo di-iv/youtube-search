@@ -1,13 +1,13 @@
 <template>
   <app-modal class="modal-favorites">
     <h3>Сохранить запрос</h3>
-    <FormGroup
+    <AppInput
       id="request"
       v-model="request"
       label="Запрос"
       class="modal-favorites__form-group"
     />
-    <FormGroup
+    <AppInput
       id="name"
       v-model="name"
       label="* Название"
@@ -32,11 +32,15 @@
 <script>
 import AppButton from '@/components/AppButton';
 import AppModal from '@/components/AppModal';
-import FormGroup from '@/components/FormGroup';
+import AppInput from '@/components/AppInput';
 
 export default {
   name: 'ModalAddFavourite',
-  components: { AppButton, FormGroup, AppModal },
+  components: {
+    AppButton,
+    AppInput,
+    AppModal,
+  },
   emits: ['cancel', 'save'],
   data() {
     return {

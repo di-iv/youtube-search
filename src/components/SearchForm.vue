@@ -7,7 +7,7 @@
       class="search-form__wrapper"
       :class="`search-form__wrapper--${size}`"
     >
-      <FormGroup
+      <AppInput
         id="search"
         v-model="searchRequest"
         label="Поиск"
@@ -31,13 +31,13 @@
 <script>
 import api from '@/api';
 import AppButton from '@/components/AppButton';
-import FormGroup from '@/components/FormGroup';
+import AppInput from '@/components/AppInput';
 import params from '@/utilities/params';
 
 export default {
   name: 'SearchForm',
   components: {
-    FormGroup,
+    AppInput,
     AppButton,
   },
   props: {

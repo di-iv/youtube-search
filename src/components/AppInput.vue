@@ -1,21 +1,21 @@
 <template>
-  <div class="form-group">
+  <div class="input">
     <label
-      class="form-group__label"
-      :class="{'form-group__label--hidden': labelHidden}"
+      class="input__label"
+      :class="{'input__label--hidden': labelHidden}"
       :for="id"
     >
       {{ label }}
     </label>
-    <div class="form-group__input">
+    <div class="input__wrapper">
       <input
         :id="id"
-        class="form-group__input-field"
+        class="input__field"
         :class="[
-          `form-group__input-field--${size}`,
+          `input__field--${size}`,
           {
-            'form-group__input-field--group': isGroup,
-            'form-group__input-field--icon': hasIcon,
+            'input__field--group': isGroup,
+            'input__field--icon': hasIcon,
           }
         ]"
         :type="type"
@@ -28,7 +28,7 @@
       >
       <AppIcon
         v-if="hasIcon"
-        class="form-group__icon"
+        class="input__icon"
         :icon-name="iconName"
         @click="iconClicked"
       />

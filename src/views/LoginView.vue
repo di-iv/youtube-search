@@ -10,13 +10,13 @@
         />
         <h3>Вход</h3>
         <form action="">
-          <FormGroup
+          <AppInput
             id="login"
             v-model="email"
             label="Логин"
             class="login__form-group"
           />
-          <FormGroup
+          <AppInput
             id="password"
             v-model="password"
             :icon-name="iconName"
@@ -42,7 +42,7 @@
 <script>
 import AppButton from '@/components/AppButton';
 import AppIcon from '@/components/AppIcon';
-import FormGroup from '@/components/FormGroup';
+import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 
 export default {
@@ -50,7 +50,7 @@ export default {
   components: {
     AppIcon,
     AppButton,
-    FormGroup,
+    AppInput,
     AppCard,
   },
   data() {
