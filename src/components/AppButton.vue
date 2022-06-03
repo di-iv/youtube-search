@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import params from '@/utilities/params';
+
 export default {
   name: 'AppButton',
   props: {
@@ -26,6 +28,10 @@ export default {
       type: String,
       default: 'small',
       required: false,
+      validator(value) {
+        const { sizes } = params.button;
+        return sizes.includes(value);
+      },
     },
     isGroup: {
       type: Boolean,

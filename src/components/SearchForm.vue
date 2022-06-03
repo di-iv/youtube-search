@@ -32,6 +32,7 @@
 import api from '@/api';
 import AppButton from '@/components/AppButton';
 import FormGroup from '@/components/FormGroup';
+import params from '@/utilities/params';
 
 export default {
   name: 'SearchForm',
@@ -44,6 +45,10 @@ export default {
       type: String,
       default: 'small',
       required: false,
+      validator(value) {
+        const { sizes } = params.searchForm;
+        return sizes.includes(value);
+      },
     },
     hasIcon: {
       type: Boolean,

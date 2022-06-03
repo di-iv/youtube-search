@@ -9,6 +9,15 @@ const params = {
       link: '/favorites',
     },
   ],
+  button: {
+    sizes: ['small', 'medium', 'large'],
+  },
+  input: {
+    sizes: ['small', 'large'],
+  },
+  searchForm: {
+    sizes: ['small', 'large'],
+  },
 };
 
 export default params;

@@ -35,6 +35,7 @@
 
 <script>
 import AppIcon from '@/components/AppIcon';
+import params from '@/utilities/params';
 
 export default {
   name: 'FormGroup',
@@ -86,6 +87,10 @@ export default {
       type: String,
       default: 'small',
       required: false,
+      validator(value) {
+        const { sizes } = params.input;
+        return sizes.includes(value);
+      },
     },
     modelValue: {
       type: String,
