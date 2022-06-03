@@ -5,6 +5,10 @@
     border-bottom-right-radius: 0;
   }
 
+  .input__field:not(:last-child) {
+    border-right: none;
+  }
+
   .input__field:not(:first-child),
   .btn:not(:first-child) {
     border-top-left-radius: 0;
