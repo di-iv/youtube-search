@@ -98,7 +98,7 @@ export default {
   emits: ['icon-clicked', 'update:modelValue'],
   computed: {
     hasIcon() {
-      return this.iconName;
+      return Boolean(this.iconName);
     },
   },
   methods: {
