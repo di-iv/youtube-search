@@ -3,7 +3,7 @@
     <app-card>
       <div class="login__card">
         <AppIcon
-          icon-name="IconLogo"
+          icon-name="Logo"
           :width="88"
           :height="88"
           class="login__icon"
@@ -55,7 +55,7 @@ export default {
   },
   data() {
     return {
-      iconName: 'IconEyeOff',
+      iconName: 'EyeOff',
       type: 'password',
       email: '',
       password: '',
@@ -64,10 +64,10 @@ export default {
   methods: {
     toggleVisibility() {
       if (this.type === 'password') {
-        this.iconName = 'IconEye';
+        this.iconName = 'Eye';
         this.type = 'text';
       } else {
-        this.iconName = 'IconEyeOff';
+        this.iconName = 'EyeOff';
         this.type = 'password';
       }
     },

@@ -3,7 +3,7 @@
     <div class="header__wrapper container">
       <AppIcon
         class="header__logo"
-        icon-name="IconLogo"
+        icon-name="Logo"
       />
       <nav class="header__nav">
         <ul class="header__nav-list">

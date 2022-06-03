@@ -66,7 +66,7 @@ export default {
   computed: {
     iconName() {
       if (this.hasIcon) {
-        return 'IconHeart';
+        return 'Heart';
       }
       return null;
     },

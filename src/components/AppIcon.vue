@@ -1,5 +1,5 @@
 <template>
-  <component :is="iconName" />
+  <component :is="`Icon${iconName}`" />
 </template>
 
 <script>
