@@ -1,6 +1,7 @@
 <template>
-  <form
+  <form-group
     class="search-form"
+    tag="form"
     @submit.prevent
   >
     <div
@@ -11,7 +12,6 @@
         id="search"
         v-model="searchRequest"
         label="Поиск"
-        is-group
         label-hidden
         placeholder="Что хотите посмотреть?"
         size="large"
@@ -22,21 +22,22 @@
     </div>
     <AppButton
       text="Найти"
-      :is-group="true"
       @click="search"
     />
-  </form>
+  </form-group>
 </template>
 
 <script>
 import api from '@/api';
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
+import FormGroup from '@/components/FormGroup';
 import params from '@/utilities/params';
 
 export default {
   name: 'SearchForm',
   components: {
+    FormGroup,
     AppInput,
     AppButton,
   },
