@@ -55,8 +55,13 @@ export default {
       default: false,
       required: false,
     },
+    modelValue: {
+      type: String,
+      default: null,
+      required: true,
+    },
   },
-  emits: ['search', 'add-favourite'],
+  emits: ['search', 'add-favourite', 'update:modelValue'],
   data() {
     return {
       searchRequest: '',
@@ -70,9 +75,13 @@ export default {
       return null;
     },
   },
+  watch: {
+    searchRequest() {
+      return this.$emit('update:modelValue', this.searchRequest);
+    },
+  },
   methods: {
-    async search() {
-      await this.$store.dispatch('search', { request: this.searchRequest });
+    search() {
       this.$emit('search');
     },
     addToFavourite() {

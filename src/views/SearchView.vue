@@ -8,6 +8,7 @@
         Поиск видео
       </h1>
       <SearchForm
+        v-model="currentSearchRequest"
         :size="formSize"
         :has-icon="isResultFormType"
         :class="{'search__control': isResultFormType}"
@@ -21,7 +22,7 @@
       >
         <div class="search__filter">
           <p class="search__filter-title">
-            Видео по запросу  <b>«{{ searchRequest }}»</b>
+            Видео по запросу  <b>«{{ oldSearchRequest }}»</b>
           </p>
           <div class="search__view-switcher">
             <AppIcon
@@ -84,7 +85,8 @@ export default {
   data() {
     return {
       searchResults: null,
-      searchRequest: '',
+      currentSearchRequest: '',
+      oldSearchRequest: '',
       viewType: 'grid', // list, grid
       showModal: false,
     };
@@ -108,12 +110,13 @@ export default {
   },
   mounted() {
     this.searchResults = this.$store.state.results;
-    this.searchRequest = this.$store.state.request;
+    this.oldSearchRequest = this.$store.state.request;
   },
   methods: {
-    search() {
+    async search() {
+      await this.$store.dispatch('search', { request: this.currentSearchRequest });
       this.searchResults = this.$store.state.results;
-      this.searchRequest = this.$store.state.request;
+      this.oldSearchRequest = this.$store.state.request;
     },
     switchView(type) {
       this.viewType = type;
