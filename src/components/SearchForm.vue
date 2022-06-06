@@ -4,22 +4,20 @@
     tag="form"
     @submit.prevent
   >
-    <div
+    <AppInput
+      id="search"
+      v-model="searchRequest"
+      label="Поиск"
+      label-hidden
+      placeholder="Что хотите посмотреть?"
+      size="large"
       class="search-form__wrapper"
       :class="`search-form__wrapper--${size}`"
-    >
-      <AppInput
-        id="search"
-        v-model="searchRequest"
-        label="Поиск"
-        label-hidden
-        placeholder="Что хотите посмотреть?"
-        size="large"
-        :icon-name="iconName"
-        @keyup.enter="search"
-        @on-icon-click="addToFavourite"
-      />
-    </div>
+      :icon-name="iconName"
+      @keyup.enter="search"
+      @on-icon-click="addToFavourite"
+    />
+
     <AppButton
       text="Найти"
       @click="search"

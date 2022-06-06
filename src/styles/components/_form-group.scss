@@ -1,15 +1,15 @@
 .form-group {
-  .input__field:not(:last-child),
+  .input:not(:last-child) .input__field,
   .btn:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .input__field:not(:last-child) {
+  .input:not(:last-child) .input__field {
     border-right: none;
   }
 
-  .input__field:not(:first-child),
+  .input:not(:first-child) .input__field,
   .btn:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
