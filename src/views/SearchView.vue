@@ -40,27 +40,20 @@
             />
           </div>
         </div>
-        <div
-          class="results__list"
-          :class="`results__list--${viewType}`"
+        <transition
+          name="fade"
         >
-          <a
-            v-for="result in searchResults"
-            :key="result"
-            class="results__item"
-            :href="`https://www.youtube.com/watch?v=${result.id.videoId}`"
-          >
-            <img
-              :src="result.snippet.thumbnails.medium.url"
-              :alt="result.snippet.title"
-              class="results__item-img"
-            >
-            <div class="results__item-info">
-              <h2 class="results__item-title">{{ result.snippet.title }}</h2>
-              <h3 class="results__item-description">{{ result.snippet.description }}</h3>
-            </div>
-          </a>
-        </div>
+          <SearchResults
+            v-if="isGridViewType"
+            class="results__list--grid"
+            :search-results="searchResults"
+          />
+          <SearchResults
+            v-else
+            class="results__list--list"
+            :search-results="searchResults"
+          />
+        </transition>
       </div>
     </div>
     <ModalAddFavourite
@@ -73,10 +66,12 @@
 import AppIcon from '@/components/AppIcon';
 import ModalAddFavourite from '@/components/ModalAddFavourite';
 import SearchForm from '@/components/SearchForm';
+import SearchResults from '@/components/SearchResults';
 
 export default {
   name: 'SearchView',
   components: {
+    SearchResults,
     ModalAddFavourite,
     SearchForm,
     AppIcon,
@@ -104,6 +99,9 @@ export default {
     },
     isResultFormType() {
       return this.searchResults !== null;
+    },
+    isGridViewType() {
+      return this.viewType === 'grid';
     },
   },
   mounted() {
