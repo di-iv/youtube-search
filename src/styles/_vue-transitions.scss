@@ -1,0 +1,38 @@
+/**
+  fade
+ */
+.fade-leave-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.fade-enter-active {
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/**
+  modal
+ */
+.modal-enter-active .modal__card,
+.modal-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.modal-leave-active .modal__card,
+.modal-leave-active {
+  transition: all 0.2s ease-out;
+}
+
+.modal-enter-from .modal__card,
+.modal-leave-to .modal__card {
+  transform: translateY(-200px);
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}

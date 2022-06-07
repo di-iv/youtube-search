@@ -1,20 +1,22 @@
 <template>
-  <div
-    v-if="isOpen"
-    class="modal"
-    @click="close"
-    @keydown="close"
-  >
-    <app-card
-      class="modal__card"
-      @click.stop
+  <transition name="modal">
+    <div
+      v-if="isOpen"
+      class="modal"
+      @click="close"
+      @keydown="close"
     >
-      <slot
-        :confirm="confirm"
-        :cancel="close"
-      />
-    </app-card>
-  </div>
+      <app-card
+        class="modal__card"
+        @click.stop
+      >
+        <slot
+          :confirm="confirm"
+          :cancel="close"
+        />
+      </app-card>
+    </div>
+  </transition>
 </template>
 
 <script>
