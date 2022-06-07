@@ -8,6 +8,7 @@
         Поиск видео
       </h1>
       <SearchForm
+        ref="searchForm"
         v-model="currentSearchRequest"
         :size="formSize"
         :has-icon="isResultFormType"
@@ -86,7 +87,6 @@ export default {
       currentSearchRequest: '',
       oldSearchRequest: '',
       viewType: 'grid', // list, grid
-      showModal: false,
     };
   },
   computed: {
@@ -122,7 +122,7 @@ export default {
     async openModalAddFavourite() {
       const modalResult = await this.$refs.modal.open();
       if (modalResult) {
-        // need to add message that search request added
+        this.$refs.searchForm.openTooltip();
       }
     },
   },

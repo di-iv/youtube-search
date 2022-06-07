@@ -17,6 +17,22 @@
       @keyup.enter="search"
       @on-icon-click="addToFavourite"
     />
+    <transition name="fade">
+      <div
+        v-if="tooltipVisibility"
+        class="search-form__tooltip"
+      >
+        <p class="search-form__tooltip-text">
+          Поиск сохранён в разделе «Избранное»
+        </p>
+        <router-link
+          to="/favorites"
+          class="search-form__tooltip-link"
+        >
+          Перейти в избранное
+        </router-link>
+      </div>
+    </transition>
 
     <AppButton
       text="Найти"
@@ -63,6 +79,7 @@ export default {
   data() {
     return {
       searchRequest: '',
+      tooltipVisibility: false,
     };
   },
   computed: {
@@ -84,6 +101,14 @@ export default {
     },
     addToFavourite() {
       this.$emit('add-favourite');
+    },
+    openTooltip() {
+      this.tooltipVisibility = true;
+      document.addEventListener('click', this.closeTooltip);
+    },
+    closeTooltip() {
+      this.tooltipVisibility = false;
+      document.removeEventListener('click', this.closeTooltip);
     },
   },
 };
