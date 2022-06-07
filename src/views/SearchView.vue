@@ -13,7 +13,7 @@
         :has-icon="isResultFormType"
         :class="{'search__control': isResultFormType}"
         @search="search"
-        @add-favourite="switchModalVisibility(true)"
+        @add-favourite="openModalAddFavourite"
       />
 
       <div
@@ -63,9 +63,7 @@
       </div>
     </div>
     <ModalAddFavourite
-      v-if="showModal"
-      @close-modal="switchModalVisibility(false)"
-      @cancel="switchModalVisibility(false)"
+      ref="modal"
     />
   </section>
 </template>
@@ -121,8 +119,11 @@ export default {
     switchView(type) {
       this.viewType = type;
     },
-    switchModalVisibility(visibility) {
-      this.showModal = visibility;
+    async openModalAddFavourite() {
+      const modalResult = await this.$refs.modal.open();
+      if (modalResult) {
+        // need to add message that search request added
+      }
     },
   },
 };

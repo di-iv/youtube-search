@@ -1,11 +1,18 @@
 <template>
   <div
+    v-if="isOpen"
     class="modal"
-    @click.self="closeModal"
-    @keydown="closeModal"
+    @click="close"
+    @keydown="close"
   >
-    <app-card class="modal__card">
-      <slot />
+    <app-card
+      class="modal__card"
+      @click.stop
+    >
+      <slot
+        :confirm="confirm"
+        :cancel="close"
+      />
     </app-card>
   </div>
 </template>
@@ -16,10 +23,43 @@ import AppCard from '@/components/AppCard';
 export default {
   name: 'AppModal',
   components: { AppCard },
-  emits: ['close-modal'],
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  modalController: null,
+  mounted() {
+    document.addEventListener('keydown', this.handleKeydown);
+  },
+  beforeUnmount() {
+    document.removeEventListener('keydown', this.handleKeydown);
+  },
   methods: {
-    closeModal() {
-      this.$emit('close-modal');
+    close() {
+      this.$options.modalController.resolve(false);
+      this.isOpen = false;
+    },
+    confirm() {
+      this.$options.modalController.resolve(true);
+      this.isOpen = false;
+    },
+    open() {
+      let resolve;
+      let reject;
+      const modalPromise = new Promise((ok, fail) => {
+        resolve = ok;
+        reject = fail;
+      });
+      this.$options.modalController = { resolve, reject };
+      this.isOpen = true;
+
+      return modalPromise;
+    },
+    handleKeydown(e) {
+      if (e.key === 'Escape') {
+        this.close();
+      }
     },
   },
 };

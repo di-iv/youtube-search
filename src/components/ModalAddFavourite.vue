@@ -1,5 +1,9 @@
 <template>
-  <app-modal class="modal-favorites">
+  <app-modal
+    ref="modal"
+    v-slot="{confirm, cancel}"
+    class="modal-favorites"
+  >
     <h3>Сохранить запрос</h3>
     <AppInput
       id="request"
@@ -24,15 +28,15 @@
       text="Сохранить"
       size="large"
       class="modal-favorites__button"
-      @click="save"
+      @click="confirm"
     />
   </app-modal>
 </template>
 
 <script>
 import AppButton from '@/components/AppButton';
-import AppModal from '@/components/AppModal';
 import AppInput from '@/components/AppInput';
+import AppModal from '@/components/AppModal';
 
 export default {
   name: 'ModalAddFavourite',
@@ -41,7 +45,6 @@ export default {
     AppInput,
     AppModal,
   },
-  emits: ['cancel', 'save'],
   data() {
     return {
       request: '',
@@ -49,11 +52,8 @@ export default {
     };
   },
   methods: {
-    cancel() {
-      this.$emit('cancel');
-    },
-    save() {
-      this.$emit('save');
+    open() {
+      return this.$refs.modal.open();
     },
   },
 };
