@@ -17,19 +17,21 @@
       label="* Название"
       class="modal-favorites__form-group"
     />
-    <AppButton
-      text="Не сохранять"
-      :is-fill="false"
-      size="large"
-      class="modal-favorites__button"
-      @click="cancel"
-    />
-    <AppButton
-      text="Сохранить"
-      size="large"
-      class="modal-favorites__button"
-      @click="confirm"
-    />
+    <div class="modal-favorites__buttons">
+      <AppButton
+        text="Не сохранять"
+        :is-fill="false"
+        size="large"
+        class="modal-favorites__button"
+        @click="cancel"
+      />
+      <AppButton
+        text="Сохранить"
+        size="large"
+        class="modal-favorites__button"
+        @click="confirm"
+      />
+    </div>
   </app-modal>
 </template>
 
