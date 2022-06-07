@@ -1,29 +1,20 @@
 <template>
-  <component :is="layoutComponent" />
+  <transition name="layout">
+    <component :is="layoutComponent" />
+  </transition>
 </template>
 
 <script>
 import EmptyLayout from '@/layouts/EmptyLayout';
-import MainLayout from '@/layouts/MainLayout';
 
 export default {
   name: 'TheLayout',
   components: {
-    MainLayout,
     EmptyLayout,
-  },
-  data() {
-    return {
-      defaultLayout: 'MainLayout',
-    };
   },
   computed: {
     layoutComponent() {
-      const { layout } = this.$route.meta;
-      if (layout) {
-        return layout;
-      }
-      return this.defaultLayout;
+      return this.$route.meta.layout || EmptyLayout;
     },
   },
 };

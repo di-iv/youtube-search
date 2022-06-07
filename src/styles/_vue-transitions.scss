@@ -36,3 +36,19 @@
 .modal-leave-to {
   opacity: 0;
 }
+
+/**
+layout
+ */
+.layout-leave-active {
+  transition: all 0.2s ease-out;
+}
+
+.layout-enter-active {
+  transition: all 0.2s ease-in;
+}
+
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
+}
