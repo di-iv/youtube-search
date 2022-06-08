@@ -121,6 +121,9 @@ export default {
       const modalResult = await this.$refs.modal.open();
       if (modalResult) {
         this.$refs.searchForm.openTooltip();
+        this.$store.commit('addFavourite', {
+          request: modalResult.request, name: modalResult.name,
+        });
       }
     },
   },

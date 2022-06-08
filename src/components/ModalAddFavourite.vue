@@ -55,8 +55,12 @@ export default {
     };
   },
   methods: {
-    open() {
-      return this.$refs.modal.open();
+    async open() {
+      const res = await this.$refs.modal.open();
+      if (res) {
+        return { request: this.request, name: this.name };
+      }
+      return res;
     },
   },
 };

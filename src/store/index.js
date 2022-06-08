@@ -1,3 +1,4 @@
+import LocalStorage from '@/services/LocalStorage';
 import Search from '@/services/Search';
 import { createStore } from 'vuex';
 
@@ -5,6 +6,7 @@ export default createStore({
   state: {
     request: '',
     results: null,
+    favorites: LocalStorage.get('favourites') ?? [],
   },
   getters: {
   },
@@ -12,6 +14,10 @@ export default createStore({
     search(state, { request, results }) {
       state.request = request;
       state.results = results;
+    },
+    addFavourite(state, { request, name }) {
+      state.favorites.push({ request, name });
+      LocalStorage.set('favourites', state.favorites);
     },
   },
   actions: {
