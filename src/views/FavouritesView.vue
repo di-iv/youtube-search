@@ -6,7 +6,7 @@
       </h1>
       <div class="favourites__requests">
         <div
-          v-for="favourite in favourites"
+          v-for="(favourite, id) in favourites"
           :key="favourite"
           class="favourites__requests-item"
         >
@@ -19,6 +19,7 @@
               style-type="link"
               color="primary"
               class="favourites__requests-item-button"
+              @click="editFavourite(favourite, id)"
             />
             <app-button
               text="Удалить"
@@ -30,14 +31,19 @@
         </div>
       </div>
     </div>
+    <ModalEditFavourite ref="modal" />
   </section>
 </template>
 <script>
 import AppButton from '@/components/AppButton';
+import ModalEditFavourite from '@/components/ModalEditFavourite';
 
 export default {
   name: 'FavouritesView',
-  components: { AppButton },
+  components: {
+    ModalEditFavourite,
+    AppButton,
+  },
   data() {
     return {
       favourites: [],
@@ -45,6 +51,16 @@ export default {
   },
   mounted() {
     this.favourites = this.$store.state.favorites;
+  },
+  methods: {
+    async editFavourite(favourite, id) {
+      const editResult = await this.$refs.modal.open(favourite);
+      if (editResult) {
+        this.$store.commit('editFavourite', {
+          id, request: editResult.request, name: editResult.name,
+        });
+      }
+    },
   },
 };
 </script>

@@ -19,6 +19,10 @@ export default createStore({
       state.favorites.push({ request, name });
       LocalStorage.set('favourites', state.favorites);
     },
+    editFavourite(state, { id, request, name }) {
+      state.favorites[id] = { request, name };
+      LocalStorage.set('favourites', state.favorites);
+    },
   },
   actions: {
     async search({ commit }, { request, resultsCount }) {
