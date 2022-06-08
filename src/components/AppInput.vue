@@ -10,6 +10,7 @@
     <div class="input__wrapper">
       <input
         :id="id"
+        ref="input"
         class="input__field"
         :class="[
           `input__field--${size}`,
@@ -104,6 +105,9 @@ export default {
   methods: {
     onIconClick() {
       return this.$emit('on-icon-click');
+    },
+    focus() {
+      this.$refs.input.focus();
     },
   },
 };
