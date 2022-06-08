@@ -3,10 +3,7 @@
     class="btn"
     :class="[
       `btn--${styleType}`,
-      {
-        'btn--medium' : size === 'medium',
-        'btn--large' : size === 'large'
-      }
+      size ? `btn--${size}` : null,
     ]"
     type="button"
   >
