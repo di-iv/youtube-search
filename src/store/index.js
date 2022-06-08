@@ -23,6 +23,10 @@ export default createStore({
       state.favorites[id] = { request, name };
       LocalStorage.set('favourites', state.favorites);
     },
+    deleteFavourite(state, id) {
+      state.favorites.splice(id, 1);
+      LocalStorage.set('favourites', state.favorites);
+    },
   },
   actions: {
     async search({ commit }, { request, resultsCount }) {

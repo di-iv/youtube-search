@@ -29,6 +29,7 @@
               style-type="link"
               color="danger"
               class="favourites__requests-item-button"
+              @click="deleteFavourites(favourite, id)"
             />
           </div>
         </div>
@@ -38,15 +39,18 @@
       </div>
     </div>
     <ModalEditFavourite ref="modalEdit" />
+    <ModalDeleteFavourites ref="modalDelete" />
   </section>
 </template>
 <script>
 import AppButton from '@/components/AppButton';
+import ModalDeleteFavourites from '@/components/ModalDeleteFavourites';
 import ModalEditFavourite from '@/components/ModalEditFavourite';
 
 export default {
   name: 'FavouritesView',
   components: {
+    ModalDeleteFavourites,
     ModalEditFavourite,
     AppButton,
   },
@@ -65,6 +69,12 @@ export default {
         this.$store.commit('editFavourite', {
           id, request: editResult.request, name: editResult.name,
         });
+      }
+    },
+    async deleteFavourites(favourite, id) {
+      const deleteResult = await this.$refs.modalDelete.open(favourite);
+      if (deleteResult) {
+        this.$store.commit('deleteFavourite', id);
       }
     },
   },
