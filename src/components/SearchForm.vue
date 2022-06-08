@@ -36,6 +36,7 @@
 
     <AppButton
       text="Найти"
+      style-type="fill"
       @click="search"
     />
   </form-group>

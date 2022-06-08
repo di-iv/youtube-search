@@ -25,6 +25,7 @@
               <AppButton
                 text="Войти"
                 size="medium"
+                style-type="fill"
               />
             </router-link>
           </div>

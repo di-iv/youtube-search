@@ -20,7 +20,7 @@
     <div class="modal-favorites__buttons">
       <AppButton
         text="Не сохранять"
-        :is-fill="false"
+        style-type="outline"
         size="large"
         class="modal-favorites__button"
         @click="cancel"
@@ -28,6 +28,7 @@
       <AppButton
         text="Сохранить"
         size="large"
+        style-type="fill"
         class="modal-favorites__button"
         @click="confirm"
       />
