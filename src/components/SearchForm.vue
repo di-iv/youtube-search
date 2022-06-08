@@ -6,6 +6,7 @@
   >
     <AppInput
       id="search"
+      ref="searchInput"
       v-model="searchRequest"
       label="Поиск"
       label-hidden
@@ -14,6 +15,7 @@
       class="search-form__wrapper"
       :class="`search-form__wrapper--${size}`"
       :icon-name="iconName"
+      :is-valid="isSearchValid"
       @keyup.enter="search"
       @on-icon-click="addToFavourite"
     />
@@ -33,9 +35,9 @@
         </router-link>
       </div>
     </transition>
-
     <AppButton
       text="Найти"
+      type="submit"
       style-type="fill"
       @click="search"
     />
@@ -81,6 +83,7 @@ export default {
     return {
       searchRequest: '',
       tooltipVisibility: false,
+      isSearchValid: true,
     };
   },
   computed: {
@@ -93,12 +96,20 @@ export default {
   },
   watch: {
     searchRequest() {
+      if (!this.isSearchValid && this.searchRequest.length > 0) {
+        this.isSearchValid = true;
+      }
       return this.$emit('update:modelValue', this.searchRequest);
     },
   },
   methods: {
     search() {
-      this.$emit('search');
+      if (this.searchRequest !== '') {
+        this.$emit('search');
+        return;
+      }
+      this.$refs.searchInput.focus();
+      this.isSearchValid = false;
     },
     addToFavourite() {
       this.$emit('add-favourite');
