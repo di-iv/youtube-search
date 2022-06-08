@@ -4,6 +4,7 @@
     :class="[
       `btn--${styleType}`,
       size ? `btn--${size}` : null,
+      color ? `btn--${color}` : null,
     ]"
     type="button"
   >
@@ -38,6 +39,15 @@ export default {
       validator(value) {
         const { sizes } = params.button;
         return sizes.includes(value);
+      },
+    },
+    color: {
+      type: String,
+      default: null,
+      required: false,
+      validator(value) {
+        const { colors } = params.button;
+        return colors.includes(value);
       },
     },
   },

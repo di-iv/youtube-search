@@ -41,4 +41,12 @@
     width: 210px;
     padding: 14px 20px;
   }
+
+  &--primary {
+    color: $blue;
+  }
+
+  &--danger {
+    color: $red;
+  }
 }

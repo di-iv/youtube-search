@@ -12,6 +12,7 @@ const params = {
   button: {
     sizes: ['small', 'medium', 'large'],
     style: ['fill', 'outline', 'link'],
+    colors: ['primary', 'danger'],
   },
   input: {
     sizes: ['small', 'large'],
