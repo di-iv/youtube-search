@@ -16,6 +16,7 @@
           `input__field--${size}`,
           {
             'input__field--icon': hasIcon,
+            'input__field--invalid': !isValid
           }
         ]"
         :type="type"
@@ -94,6 +95,11 @@ export default {
       type: String,
       default: '',
       required: true,
+    },
+    isValid: {
+      type: Boolean,
+      default: true,
+      required: false,
     },
   },
   emits: ['on-icon-click', 'update:modelValue'],

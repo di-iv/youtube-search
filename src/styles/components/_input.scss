@@ -41,13 +41,18 @@
 
     transition: all 0.5s;
 
-    &:focus {
+    &:focus:not(&--invalid) {
       background-color: $blue-30;
       border-color: $blue;
 
       & + .input__icon {
         stroke: $blue;
       }
+    }
+
+    &--invalid {
+      background-color: $red-5;
+      border-color: $red;
     }
 
     &[disabled] {
