@@ -37,7 +37,7 @@
         Список пуст
       </div>
     </div>
-    <ModalEditFavourite ref="modal" />
+    <ModalEditFavourite ref="modalEdit" />
   </section>
 </template>
 <script>
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     async editFavourite(favourite, id) {
-      const editResult = await this.$refs.modal.open(favourite);
+      const editResult = await this.$refs.modalEdit.open(favourite);
       if (editResult) {
         this.$store.commit('editFavourite', {
           id, request: editResult.request, name: editResult.name,
