@@ -16,7 +16,6 @@
       :class="`search-form__wrapper--${size}`"
       :icon-name="iconName"
       :is-valid="isSearchValid"
-      @keyup.enter="search"
       @on-icon-click="addToFavourite"
     />
     <transition name="fade">
@@ -106,6 +105,8 @@ export default {
     search() {
       if (this.searchRequest !== '') {
         this.$emit('search');
+        this.searchRequest = '';
+        this.$refs.searchInput.blur();
         return;
       }
       this.$refs.searchInput.focus();
