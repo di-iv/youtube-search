@@ -26,7 +26,7 @@
           Поиск сохранён в разделе «Избранное»
         </p>
         <router-link
-          to="/favorites"
+          to="/favourites"
           class="search-form__tooltip-link"
         >
           Перейти в избранное

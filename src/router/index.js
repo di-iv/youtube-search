@@ -16,12 +16,12 @@ const routes = [
     component: () => import('../views/SearchView'),
   },
   {
-    path: '/favorites',
-    name: 'favorites',
+    path: '/favourites',
+    name: 'favourites',
     meta: {
       layout: MainLayout,
     },
-    component: () => import('../views/FavoritesView'),
+    component: () => import('../views/FavouritesView'),
   },
 ];
 

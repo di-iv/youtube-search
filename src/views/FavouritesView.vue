@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <h1>favorites</h1>
+    <h1>Избранное</h1>
   </div>
 </template>
 <script>
+
 export default {
-  name: 'FavoritesView',
+  name: 'FavouritesView',
 };
 </script>

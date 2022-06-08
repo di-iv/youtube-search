@@ -6,7 +6,7 @@ const params = {
     },
     {
       title: 'Избранное',
-      link: '/favorites',
+      link: '/favourites',
     },
   ],
   button: {
