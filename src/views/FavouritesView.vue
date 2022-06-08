@@ -4,7 +4,10 @@
       <h1 class="favourites__title">
         Избранное
       </h1>
-      <div class="favourites__requests">
+      <div
+        v-if="favourites.length !== 0"
+        class="favourites__requests"
+      >
         <div
           v-for="(favourite, id) in favourites"
           :key="favourite"
@@ -29,6 +32,9 @@
             />
           </div>
         </div>
+      </div>
+      <div v-else>
+        Список пуст
       </div>
     </div>
     <ModalEditFavourite ref="modal" />
