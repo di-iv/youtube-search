@@ -115,6 +115,9 @@ export default {
     focus() {
       this.$refs.input.focus();
     },
+    blur() {
+      this.$refs.input.blur();
+    },
   },
 };
 </script>
