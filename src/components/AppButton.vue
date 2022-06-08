@@ -6,7 +6,7 @@
       size ? `btn--${size}` : null,
       color ? `btn--${color}` : null,
     ]"
-    type="button"
+    :type="type"
   >
     {{ text }}
   </button>
@@ -48,6 +48,15 @@ export default {
       validator(value) {
         const { colors } = params.button;
         return colors.includes(value);
+      },
+    },
+    type: {
+      type: String,
+      default: 'button',
+      required: false,
+      validator(value) {
+        const { types } = params.button;
+        return types.includes(value);
       },
     },
   },

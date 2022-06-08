@@ -13,6 +13,7 @@ const params = {
     sizes: ['small', 'medium', 'large'],
     style: ['fill', 'outline', 'link'],
     colors: ['primary', 'danger'],
+    types: ['button', 'submit'],
   },
   input: {
     sizes: ['small', 'large'],
