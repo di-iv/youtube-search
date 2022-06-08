@@ -2,9 +2,10 @@
   <button
     class="btn"
     :class="[
-      `btn--${size}`,
+      `btn--${styleType}`,
       {
-        'btn--fill': isFill,
+        'btn--medium' : size === 'medium',
+        'btn--large' : size === 'large'
       }
     ]"
     type="button"
@@ -24,14 +25,18 @@ export default {
       default: 'Кнопка',
       required: true,
     },
-    isFill: {
-      type: Boolean,
-      default: true,
-      required: false,
+    styleType: {
+      type: String,
+      default: 'fill',
+      required: true,
+      validator(value) {
+        const { style } = params.button;
+        return style.includes(value);
+      },
     },
     size: {
       type: String,
-      default: 'small',
+      default: null,
       required: false,
       validator(value) {
         const { sizes } = params.button;

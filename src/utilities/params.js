@@ -11,6 +11,7 @@ const params = {
   ],
   button: {
     sizes: ['small', 'medium', 'large'],
+    style: ['fill', 'outline', 'link'],
   },
   input: {
     sizes: ['small', 'large'],
