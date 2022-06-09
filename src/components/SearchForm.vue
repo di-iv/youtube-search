@@ -75,7 +75,7 @@ export default {
     },
     modelValue: {
       type: String,
-      default: null,
+      default: '',
       required: true,
     },
   },
