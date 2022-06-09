@@ -101,11 +101,13 @@ export default {
       return this.$emit('update:modelValue', this.searchRequest);
     },
   },
+  mounted() {
+    this.searchRequest = this.$store.state.request;
+  },
   methods: {
     search() {
       if (this.searchRequest !== '') {
         this.$emit('search');
-        this.searchRequest = '';
         this.$refs.searchInput.blur();
         return;
       }
