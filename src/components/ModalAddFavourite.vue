@@ -4,38 +4,41 @@
     v-slot="{cancel}"
     class="modal-favorites"
   >
-    <h3>Сохранить запрос</h3>
-    <AppInput
-      id="request"
-      v-model="request"
-      label="Запрос"
-      class="modal-favorites__form-group"
-      disabled
-    />
-    <AppInput
-      id="name"
-      v-model="name"
-      label="Название"
-      required
-      class="modal-favorites__form-group"
-      :is-valid="!v$.name.$error"
-    />
-    <div class="modal-favorites__buttons">
-      <AppButton
-        text="Не сохранять"
-        style-type="outline"
-        size="large"
-        class="modal-favorites__button"
-        @click="cancel"
+    <form @submit.prevent>
+      <h3>Сохранить запрос</h3>
+      <AppInput
+        id="request"
+        v-model="request"
+        label="Запрос"
+        class="modal-favorites__form-group"
+        disabled
       />
-      <AppButton
-        text="Сохранить"
-        size="large"
-        style-type="fill"
-        class="modal-favorites__button"
-        @click="save"
+      <AppInput
+        id="name"
+        v-model="name"
+        label="Название"
+        required
+        class="modal-favorites__form-group"
+        :is-valid="!v$.name.$error"
       />
-    </div>
+      <div class="modal-favorites__buttons">
+        <AppButton
+          text="Не сохранять"
+          style-type="outline"
+          size="large"
+          class="modal-favorites__button"
+          @click="cancel"
+        />
+        <AppButton
+          text="Сохранить"
+          size="large"
+          style-type="fill"
+          class="modal-favorites__button"
+          type="submit"
+          @click="save"
+        />
+      </div>
+    </form>
   </app-modal>
 </template>
 
