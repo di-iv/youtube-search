@@ -53,13 +53,11 @@ export default {
     AppInput,
     AppModal,
   },
-  setup() {
-    return { v$: useVuelidate() };
-  },
   data() {
     return {
       request: '',
       name: '',
+      v$: useVuelidate(),
     };
   },
   validations() {
