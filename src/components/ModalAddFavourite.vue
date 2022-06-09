@@ -15,7 +15,8 @@
     <AppInput
       id="name"
       v-model="name"
-      label="* Название"
+      label="Название"
+      required
       class="modal-favorites__form-group"
       :is-valid="!v$.name.$error"
     />
