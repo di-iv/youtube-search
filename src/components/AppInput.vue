@@ -35,6 +35,7 @@
       <AppIcon
         v-if="hasIcon"
         class="input__icon"
+        :class="{'input__icon--active': isIconActive}"
         :icon-name="iconName"
         @click="onIconClick"
       />
@@ -119,6 +120,11 @@ export default {
         const { labelColors } = params.input;
         return labelColors.includes(value);
       },
+    },
+    isIconActive: {
+      type: Boolean,
+      default: false,
+      required: false,
     },
   },
   emits: ['on-icon-click', 'update:modelValue'],
