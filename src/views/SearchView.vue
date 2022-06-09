@@ -15,6 +15,7 @@
         :class="{'search__control': isResultFormType}"
         @search="search"
         @add-favourite="openModalAddFavourite"
+        @remove-favourite="openModalRemoveFavourite"
       />
 
       <div
@@ -59,18 +60,24 @@
     <ModalAddFavourite
       ref="modal"
     />
+    <ModalDeleteFavourites
+      ref="modalRemoveFavourite"
+    />
   </section>
 </template>
 
 <script>
 import AppIcon from '@/components/AppIcon';
 import ModalAddFavourite from '@/components/ModalAddFavourite';
+import ModalDeleteFavourites from '@/components/ModalDeleteFavourites';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
+import Favourites from '@/services/Favourites';
 
 export default {
   name: 'SearchView',
   components: {
+    ModalDeleteFavourites,
     SearchResults,
     ModalAddFavourite,
     SearchForm,
@@ -124,6 +131,13 @@ export default {
         this.$store.commit('addFavourite', {
           request: modalResult.request, name: modalResult.name,
         });
+      }
+    },
+    async openModalRemoveFavourite() {
+      const modalResult = await this.$refs.modalRemoveFavourite.open(this.currentSearchRequest);
+      if (modalResult) {
+        const id = Favourites.getIndex('request', this.currentSearchRequest);
+        this.$store.commit('deleteFavourite', id);
       }
     },
   },
