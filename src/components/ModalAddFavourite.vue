@@ -21,6 +21,7 @@
         class="modal-favorites__form-group"
         :is-valid="!v$.name.$error"
       />
+      <app-error :text="error" />
       <div class="modal-favorites__buttons">
         <AppButton
           text="Не сохранять"
@@ -44,6 +45,7 @@
 
 <script>
 import AppButton from '@/components/AppButton';
+import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';
 import AppModal from '@/components/AppModal';
 import useVuelidate from '@vuelidate/core';
@@ -52,6 +54,7 @@ import { required } from '@vuelidate/validators';
 export default {
   name: 'ModalAddFavourite',
   components: {
+    AppError,
     AppButton,
     AppInput,
     AppModal,
@@ -60,6 +63,7 @@ export default {
     return {
       request: '',
       name: '',
+      error: '',
       v$: useVuelidate(),
     };
   },
@@ -72,8 +76,15 @@ export default {
   },
   methods: {
     async save() {
+      this.error = '';
       const isFormValid = await this.v$.$validate();
       if (isFormValid) {
+        const favourites = this.$store.state.favorites;
+        const nameIsNotUniq = favourites.find((fav) => fav.name === this.name);
+        if (nameIsNotUniq) {
+          this.error = 'Такое имя уже существует';
+          return;
+        }
         this.$refs.modal.confirm();
       }
     },
