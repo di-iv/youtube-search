@@ -9,6 +9,7 @@ export default createStore({
     favorites: Favourites.getFromStorage() ?? [],
   },
   getters: {
+    getFavouriteById: (state) => (id) => state.favorites[id],
   },
   mutations: {
     search(state, { request, results }) {
