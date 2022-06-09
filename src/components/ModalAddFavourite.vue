@@ -1,7 +1,7 @@
 <template>
   <app-modal
     ref="modal"
-    v-slot="{confirm, cancel}"
+    v-slot="{cancel}"
     class="modal-favorites"
   >
     <h3>Сохранить запрос</h3>
@@ -17,6 +17,7 @@
       v-model="name"
       label="* Название"
       class="modal-favorites__form-group"
+      :is-valid="!v$.name.$error"
     />
     <div class="modal-favorites__buttons">
       <AppButton
@@ -31,7 +32,7 @@
         size="large"
         style-type="fill"
         class="modal-favorites__button"
-        @click="confirm"
+        @click="save"
       />
     </div>
   </app-modal>
@@ -41,6 +42,8 @@
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import AppModal from '@/components/AppModal';
+import useVuelidate from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
 
 export default {
   name: 'ModalAddFavourite',
@@ -49,13 +52,29 @@ export default {
     AppInput,
     AppModal,
   },
+  setup() {
+    return { v$: useVuelidate() };
+  },
   data() {
     return {
       request: '',
       name: '',
     };
   },
+  validations() {
+    return {
+      name: {
+        required,
+      },
+    };
+  },
   methods: {
+    async save() {
+      const isFormValid = await this.v$.$validate();
+      if (isFormValid) {
+        this.$refs.modal.confirm();
+      }
+    },
     async open(request) {
       this.request = request;
       const res = await this.$refs.modal.open();
