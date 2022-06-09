@@ -21,7 +21,7 @@
         class="modal-favorites__form-group"
         :is-valid="!v$.name.$error"
       />
-      <app-error :text="error" />
+      <app-error :errors="errors" />
       <div class="modal-favorites__buttons">
         <AppButton
           text="Не сохранять"
@@ -64,7 +64,7 @@ export default {
     return {
       request: '',
       name: '',
-      error: '',
+      errors: [],
       v$: useVuelidate(),
     };
   },
@@ -82,12 +82,12 @@ export default {
   },
   methods: {
     async save() {
-      this.error = '';
+      this.errors = [];
       const isFormValid = await this.v$.$validate();
       if (isFormValid) {
         const nameIsUniq = Favourites.checkUniq(this.favourites, 'name', this.name);
         if (!nameIsUniq) {
-          this.error = 'Такое имя уже существует';
+          this.errors.push('Такое имя уже существует');
           return;
         }
         this.$refs.modal.confirm();
