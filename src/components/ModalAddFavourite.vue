@@ -4,7 +4,7 @@
     v-slot="{cancel}"
     class="modal-favorites"
   >
-    <form @submit.prevent>
+    <form @submit.prevent="save">
       <h3>Сохранить запрос</h3>
       <AppInput
         id="request"
@@ -36,7 +36,6 @@
           style-type="fill"
           class="modal-favorites__button"
           type="submit"
-          @click="save"
         />
       </div>
     </form>
