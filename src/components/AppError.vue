@@ -1,7 +1,11 @@
 <template>
   <div class="error">
-    <div class="error__message">
-      {{ text }}
+    <div
+      v-for="error in errors"
+      :key="error"
+      class="error__message"
+    >
+      {{ error }}
     </div>
   </div>
 </template>
@@ -10,9 +14,9 @@
 export default {
   name: 'AppError',
   props: {
-    text: {
-      type: String,
-      default: null,
+    errors: {
+      type: Array,
+      default: () => [],
       required: true,
     },
   },
