@@ -14,6 +14,7 @@
             id="login"
             v-model="email"
             label="Логин"
+            label-color="border-color"
             class="login__form-group"
           />
           <InputPassword
