@@ -10,6 +10,7 @@
       v-model="request"
       label="Запрос"
       class="modal-favorites__form-group"
+      disabled
     />
     <AppInput
       id="name"
@@ -55,7 +56,8 @@ export default {
     };
   },
   methods: {
-    async open() {
+    async open(request) {
+      this.request = request;
       const res = await this.$refs.modal.open();
       if (res) {
         return { request: this.request, name: this.name };

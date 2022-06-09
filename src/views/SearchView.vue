@@ -118,7 +118,7 @@ export default {
       this.viewType = type;
     },
     async openModalAddFavourite() {
-      const modalResult = await this.$refs.modal.open();
+      const modalResult = await this.$refs.modal.open(this.currentSearchRequest);
       if (modalResult) {
         this.$refs.searchForm.openTooltip();
         this.$store.commit('addFavourite', {
