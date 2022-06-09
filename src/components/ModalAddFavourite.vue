@@ -48,6 +48,7 @@ import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';
 import AppModal from '@/components/AppModal';
+import Favourites from '@/services/Favourites';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 
@@ -74,14 +75,18 @@ export default {
       },
     };
   },
+  computed: {
+    favourites() {
+      return this.$store.state.favorites;
+    },
+  },
   methods: {
     async save() {
       this.error = '';
       const isFormValid = await this.v$.$validate();
       if (isFormValid) {
-        const favourites = this.$store.state.favorites;
-        const nameIsNotUniq = favourites.find((fav) => fav.name === this.name);
-        if (nameIsNotUniq) {
+        const nameIsUniq = Favourites.checkUniq(this.favourites, 'name', this.name);
+        if (!nameIsUniq) {
           this.error = 'Такое имя уже существует';
           return;
         }
