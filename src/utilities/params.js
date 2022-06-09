@@ -17,6 +17,7 @@ const params = {
   },
   input: {
     sizes: ['small', 'large'],
+    labelColors: ['border-color'],
   },
   searchForm: {
     sizes: ['small', 'large'],

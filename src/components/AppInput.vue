@@ -2,11 +2,12 @@
   <div class="input">
     <label
       class="input__label"
-      :class="
+      :class="[
+        labelColor ? `input__label--${labelColor}`: null,
         {
           'input__label--hidden': labelHidden,
           'input__label--required': required,
-        }"
+        }]"
       :for="id"
     >
       {{ label }}
@@ -109,6 +110,15 @@ export default {
       type: Boolean,
       default: false,
       required: false,
+    },
+    labelColor: {
+      type: String,
+      default: null,
+      required: false,
+      validator(value) {
+        const { labelColors } = params.input;
+        return labelColors.includes(value);
+      },
     },
   },
   emits: ['on-icon-click', 'update:modelValue'],
