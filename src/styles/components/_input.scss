@@ -13,6 +13,14 @@
       height: 1px;
       overflow: hidden;
     }
+
+    &--required::before {
+      margin-right: 5px;
+
+      color: $red;
+
+      content: "*";
+    }
   }
 
   &__icon {

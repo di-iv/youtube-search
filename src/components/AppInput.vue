@@ -2,7 +2,11 @@
   <div class="input">
     <label
       class="input__label"
-      :class="{'input__label--hidden': labelHidden}"
+      :class="
+        {
+          'input__label--hidden': labelHidden,
+          'input__label--required': required,
+        }"
       :for="id"
     >
       {{ label }}
@@ -99,6 +103,11 @@ export default {
     isValid: {
       type: Boolean,
       default: true,
+      required: false,
+    },
+    required: {
+      type: Boolean,
+      default: false,
       required: false,
     },
   },
