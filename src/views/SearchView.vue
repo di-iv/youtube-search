@@ -60,7 +60,7 @@
     <ModalAddFavourite
       ref="modal"
     />
-    <ModalDeleteFavourites
+    <ModalRemoveFavourite
       ref="modalRemoveFavourite"
     />
   </section>
@@ -69,7 +69,7 @@
 <script>
 import AppIcon from '@/components/AppIcon';
 import ModalAddFavourite from '@/components/ModalAddFavourite';
-import ModalDeleteFavourites from '@/components/ModalDeleteFavourites';
+import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
 import Favourites from '@/services/Favourites';
@@ -77,7 +77,7 @@ import Favourites from '@/services/Favourites';
 export default {
   name: 'SearchView',
   components: {
-    ModalDeleteFavourites,
+    ModalRemoveFavourite,
     SearchResults,
     ModalAddFavourite,
     SearchForm,
@@ -137,7 +137,7 @@ export default {
       const modalResult = await this.$refs.modalRemoveFavourite.open(this.currentSearchRequest);
       if (modalResult) {
         const id = Favourites.getIndex('request', this.currentSearchRequest);
-        this.$store.commit('deleteFavourite', id);
+        this.$store.commit('removeFavourite', id);
       }
     },
   },

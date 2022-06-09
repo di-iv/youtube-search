@@ -23,7 +23,7 @@ export default createStore({
       state.favorites[id] = { request, name };
       Favourites.addToStorage(state.favorites);
     },
-    deleteFavourite(state, id) {
+    removeFavourite(state, id) {
       state.favorites.splice(id, 1);
       Favourites.addToStorage(state.favorites);
     },

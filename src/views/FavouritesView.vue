@@ -29,7 +29,7 @@
               style-type="link"
               color="danger"
               class="favourites__requests-item-button"
-              @click="deleteFavourites(favourite, id)"
+              @click="removeFavourite(favourite, id)"
             />
           </div>
         </div>
@@ -39,18 +39,18 @@
       </div>
     </div>
     <ModalEditFavourite ref="modalEdit" />
-    <ModalDeleteFavourites ref="modalDelete" />
+    <ModalRemoveFavourite ref="modalRemove" />
   </section>
 </template>
 <script>
 import AppButton from '@/components/AppButton';
-import ModalDeleteFavourites from '@/components/ModalDeleteFavourites';
+import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
 import ModalEditFavourite from '@/components/ModalEditFavourite';
 
 export default {
   name: 'FavouritesView',
   components: {
-    ModalDeleteFavourites,
+    ModalRemoveFavourite,
     ModalEditFavourite,
     AppButton,
   },
@@ -64,17 +64,17 @@ export default {
   },
   methods: {
     async editFavourite(favourite, id) {
-      const editResult = await this.$refs.modalEdit.open(favourite);
-      if (editResult) {
+      const result = await this.$refs.modalEdit.open(favourite);
+      if (result) {
         this.$store.commit('editFavourite', {
-          id, request: editResult.request, name: editResult.name,
+          id, request: result.request, name: result.name,
         });
       }
     },
-    async deleteFavourites(favourite, id) {
-      const deleteResult = await this.$refs.modalDelete.open(favourite);
-      if (deleteResult) {
-        this.$store.commit('deleteFavourite', id);
+    async removeFavourite(favourite, id) {
+      const result = await this.$refs.modalRemove.open(favourite);
+      if (result) {
+        this.$store.commit('removeFavourite', id);
       }
     },
   },

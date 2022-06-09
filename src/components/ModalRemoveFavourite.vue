@@ -28,7 +28,7 @@ import AppButton from '@/components/AppButton';
 import AppModal from '@/components/AppModal';
 
 export default {
-  name: 'ModalDeleteFavourites',
+  name: 'ModalRemoveFavourite',
   components: {
     AppButton,
     AppModal,
