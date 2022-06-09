@@ -16,7 +16,8 @@
       :class="`search-form__wrapper--${size}`"
       :icon-name="iconName"
       :is-valid="isSearchValid"
-      @on-icon-click="addToFavourite"
+      :is-icon-active="isRequestSaved"
+      @on-icon-click="openModal"
     />
     <transition name="fade">
       <div
@@ -47,6 +48,7 @@
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
+import Favourites from '@/services/Favourites';
 import params from '@/utilities/params';
 
 export default {
@@ -77,7 +79,7 @@ export default {
       required: true,
     },
   },
-  emits: ['search', 'add-favourite', 'update:modelValue'],
+  emits: ['search', 'add-favourite', 'update:modelValue', 'remove-favourite'],
   data() {
     return {
       searchRequest: '',
@@ -91,6 +93,12 @@ export default {
         return 'Heart';
       }
       return null;
+    },
+    isRequestSaved() {
+      return !Favourites.checkUniq(this.favourites, 'request', this.searchRequest);
+    },
+    favourites() {
+      return this.$store.state.favorites;
     },
   },
   watch: {
@@ -114,8 +122,12 @@ export default {
       this.$refs.searchInput.focus();
       this.isSearchValid = false;
     },
-    addToFavourite() {
-      this.$emit('add-favourite');
+    openModal() {
+      if (this.isRequestSaved) {
+        this.$emit('remove-favourite');
+      } else {
+        this.$emit('add-favourite');
+      }
     },
     openTooltip() {
       this.tooltipVisibility = true;
