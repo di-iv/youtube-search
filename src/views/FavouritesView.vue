@@ -13,7 +13,11 @@
           :key="favourite"
           class="favourites__requests-item"
         >
-          <p class="favourites__requests-item-name">
+          <p
+            class="favourites__requests-item-name"
+            @keydown="doRequest(id)"
+            @click="doRequest(id)"
+          >
             {{ favourite.name }}
           </p>
           <div class="favourites__requests-item-buttons">
@@ -63,6 +67,11 @@ export default {
     this.favourites = this.$store.state.favorites;
   },
   methods: {
+    async doRequest(id) {
+      const favourite = this.$store.getters.getFavouriteById(id);
+      await this.$store.dispatch('search', { request: favourite.request });
+      await this.$router.push('/search');
+    },
     async editFavourite(favourite, id) {
       const result = await this.$refs.modalEdit.open(favourite);
       if (result) {
