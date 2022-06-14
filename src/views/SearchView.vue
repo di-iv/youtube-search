@@ -129,7 +129,10 @@ export default {
       if (modalResult) {
         this.$refs.searchForm.openTooltip();
         this.$store.commit('addFavourite', {
-          request: modalResult.request, name: modalResult.name,
+          request: modalResult.request,
+          name: modalResult.name,
+          order: modalResult.order,
+          resultsCount: modalResult.resultsCount,
         });
       }
     },

@@ -21,7 +21,16 @@
         class="modal-favorites__form-group"
         :is-valid="!v$.name.$error"
       />
-      <app-error :errors="errors" />
+      <AppSelect
+        v-model="order"
+        :options="options"
+        class="modal-favorites__form-group"
+      />
+      <InputRange
+        v-model="resultsCount"
+        class="modal-favorites__form-group"
+      />
+      <AppError :errors="errors" />
       <div class="modal-favorites__buttons">
         <AppButton
           text="Не сохранять"
@@ -47,13 +56,18 @@ import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';
 import AppModal from '@/components/AppModal';
+import AppSelect from '@/components/AppSelect';
+import InputRange from '@/components/InputRange';
 import Favourites from '@/services/Favourites';
+import params from '@/utilities/params';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 
 export default {
   name: 'ModalAddFavourite',
   components: {
+    InputRange,
+    AppSelect,
     AppError,
     AppButton,
     AppInput,
@@ -65,6 +79,9 @@ export default {
       name: '',
       errors: [],
       v$: useVuelidate(),
+      options: params.select.options,
+      order: '',
+      resultsCount: 12,
     };
   },
   validations() {
@@ -96,7 +113,12 @@ export default {
       this.request = request;
       const res = await this.$refs.modal.open();
       if (res) {
-        return { request: this.request, name: this.name };
+        return {
+          request: this.request,
+          name: this.name,
+          order: this.order,
+          resultsCount: this.resultsCount,
+        };
       }
       return res;
     },
