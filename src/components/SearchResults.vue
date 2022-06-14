@@ -7,6 +7,7 @@
       :key="result"
       class="results__item"
       :href="`https://www.youtube.com/watch?v=${result.id.videoId}`"
+      target="_blank"
     >
       <img
         :src="result.snippet.thumbnails.medium.url"
