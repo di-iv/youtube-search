@@ -1,0 +1,29 @@
+.input-range {
+  text-align: left;
+
+  &__label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__slider {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  &__text {
+    width: 100px;
+    padding: 12px 15px;
+
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+
+    border: 1px solid $grey-30;
+    border-radius: 10px;
+  }
+}
