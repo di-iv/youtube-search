@@ -4,6 +4,10 @@
   justify-content: center;
   height: 100vh;
 
+  @include media-breakpoint-down(sm) {
+    padding: 40px 10px 60px;
+  }
+
   &__card {
     width: 100%;
     padding: 40px 88px 60px;
@@ -21,11 +25,5 @@
     &:first-child {
       margin-bottom: 20px;
     }
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  .login {
-    padding: 40px 10px 60px;
   }
 }
