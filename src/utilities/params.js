@@ -22,6 +22,14 @@ const params = {
   searchForm: {
     sizes: ['small', 'large'],
   },
+  select: {
+    options: [
+      { value: 'null', text: 'Без сортировки' },
+      { value: 'date', text: 'Дате' },
+      { value: 'rating', text: 'Рейтингу' },
+      { value: 'title', text: 'Алфавиту' },
+    ],
+  },
 };
 
 export default params;
