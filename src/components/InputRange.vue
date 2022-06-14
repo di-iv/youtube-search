@@ -6,19 +6,19 @@
     >Максимальное количество</label>
     <div class="input-range__wrapper">
       <input
-        :value="modelValue"
         class="input-range__slider"
         type="range"
         min="0"
         max="50"
+        :value="modelValue"
         @input="updateValue"
       >
       <input
-        :value="modelValue"
         class="input-range__text"
         type="number"
         min="0"
         max="50"
+        :value="modelValue"
         @input="updateValue"
       >
     </div>
@@ -31,14 +31,14 @@ export default {
   props: {
     modelValue: {
       type: Number,
-      default: 25,
+      default: 12,
       required: true,
     },
   },
   emits: ['update:modelValue'],
   methods: {
     updateValue(e) {
-      this.$emit('update:modelValue', e.target.value);
+      this.$emit('update:modelValue', Number(e.target.value));
     },
   },
 };
