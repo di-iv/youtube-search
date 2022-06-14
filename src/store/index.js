@@ -16,12 +16,20 @@ export default createStore({
       state.request = request;
       state.results = results;
     },
-    addFavourite(state, { request, name }) {
-      state.favorites.push({ request, name });
+    addFavourite(state, {
+      request, name, order = 'null', resultsCount = 12,
+    }) {
+      state.favorites.push({
+        request, name, order, resultsCount,
+      });
       Favourites.addToStorage(state.favorites);
     },
-    editFavourite(state, { id, request, name }) {
-      state.favorites[id] = { request, name };
+    editFavourite(state, {
+      id, request, name, order, resultsCount,
+    }) {
+      state.favorites[id] = {
+        request, name, order, resultsCount,
+      };
       Favourites.addToStorage(state.favorites);
     },
     removeFavourite(state, id) {
@@ -30,8 +38,8 @@ export default createStore({
     },
   },
   actions: {
-    async search({ commit }, { request, resultsCount }) {
-      const results = await Search.searchRequest(request, resultsCount);
+    async search({ commit }, { request, order, resultsCount }) {
+      const results = await Search.searchRequest(request, order, resultsCount);
       commit('search', { request, results });
     },
   },
