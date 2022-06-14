@@ -57,6 +57,10 @@
 
     transition: all 0.5s;
 
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+
     &:focus:not(&--invalid) {
       background-color: $blue-30;
       border-color: $blue;
@@ -88,14 +92,6 @@
 
     &--icon {
       padding-right: 54px;
-    }
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  .input {
-    &__field {
-      font-size: 16px;
     }
   }
 }
