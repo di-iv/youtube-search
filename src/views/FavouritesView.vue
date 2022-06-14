@@ -75,9 +75,16 @@ export default {
     async editFavourite(favourite, id) {
       const result = await this.$refs.modalEdit.open(favourite);
       if (result) {
-        this.$store.commit('editFavourite', {
-          id, request: result.request, name: result.name,
-        });
+        this.$store.commit(
+          'editFavourite',
+          {
+            id,
+            request: result.request,
+            name: result.name,
+            order: result.order,
+            resultsCount: result.resultsCount,
+          },
+        );
       }
     },
     async removeFavourite(favourite, id) {

@@ -21,7 +21,16 @@
       class="modal-favorites__form-group"
       :is-valid="!v$.name.$error"
     />
-    <app-error :errors="errors" />
+    <AppSelect
+      v-model="order"
+      :options="options"
+      class="modal-favorites__form-group"
+    />
+    <InputRange
+      v-model="resultsCount"
+      class="modal-favorites__form-group"
+    />
+    <AppError :errors="errors" />
     <div class="modal-favorites__buttons">
       <AppButton
         text="Не изменять"
@@ -46,13 +55,18 @@ import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';
 import AppModal from '@/components/AppModal';
+import AppSelect from '@/components/AppSelect';
+import InputRange from '@/components/InputRange';
 import Favourites from '@/services/Favourites';
+import params from '@/utilities/params';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 
 export default {
   name: 'ModalEditFavourite',
   components: {
+    InputRange,
+    AppSelect,
     AppError,
     AppButton,
     AppInput,
@@ -65,6 +79,9 @@ export default {
       errors: [],
       id: '',
       v$: useVuelidate(),
+      options: params.select.options,
+      order: '',
+      resultsCount: 0,
     };
   },
   validations() {
@@ -112,10 +129,17 @@ export default {
     async open(data) {
       this.request = data.request;
       this.name = data.name;
+      this.order = data.order;
+      this.resultsCount = data.resultsCount;
       this.id = Favourites.getIndex('request', this.request);
       const res = await this.$refs.modal.open();
       if (res) {
-        return { request: this.request, name: this.name };
+        return {
+          request: this.request,
+          name: this.name,
+          order: this.order,
+          resultsCount: this.resultsCount,
+        };
       }
       return res;
     },
