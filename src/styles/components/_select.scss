@@ -1,0 +1,26 @@
+.select {
+  text-align: left;
+
+  &__label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__select {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+
+    font-size: 20px;
+    line-height: 24px;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.29289 4.29289L0.853553 0.853553C0.538571 0.538571 0.761654 0 1.20711 0H8.79289C9.23835 0 9.46143 0.53857 9.14645 0.853553L5.70711 4.29289C5.31658 4.68342 4.68342 4.68342 4.29289 4.29289Z' fill='%23D1D1D1'/%3E%3C/svg%3E%0A");
+
+    background-repeat: no-repeat;
+    background-position: center right 15px;
+
+    border: 1px solid $grey-30;
+    border-radius: 10px;
+
+    appearance: none;
+  }
+}
