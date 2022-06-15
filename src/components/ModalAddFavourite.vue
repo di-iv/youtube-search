@@ -62,6 +62,7 @@ import Favourites from '@/services/Favourites';
 import params from '@/utilities/params';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
+import { mapState } from 'vuex';
 
 export default {
   name: 'ModalAddFavourite',
@@ -92,9 +93,7 @@ export default {
     };
   },
   computed: {
-    favourites() {
-      return this.$store.state.favorites;
-    },
+    ...mapState('favourites', { favourites: 'favorites' }),
   },
   methods: {
     async save() {

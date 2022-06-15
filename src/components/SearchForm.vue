@@ -50,6 +50,7 @@ import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
 import Favourites from '@/services/Favourites';
 import params from '@/utilities/params';
+import { mapState } from 'vuex';
 
 export default {
   name: 'SearchForm',
@@ -82,12 +83,13 @@ export default {
   emits: ['search', 'add-favourite', 'update:modelValue', 'remove-favourite'],
   data() {
     return {
-      searchRequest: '',
       tooltipVisibility: false,
       isSearchValid: true,
     };
   },
   computed: {
+    ...mapState('favourites', { favourites: 'favorites' }),
+    ...mapState('favourites', { searchRequest: 'request' }),
     iconName() {
       if (this.hasIcon) {
         return 'Heart';
@@ -97,9 +99,6 @@ export default {
     isRequestSaved() {
       return !Favourites.checkUniq(this.favourites, 'request', this.searchRequest);
     },
-    favourites() {
-      return this.$store.state.favorites;
-    },
   },
   watch: {
     searchRequest() {
@@ -108,9 +107,6 @@ export default {
       }
       return this.$emit('update:modelValue', this.searchRequest);
     },
-  },
-  mounted() {
-    this.searchRequest = this.$store.state.request;
   },
   methods: {
     search() {

@@ -73,6 +73,7 @@ import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
 import Favourites from '@/services/Favourites';
+import { mapState } from 'vuex';
 
 export default {
   name: 'SearchView',
@@ -85,13 +86,13 @@ export default {
   },
   data() {
     return {
-      searchResults: null,
       currentSearchRequest: '',
-      oldSearchRequest: '',
       viewType: 'grid', // list, grid
     };
   },
   computed: {
+    ...mapState('search', { searchResults: 'results' }),
+    ...mapState('search', { oldSearchRequest: 'request' }),
     formSize() {
       if (this.searchResults) {
         return 'large';
@@ -111,15 +112,9 @@ export default {
       return this.viewType === 'grid';
     },
   },
-  mounted() {
-    this.searchResults = this.$store.state.results;
-    this.oldSearchRequest = this.$store.state.request;
-  },
   methods: {
     async search() {
-      await this.$store.dispatch('search', { request: this.currentSearchRequest });
-      this.searchResults = this.$store.state.results;
-      this.oldSearchRequest = this.$store.state.request;
+      await this.$store.dispatch('search/search', { request: this.currentSearchRequest });
     },
     switchView(type) {
       this.viewType = type;
@@ -128,7 +123,7 @@ export default {
       const modalResult = await this.$refs.modal.open(this.currentSearchRequest);
       if (modalResult) {
         this.$refs.searchForm.openTooltip();
-        this.$store.commit('addFavourite', {
+        this.$store.commit('favourites/addFavourite', {
           request: modalResult.request,
           name: modalResult.name,
           order: modalResult.order,
@@ -140,7 +135,7 @@ export default {
       const modalResult = await this.$refs.modalRemoveFavourite.open(this.currentSearchRequest);
       if (modalResult) {
         const id = Favourites.getIndex('request', this.currentSearchRequest);
-        this.$store.commit('removeFavourite', id);
+        this.$store.commit('favourites/removeFavourite', id);
       }
     },
   },
