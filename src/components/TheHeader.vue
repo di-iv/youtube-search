@@ -26,6 +26,7 @@
         <router-link
           class="header__logout-link"
           to="/"
+          @click="logout"
         >
           Выйти
         </router-link>
@@ -45,6 +46,11 @@ export default {
     return {
       navs: params.navs,
     };
+  },
+  methods: {
+    logout() {
+      this.$store.commit('auth/logout');
+    },
   },
 };
 </script>

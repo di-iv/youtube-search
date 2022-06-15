@@ -30,6 +30,11 @@ const params = {
       { value: 'title', text: 'Алфавиту' },
     ],
   },
+  authErrors: {
+    INVALID_EMAIL: 'Неверный email',
+    EMAIL_NOT_FOUND: 'Пользователь не найден',
+    INVALID_PASSWORD: 'Неверный пароль',
+  },
 };
 
 export default params;

@@ -1,4 +1,5 @@
 import MainLayout from '@/layouts/MainLayout';
+import store from '@/store';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
     name: 'search',
     meta: {
       layout: MainLayout,
+      auth: true,
     },
     component: () => import('../views/SearchView'),
   },
@@ -20,8 +22,13 @@ const routes = [
     name: 'favourites',
     meta: {
       layout: MainLayout,
+      auth: true,
     },
     component: () => import('../views/FavouritesView'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
   },
 ];
 
@@ -30,4 +37,15 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.auth)) {
+    if (store.state.auth.userToken) {
+      next();
+      return;
+    }
+    next('/');
+  } else {
+    next();
+  }
+});
 export default router;

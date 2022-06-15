@@ -9,7 +9,7 @@
           class="login__icon"
         />
         <h3>Вход</h3>
-        <form action="">
+        <form @submit.prevent="login">
           <AppInput
             id="login"
             v-model="email"
@@ -21,14 +21,14 @@
             v-model="password"
             class="login__form-group"
           />
+          <AppError :errors="errors" />
           <div>
-            <router-link to="/search">
-              <AppButton
-                text="Войти"
-                size="medium"
-                style-type="fill"
-              />
-            </router-link>
+            <AppButton
+              text="Войти"
+              size="medium"
+              type="submit"
+              style-type="fill"
+            />
           </div>
         </form>
       </div>
@@ -38,14 +38,18 @@
 
 <script>
 import AppButton from '@/components/AppButton';
+import AppError from '@/components/AppError';
 import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
+import Auth from '@/services/Auth';
+import params from '@/utilities/params';
 
 export default {
   name: 'LoginView',
   components: {
+    AppError,
     InputPassword,
     AppIcon,
     AppButton,
@@ -58,7 +62,22 @@ export default {
       type: 'password',
       email: '',
       password: '',
+      errors: [],
     };
+  },
+  methods: {
+    async login() {
+      this.errors = [];
+      try {
+        const res = await Auth.signIn(this.email, this.password);
+        this.$store.commit('auth/auth', res);
+        await this.$router.push('/search');
+        console.log(res);
+      } catch (e) {
+        const errorMessage = e.response.data.error.message;
+        this.errors.push(params.authErrors[errorMessage]);
+      }
+    },
   },
 };
 </script>
