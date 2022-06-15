@@ -3,7 +3,9 @@ import { hasValue, getIndex } from '@/utilities/helpers';
 
 export default class Favourites {
   static addToStorage(data) {
-    LocalStorage.set('favourites', data);
+    const favourites = LocalStorage.get('favourites') ?? [];
+    favourites.push(data);
+    LocalStorage.set('favourites', favourites);
   }
 
   static getFromStorageByUserId(userId) {
