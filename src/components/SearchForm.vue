@@ -85,11 +85,12 @@ export default {
     return {
       tooltipVisibility: false,
       isSearchValid: true,
+      searchRequest: '',
     };
   },
   computed: {
     ...mapState('favourites', { favourites: 'favorites' }),
-    ...mapState('favourites', { searchRequest: 'request' }),
+    ...mapState('search', { request: 'request' }),
     iconName() {
       if (this.hasIcon) {
         return 'Heart';
@@ -110,6 +111,7 @@ export default {
   },
   mounted() {
     this.$store.commit('favourites/getFavouriteFromStorage');
+    this.searchRequest = this.request;
   },
   methods: {
     search() {
