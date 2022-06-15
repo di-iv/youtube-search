@@ -7,7 +7,10 @@ export default class Favourites {
   }
 
   static getFromStorageByUserId(userId) {
-    return LocalStorage.get('favourites').filter((favourite) => favourite.userId === userId);
+    if (LocalStorage.get('favourites')) {
+      return LocalStorage.get('favourites').filter((favourite) => favourite.userId === userId);
+    }
+    return null;
   }
 
   static checkUniq(favourites, field, value) {

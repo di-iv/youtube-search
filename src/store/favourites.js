@@ -31,7 +31,7 @@ export default {
       Favourites.addToStorage(state.favorites);
     },
     getFavouriteFromStorage(state) {
-      state.favorites = Favourites.getFromStorageByUserId(auth.state.userId);
+      state.favorites = Favourites.getFromStorageByUserId(auth.state.userId) ?? [];
     },
   },
 };
