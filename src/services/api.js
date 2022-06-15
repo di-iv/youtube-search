@@ -1,8 +1,18 @@
 import axios from 'axios';
 
-export default axios.create({
+const youtubeApi = axios.create({
   baseURL: 'https://youtube.googleapis.com/youtube/v3/',
   params: {
-    key: process.env.VUE_APP_API_KEY,
+    key: process.env.VUE_APP_YOUTUBE_KEY,
   },
 });
+
+const authApi = axios.create({
+  baseURL: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword',
+  headers: { 'Content-Type': 'application/json' },
+  params: {
+    key: process.env.VUE_APP_FIREBASE_KEY,
+  },
+});
+
+export { youtubeApi, authApi };
