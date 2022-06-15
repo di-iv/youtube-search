@@ -6,8 +6,8 @@ export default class Favourites {
     LocalStorage.set('favourites', data);
   }
 
-  static getFromStorage() {
-    return LocalStorage.get('favourites');
+  static getFromStorageByUserId(userId) {
+    return LocalStorage.get('favourites').filter((favourite) => favourite.userId === userId);
   }
 
   static checkUniq(favourites, field, value) {
@@ -15,7 +15,7 @@ export default class Favourites {
   }
 
   static getIndex(field, value) {
-    const favourites = Favourites.getFromStorage();
+    const favourites = Favourites.getFromStorageByUserId();
     return getIndex(favourites, field, value);
   }
 }

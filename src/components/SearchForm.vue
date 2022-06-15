@@ -108,6 +108,9 @@ export default {
       return this.$emit('update:modelValue', this.searchRequest);
     },
   },
+  mounted() {
+    this.$store.commit('favourites/getFavouriteFromStorage');
+  },
   methods: {
     search() {
       if (this.searchRequest !== '') {

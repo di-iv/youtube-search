@@ -1,9 +1,10 @@
 import Favourites from '@/services/Favourites';
+import auth from '@/store/auth';
 
 export default {
   namespaced: true,
   state: {
-    favorites: Favourites.getFromStorage() ?? [],
+    favorites: [],
   },
   getters: {
     getFavouriteById: (state) => (id) => state.favorites[id],
@@ -28,6 +29,9 @@ export default {
     removeFavourite(state, id) {
       state.favorites.splice(id, 1);
       Favourites.addToStorage(state.favorites);
+    },
+    getFavouriteFromStorage(state) {
+      state.favorites = Favourites.getFromStorageByUserId(auth.state.userId);
     },
   },
 };
