@@ -81,7 +81,7 @@ export default {
       errors: [],
       v$: useVuelidate(),
       options: params.select.options,
-      order: '',
+      order: null,
       resultsCount: 12,
     };
   },
