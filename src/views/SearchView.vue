@@ -93,6 +93,7 @@ export default {
   computed: {
     ...mapState('search', { searchResults: 'results' }),
     ...mapState('search', { oldSearchRequest: 'request' }),
+    ...mapState('auth', { userId: 'userId' }),
     formSize() {
       if (this.searchResults) {
         return 'large';
@@ -124,6 +125,7 @@ export default {
       if (modalResult) {
         this.$refs.searchForm.openTooltip();
         this.$store.commit('favourites/addFavourite', {
+          userId: this.userId,
           request: modalResult.request,
           name: modalResult.name,
           order: modalResult.order,

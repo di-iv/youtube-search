@@ -10,10 +10,10 @@ export default {
   },
   mutations: {
     addFavourite(state, {
-      request, name, order = 'null', resultsCount = 12,
+      userId, request, name, order = 'null', resultsCount = 12,
     }) {
       state.favorites.push({
-        request, name, order, resultsCount,
+        request, name, order, resultsCount, userId,
       });
       Favourites.addToStorage(state.favorites);
     },
