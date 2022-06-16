@@ -1,4 +1,4 @@
-const params = {
+const globalParams = {
   navs: [
     {
       title: 'Поиск',
@@ -9,19 +9,6 @@ const params = {
       link: '/favourites',
     },
   ],
-  button: {
-    sizes: ['small', 'medium', 'large'],
-    style: ['fill', 'outline', 'link'],
-    colors: ['primary', 'danger'],
-    types: ['button', 'submit'],
-  },
-  input: {
-    sizes: ['small', 'large'],
-    labelColors: ['border-color'],
-  },
-  searchForm: {
-    sizes: ['small', 'large'],
-  },
   select: {
     options: [
       { value: 'null', text: 'Без сортировки' },
@@ -41,4 +28,20 @@ const params = {
   },
 };
 
-export default params;
+const validationParams = {
+  button: {
+    sizes: ['small', 'medium', 'large'],
+    style: ['fill', 'outline', 'link'],
+    colors: ['primary', 'danger'],
+    types: ['button', 'submit'],
+  },
+  input: {
+    sizes: ['small', 'large'],
+    labelColors: ['border-color'],
+  },
+  searchForm: {
+    sizes: ['small', 'large'],
+  },
+};
+
+export { globalParams, validationParams };

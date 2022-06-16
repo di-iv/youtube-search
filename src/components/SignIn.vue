@@ -50,7 +50,7 @@ import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
-import params from '@/utilities/params';
+import { globalParams } from '@/utilities/params';
 
 export default {
   name: 'AppLogin',
@@ -82,7 +82,7 @@ export default {
         await this.$router.push('/search');
       } catch (e) {
         const errorMessage = e.response.data.error.message;
-        this.errors.push(params.authErrors[errorMessage]);
+        this.errors.push(globalParams.authErrors[errorMessage]);
       }
     },
   },

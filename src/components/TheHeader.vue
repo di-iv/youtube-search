@@ -37,14 +37,14 @@
 
 <script>
 import AppIcon from '@/components/AppIcon';
-import params from '@/utilities/params';
+import { globalParams } from '@/utilities/params';
 
 export default {
   name: 'AppHeader',
   components: { AppIcon },
   data() {
     return {
-      navs: params.navs,
+      navs: globalParams.navs,
     };
   },
   methods: {

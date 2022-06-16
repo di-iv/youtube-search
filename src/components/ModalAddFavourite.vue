@@ -59,7 +59,7 @@ import AppModal from '@/components/AppModal';
 import AppSelect from '@/components/AppSelect';
 import InputRange from '@/components/InputRange';
 import Favourites from '@/services/Favourites';
-import params from '@/utilities/params';
+import { globalParams } from '@/utilities/params';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { mapState } from 'vuex';
@@ -80,7 +80,7 @@ export default {
       name: '',
       errors: [],
       v$: useVuelidate(),
-      options: params.select.options,
+      options: globalParams.select.options,
       order: null,
       resultsCount: 12,
     };

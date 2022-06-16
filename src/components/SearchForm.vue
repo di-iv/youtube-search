@@ -49,7 +49,7 @@ import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
 import Favourites from '@/services/Favourites';
-import params from '@/utilities/params';
+import { validationParams } from '@/utilities/params';
 import { mapState } from 'vuex';
 
 export default {
@@ -65,7 +65,7 @@ export default {
       default: 'small',
       required: false,
       validator(value) {
-        const { sizes } = params.searchForm;
+        const { sizes } = validationParams.searchForm;
         return sizes.includes(value);
       },
     },

@@ -45,7 +45,7 @@
 
 <script>
 import AppIcon from '@/components/AppIcon';
-import params from '@/utilities/params';
+import { validationParams } from '@/utilities/params';
 
 export default {
   name: 'AppInput',
@@ -93,7 +93,7 @@ export default {
       default: 'small',
       required: false,
       validator(value) {
-        const { sizes } = params.input;
+        const { sizes } = validationParams.input;
         return sizes.includes(value);
       },
     },
@@ -117,7 +117,7 @@ export default {
       default: null,
       required: false,
       validator(value) {
-        const { labelColors } = params.input;
+        const { labelColors } = validationParams.input;
         return labelColors.includes(value);
       },
     },
