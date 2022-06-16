@@ -1,3 +1,4 @@
+import Auth from '@/services/Auth';
 import LocalStorage from '@/services/LocalStorage';
 
 export default {
@@ -7,7 +8,7 @@ export default {
     userToken: LocalStorage.get('userInfo')?.token || '',
   },
   mutations: {
-    auth(state, data) {
+    setUser(state, data) {
       state.userId = data.localId;
       state.userToken = data.idToken;
       LocalStorage.set('userInfo', { id: state.userId, token: state.userToken });
@@ -16,6 +17,12 @@ export default {
       state.userId = '';
       state.userToken = '';
       LocalStorage.remove('userInfo');
+    },
+  },
+  actions: {
+    async login({ commit }, { email, password }) {
+      const res = await Auth.signIn(email, password);
+      commit('setUser', res);
     },
   },
 };

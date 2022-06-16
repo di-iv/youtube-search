@@ -43,7 +43,6 @@ import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
-import Auth from '@/services/Auth';
 import params from '@/utilities/params';
 
 export default {
@@ -69,10 +68,10 @@ export default {
     async login() {
       this.errors = [];
       try {
-        const res = await Auth.signIn(this.email, this.password);
-        this.$store.commit('auth/auth', res);
+        await this.$store.dispatch('auth/login', {
+          email: this.email, password: this.password,
+        });
         await this.$router.push('/search');
-        console.log(res);
       } catch (e) {
         const errorMessage = e.response.data.error.message;
         this.errors.push(params.authErrors[errorMessage]);
