@@ -24,5 +24,9 @@ export default {
       const res = await Auth.signIn(email, password);
       commit('setUser', res);
     },
+    async signUp({ commit }, { email, password }) {
+      const res = await Auth.signUp(email, password);
+      commit('setUser', res);
+    },
   },
 };

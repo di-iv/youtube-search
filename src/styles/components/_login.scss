@@ -30,4 +30,20 @@
       margin-bottom: 20px;
     }
   }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__button {
+    &--link {
+      text-decoration: underline;
+    }
+  }
+
+  &__button:not(:last-child) {
+    margin-bottom: 5px;
+  }
 }
