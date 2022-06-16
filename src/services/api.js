@@ -8,8 +8,7 @@ const youtubeApi = axios.create({
 });
 
 const authApi = axios.create({
-  baseURL: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword',
-  headers: { 'Content-Type': 'application/json' },
+  baseURL: 'https://identitytoolkit.googleapis.com/v1/',
   params: {
     key: process.env.VUE_APP_FIREBASE_KEY,
   },
