@@ -7,6 +7,13 @@ const routes = [
     path: '/',
     name: 'login',
     component: () => import('../views/LoginView'),
+    beforeEnter(to, from, next) {
+      if (store.state.auth.userToken) {
+        next('/search');
+        return;
+      }
+      next();
+    },
   },
   {
     path: '/search',
