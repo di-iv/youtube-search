@@ -23,7 +23,6 @@ export default {
   props: {
     iconName: {
       type: String,
-      default: null,
       required: true,
     },
   },

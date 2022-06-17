@@ -16,7 +16,6 @@ export default {
   props: {
     errors: {
       type: Array,
-      default: () => [],
       required: true,
     },
   },

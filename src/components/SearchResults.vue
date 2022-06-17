@@ -28,7 +28,6 @@ export default {
   props: {
     searchResults: {
       type: Object,
-      default: () => {},
       required: true,
     },
   },

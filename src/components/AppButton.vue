@@ -20,12 +20,10 @@ export default {
   props: {
     text: {
       type: String,
-      default: 'Кнопка',
       required: true,
     },
     styleType: {
       type: String,
-      default: 'fill',
       required: true,
       validator(value) {
         const { styles } = button;

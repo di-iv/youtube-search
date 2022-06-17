@@ -55,7 +55,6 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Label',
       required: true,
     },
     labelHidden: {
@@ -65,7 +64,6 @@ export default {
     },
     id: {
       type: String,
-      default: 'label',
       required: true,
     },
     type: {
@@ -99,7 +97,6 @@ export default {
     },
     modelValue: {
       type: String,
-      default: '',
       required: true,
     },
     isValid: {
