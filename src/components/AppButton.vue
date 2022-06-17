@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { button } from '@/consts/validationParams';
+import { button } from '@/consts/componentParams';
 
 export default {
   name: 'AppButton',

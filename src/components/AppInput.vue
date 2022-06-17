@@ -45,7 +45,7 @@
 
 <script>
 import AppIcon from '@/components/AppIcon';
-import { input } from '@/consts/validationParams';
+import { input } from '@/consts/componentParams';
 
 export default {
   name: 'AppInput',
