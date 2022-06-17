@@ -8,14 +8,12 @@ const navs = [
     link: '/favourites',
   },
 ];
-const select = {
-  options: [
-    { value: 'null', text: 'Без сортировки' },
-    { value: 'date', text: 'Дате' },
-    { value: 'rating', text: 'Рейтингу' },
-    { value: 'title', text: 'Алфавиту' },
-  ],
-};
+const youtubeOrderOptions = [
+  { value: 'null', text: 'Без сортировки' },
+  { value: 'date', text: 'Дате' },
+  { value: 'rating', text: 'Рейтингу' },
+  { value: 'title', text: 'Алфавиту' },
+];
 const authErrors = {
   INVALID_EMAIL: 'Неверный email',
   EMAIL_NOT_FOUND: 'Пользователь не найден',
@@ -26,4 +24,4 @@ const authErrors = {
   'WEAK_PASSWORD : Password should be at least 6 characters': 'Пароль должен быть не менее 6 символов',
 };
 
-export { navs, select, authErrors };
+export { navs, youtubeOrderOptions, authErrors };
