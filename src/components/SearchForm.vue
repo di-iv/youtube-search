@@ -18,6 +18,7 @@
       :is-valid="isSearchValid"
       :is-icon-active="isRequestSaved"
       @on-icon-click="openModal"
+      @update:model-value="updateValue"
     />
     <transition name="fade">
       <div
@@ -105,7 +106,6 @@ export default {
       if (!this.isSearchValid && this.searchRequest.length > 0) {
         this.isSearchValid = true;
       }
-      return this.$emit('update:modelValue', this.searchRequest);
     },
   },
   mounted() {
@@ -136,6 +136,9 @@ export default {
     closeTooltip() {
       this.tooltipVisibility = false;
       document.removeEventListener('click', this.closeTooltip);
+    },
+    updateValue() {
+      this.$emit('update:modelValue', this.searchRequest);
     },
   },
 };
