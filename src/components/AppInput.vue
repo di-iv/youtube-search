@@ -30,7 +30,7 @@
         :disabled="isDisabled"
         autocomplete="off"
         :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="updateValue"
       >
       <AppIcon
         v-if="hasIcon"
@@ -131,6 +131,9 @@ export default {
     },
   },
   methods: {
+    updateValue(e) {
+      this.$emit('update:modelValue', e.target.value);
+    },
     onIconClick() {
       return this.$emit('on-icon-click');
     },
