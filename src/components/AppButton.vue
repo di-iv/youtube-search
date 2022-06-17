@@ -50,7 +50,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'button',
+      default: button.defaultType,
       required: false,
       validator(value) {
         const { types } = button;

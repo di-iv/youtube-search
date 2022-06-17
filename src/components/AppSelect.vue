@@ -21,12 +21,14 @@
 </template>
 
 <script>
+import { select } from '@/consts/componentParams';
+
 export default {
   name: 'AppSelect',
   props: {
     label: {
       type: String,
-      default: 'Сортировать по',
+      default: select.defaultLabel,
       required: false,
     },
     options: {

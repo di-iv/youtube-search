@@ -68,7 +68,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'text',
+      default: input.defaultType,
       required: false,
     },
     placeholder: {
@@ -88,7 +88,7 @@ export default {
     },
     size: {
       type: String,
-      default: 'small',
+      default: input.defaultSize,
       required: false,
       validator(value) {
         const { sizes } = input;

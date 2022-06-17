@@ -8,12 +8,14 @@
 </template>
 
 <script>
+import { formGroup } from '@/consts/componentParams';
+
 export default {
   name: 'FormGroup',
   props: {
     tag: {
       type: String,
-      default: 'div',
+      default: formGroup.defaultTag,
       required: false,
     },
   },

@@ -62,7 +62,7 @@ export default {
   props: {
     size: {
       type: String,
-      default: 'small',
+      default: searchForm.defaultSize,
       required: false,
       validator(value) {
         const { sizes } = searchForm;
