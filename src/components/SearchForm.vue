@@ -103,7 +103,7 @@ export default {
   },
   watch: {
     searchRequest() {
-      if (!this.isSearchValid && this.searchRequest.length > 0) {
+      if (this.searchRequest.length > 0) {
         this.isSearchValid = true;
       }
     },
