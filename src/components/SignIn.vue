@@ -13,7 +13,7 @@
           <AppInput
             id="login"
             v-model="email"
-            label="Логин"
+            label="Email"
             label-color="text-grey"
             class="login__form-group"
           />
