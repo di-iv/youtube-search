@@ -74,7 +74,7 @@ export default {
     async signIn() {
       this.errors = [];
       try {
-        await this.$store.dispatch('auth/login', {
+        await this.$store.dispatch('auth/signIn', {
           email: this.email, password: this.password,
         });
         await this.$router.push('/search');

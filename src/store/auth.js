@@ -20,7 +20,7 @@ export default {
     },
   },
   actions: {
-    async login({ commit }, { email, password }) {
+    async signIn({ commit }, { email, password }) {
       const res = await Auth.signIn(email, password);
       commit('setUser', res);
     },
