@@ -6,6 +6,7 @@
     label="Пароль"
     label-color="text-grey"
     :type="type"
+    :is-valid="isValid"
     @on-icon-click="togglePasswordVisibility"
     @update:model-value="updateValue"
   />
@@ -22,6 +23,11 @@ export default {
     modelValue: {
       type: String,
       required: true,
+    },
+    isValid: {
+      type: Boolean,
+      default: true,
+      required: false,
     },
   },
   emits: ['update:modelValue'],
