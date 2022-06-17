@@ -3,12 +3,10 @@
     <div
       v-if="isOpen"
       class="modal"
-      @click="close"
-      @keydown.esc="close"
+      @mouseup.self="close"
     >
       <app-card
         class="modal__card"
-        @click.stop
       >
         <slot
           :confirm="confirm"
