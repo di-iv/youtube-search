@@ -31,7 +31,8 @@ const generalErrors = {
   nameExist: 'Такое имя уже существует',
   requestExist: 'Такой запрос уже существует',
 };
+const youtubeVideoLink = 'https://www.youtube.com/watch?v=';
 
 export {
-  navs, youtubeOrderOptions, authErrors, apiUrls, generalErrors,
+  navs, youtubeOrderOptions, authErrors, apiUrls, generalErrors, youtubeVideoLink,
 };

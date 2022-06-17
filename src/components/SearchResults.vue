@@ -6,7 +6,7 @@
       v-for="result in searchResults"
       :key="result"
       class="results__item"
-      :href="`https://www.youtube.com/watch?v=${result.id.videoId}`"
+      :href="`${youtubeVideoLink}${result.id.videoId}`"
       target="_blank"
     >
       <img
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { youtubeVideoLink } from '@/consts/globalParams';
+
 export default {
   name: 'SearchResults',
   props: {
@@ -30,6 +32,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      youtubeVideoLink,
+    };
   },
 };
 </script>
