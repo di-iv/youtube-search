@@ -2,7 +2,7 @@
   <AppInput
     id="password"
     v-model="password"
-    :icon-name="iconName"
+    :icon-name="icon"
     label="Пароль"
     label-color="text-grey"
     :type="type"
@@ -25,14 +25,21 @@ export default {
   emits: ['update:modelValue'],
   data() {
     return {
-      iconName: 'EyeOff',
-      type: 'password',
+      isPasswordHidden: true,
       password: '',
     };
   },
   computed: {
-    isPasswordHidden() {
-      return this.type === 'password';
+    type() {
+      if (this.isPasswordHidden) {
+        return 'password';
+      }
+      return 'text';
+    },
+    icon() {
+      if (this.isPasswordHidden) {
+        return 'EyeOff';
+      } return 'Eye';
     },
   },
   watch: {
@@ -42,13 +49,7 @@ export default {
   },
   methods: {
     togglePasswordVisibility() {
-      if (this.isPasswordHidden) {
-        this.iconName = 'Eye';
-        this.type = 'text';
-      } else {
-        this.iconName = 'EyeOff';
-        this.type = 'password';
-      }
+      this.isPasswordHidden = !this.isPasswordHidden;
     },
   },
 };
