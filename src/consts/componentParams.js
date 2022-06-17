@@ -1,6 +1,6 @@
 const button = {
   sizes: ['small', 'medium', 'large'],
-  style: ['fill', 'outline', 'link'],
+  styles: ['fill', 'outline', 'link'],
   colors: ['primary', 'danger'],
   types: ['button', 'submit'],
 };

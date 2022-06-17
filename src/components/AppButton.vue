@@ -28,8 +28,8 @@ export default {
       default: 'fill',
       required: true,
       validator(value) {
-        const { style } = button;
-        return style.includes(value);
+        const { styles } = button;
+        return styles.includes(value);
       },
     },
     size: {
