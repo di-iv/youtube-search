@@ -7,7 +7,7 @@ const button = {
 };
 const input = {
   sizes: ['small', 'large'],
-  labelColors: ['border-color'],
+  labelColors: ['text-grey'],
   defaultType: 'text',
   defaultSize: 'small',
 };

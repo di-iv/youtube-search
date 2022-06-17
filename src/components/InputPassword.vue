@@ -4,7 +4,7 @@
     v-model="password"
     :icon-name="iconName"
     label="Пароль"
-    label-color="border-color"
+    label-color="text-grey"
     :type="type"
     @on-icon-click="togglePasswordVisibility"
   />
