@@ -1,14 +1,15 @@
+import { apiUrls } from '@/consts/globalParams';
 import axios from 'axios';
 
 const youtubeApi = axios.create({
-  baseURL: 'https://youtube.googleapis.com/youtube/v3/',
+  baseURL: apiUrls.youtube,
   params: {
     key: process.env.VUE_APP_YOUTUBE_KEY,
   },
 });
 
 const authApi = axios.create({
-  baseURL: 'https://identitytoolkit.googleapis.com/v1/',
+  baseURL: apiUrls.auth,
   params: {
     key: process.env.VUE_APP_FIREBASE_KEY,
   },

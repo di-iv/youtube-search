@@ -23,5 +23,11 @@ const authErrors = {
   MISSING_PASSWORD: 'Не введен пароль',
   'WEAK_PASSWORD : Password should be at least 6 characters': 'Пароль должен быть не менее 6 символов',
 };
+const apiUrls = {
+  youtube: 'https://youtube.googleapis.com/youtube/v3/',
+  auth: 'https://identitytoolkit.googleapis.com/v1/',
+};
 
-export { navs, youtubeOrderOptions, authErrors };
+export {
+  navs, youtubeOrderOptions, authErrors, apiUrls,
+};
