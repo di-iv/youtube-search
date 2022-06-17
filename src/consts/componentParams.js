@@ -32,7 +32,21 @@ const inputPassword = {
     visible: 'Eye',
   },
 };
+const searchView = {
+  formType: {
+    results: 'results',
+    main: 'main',
+  },
+  formSize: {
+    small: 'small',
+    large: 'large',
+  },
+  viewType: {
+    grid: 'grid',
+    list: 'list',
+  },
+};
 
 export {
-  button, input, searchForm, select, formGroup, inputPassword,
+  button, input, searchForm, select, formGroup, inputPassword, searchView,
 };

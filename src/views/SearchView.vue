@@ -30,14 +30,14 @@
             <AppIcon
               icon-name="List"
               class="search__view-switcher-icon"
-              :class="{'search__view-switcher-icon--active': viewType === 'list'}"
-              @click="switchView('list')"
+              :class="{'search__view-switcher-icon--active': isListViewType}"
+              @click="switchView(listViewType)"
             />
             <AppIcon
               icon-name="Grid"
               class="search__view-switcher-icon"
-              :class="{'search__view-switcher-icon--active': viewType === 'grid'}"
-              @click="switchView('grid')"
+              :class="{'search__view-switcher-icon--active': isGridViewType}"
+              @click="switchView(gridViewType)"
             />
           </div>
         </div>
@@ -72,6 +72,7 @@ import ModalAddFavourite from '@/components/ModalAddFavourite';
 import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
+import { searchView } from '@/consts/componentParams';
 import Favourites from '@/services/Favourites';
 import { mapState } from 'vuex';
 
@@ -87,7 +88,9 @@ export default {
   data() {
     return {
       currentSearchRequest: '',
-      viewType: 'grid', // list, grid
+      viewType: searchView.viewType.grid,
+      gridViewType: searchView.viewType.grid,
+      listViewType: searchView.viewType.list,
     };
   },
   computed: {
@@ -96,21 +99,24 @@ export default {
     ...mapState('auth', { userId: 'userId' }),
     formSize() {
       if (this.searchResults) {
-        return 'large';
+        return searchView.formSize.large;
       }
-      return 'small';
+      return searchView.formSize.small;
     },
     formType() {
       if (this.searchResults) {
-        return 'results';
+        return searchView.formType.results;
       }
-      return 'main';
+      return searchView.formType.main;
     },
     isResultFormType() {
       return this.searchResults !== null;
     },
     isGridViewType() {
-      return this.viewType === 'grid';
+      return this.viewType === searchView.viewType.grid;
+    },
+    isListViewType() {
+      return this.viewType === searchView.viewType.list;
     },
   },
   methods: {
