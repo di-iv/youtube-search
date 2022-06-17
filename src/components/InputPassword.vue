@@ -12,6 +12,7 @@
 
 <script>
 import AppInput from '@/components/AppInput';
+import { inputPassword } from '@/consts/componentParams';
 
 export default {
   name: 'InputPassword',
@@ -19,7 +20,7 @@ export default {
   props: {
     modelValue: {
       type: String,
-      default: '',
+      required: true,
     },
   },
   emits: ['update:modelValue'],
@@ -32,14 +33,14 @@ export default {
   computed: {
     type() {
       if (this.isPasswordHidden) {
-        return 'password';
+        return inputPassword.types.password;
       }
-      return 'text';
+      return inputPassword.types.text;
     },
     icon() {
       if (this.isPasswordHidden) {
-        return 'EyeOff';
-      } return 'Eye';
+        return inputPassword.icons.hidden;
+      } return inputPassword.icons.visible;
     },
   },
   watch: {

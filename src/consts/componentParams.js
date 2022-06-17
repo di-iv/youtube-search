@@ -21,7 +21,17 @@ const select = {
 const formGroup = {
   defaultTag: 'div',
 };
+const inputPassword = {
+  types: {
+    password: 'password',
+    text: 'text',
+  },
+  icons: {
+    hidden: 'EyeOff',
+    visible: 'Eye',
+  },
+};
 
 export {
-  button, input, searchForm, select, formGroup,
+  button, input, searchForm, select, formGroup, inputPassword,
 };
