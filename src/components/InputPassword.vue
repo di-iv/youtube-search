@@ -7,6 +7,7 @@
     label-color="text-grey"
     :type="type"
     @on-icon-click="togglePasswordVisibility"
+    @update:model-value="updateValue"
   />
 </template>
 
@@ -43,14 +44,12 @@ export default {
       } return inputPassword.icons.visible;
     },
   },
-  watch: {
-    password() {
-      this.$emit('update:modelValue', this.password);
-    },
-  },
   methods: {
     togglePasswordVisibility() {
       this.isPasswordHidden = !this.isPasswordHidden;
+    },
+    updateValue() {
+      this.$emit('update:modelValue', this.password);
     },
   },
 };
