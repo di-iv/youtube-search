@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { validationParams } from '@/consts/params';
+import { button } from '@/consts/validationParams';
 
 export default {
   name: 'AppButton',
@@ -28,7 +28,7 @@ export default {
       default: 'fill',
       required: true,
       validator(value) {
-        const { style } = validationParams.button;
+        const { style } = button;
         return style.includes(value);
       },
     },
@@ -37,7 +37,7 @@ export default {
       default: null,
       required: false,
       validator(value) {
-        const { sizes } = validationParams.button;
+        const { sizes } = button;
         return sizes.includes(value);
       },
     },
@@ -46,7 +46,7 @@ export default {
       default: null,
       required: false,
       validator(value) {
-        const { colors } = validationParams.button;
+        const { colors } = button;
         return colors.includes(value);
       },
     },
@@ -55,7 +55,7 @@ export default {
       default: 'button',
       required: false,
       validator(value) {
-        const { types } = validationParams.button;
+        const { types } = button;
         return types.includes(value);
       },
     },

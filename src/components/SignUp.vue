@@ -50,7 +50,7 @@ import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
-import { globalParams } from '@/consts/params';
+import { authErrors } from '@/consts/globalParams';
 
 export default {
   name: 'SignUp',
@@ -82,7 +82,7 @@ export default {
         await this.$router.push('/search');
       } catch (e) {
         const errorMessage = e.response.data.error.message;
-        this.errors.push(globalParams.authErrors[errorMessage]);
+        this.errors.push(authErrors[errorMessage]);
       }
     },
   },
