@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { validationParams } from '@/utilities/params';
+import { validationParams } from '@/consts/params';
 
 export default {
   name: 'AppButton',

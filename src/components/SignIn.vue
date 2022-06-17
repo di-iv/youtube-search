@@ -50,7 +50,7 @@ import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
-import { globalParams } from '@/utilities/params';
+import { globalParams } from '@/consts/params';
 
 export default {
   name: 'AppLogin',

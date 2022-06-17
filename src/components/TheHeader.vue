@@ -37,7 +37,7 @@
 
 <script>
 import AppIcon from '@/components/AppIcon';
-import { globalParams } from '@/utilities/params';
+import { globalParams } from '@/consts/params';
 
 export default {
   name: 'AppHeader',

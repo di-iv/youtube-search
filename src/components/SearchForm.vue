@@ -49,7 +49,7 @@ import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
 import Favourites from '@/services/Favourites';
-import { validationParams } from '@/utilities/params';
+import { validationParams } from '@/consts/params';
 import { mapState } from 'vuex';
 
 export default {
