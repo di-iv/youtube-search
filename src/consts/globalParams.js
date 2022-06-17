@@ -27,7 +27,10 @@ const apiUrls = {
   youtube: 'https://youtube.googleapis.com/youtube/v3/',
   auth: 'https://identitytoolkit.googleapis.com/v1/',
 };
+const generalErrors = {
+  nameExist: 'Такое имя уже существует',
+};
 
 export {
-  navs, youtubeOrderOptions, authErrors, apiUrls,
+  navs, youtubeOrderOptions, authErrors, apiUrls, generalErrors,
 };

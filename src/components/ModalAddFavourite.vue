@@ -59,7 +59,7 @@ import AppModal from '@/components/AppModal';
 import AppSelect from '@/components/AppSelect';
 import InputRange from '@/components/InputRange';
 import Favourites from '@/services/Favourites';
-import { youtubeOrderOptions } from '@/consts/globalParams';
+import { generalErrors, youtubeOrderOptions } from '@/consts/globalParams';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { mapState } from 'vuex';
@@ -102,7 +102,7 @@ export default {
       if (isFormValid) {
         const nameIsUniq = Favourites.checkUniq(this.favourites, 'name', this.name);
         if (!nameIsUniq) {
-          this.errors.push('Такое имя уже существует');
+          this.errors.push(generalErrors.nameExist);
           return;
         }
         this.$refs.modal.confirm();
