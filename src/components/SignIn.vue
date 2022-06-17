@@ -9,7 +9,7 @@
           class="login__icon"
         />
         <h3>Вход</h3>
-        <form @submit.prevent="login">
+        <form @submit.prevent="signIn">
           <AppInput
             id="login"
             v-model="email"
@@ -53,7 +53,7 @@ import InputPassword from '@/components/InputPassword';
 import { authErrors } from '@/consts/globalParams';
 
 export default {
-  name: 'AppLogin',
+  name: 'SignIn',
   components: {
     AppError,
     InputPassword,
@@ -71,7 +71,7 @@ export default {
     };
   },
   methods: {
-    async login() {
+    async signIn() {
       this.errors = [];
       try {
         await this.$store.dispatch('auth/login', {

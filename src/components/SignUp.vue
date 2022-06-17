@@ -9,7 +9,7 @@
           class="login__icon"
         />
         <h3>Регистрация</h3>
-        <form @submit.prevent="login">
+        <form @submit.prevent="signUp">
           <AppInput
             id="login"
             v-model="email"
@@ -71,7 +71,7 @@ export default {
     };
   },
   methods: {
-    async login() {
+    async signUp() {
       this.errors = [];
       try {
         await this.$store.dispatch('auth/signUp', {
