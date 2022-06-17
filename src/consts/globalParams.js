@@ -29,6 +29,7 @@ const apiUrls = {
 };
 const generalErrors = {
   nameExist: 'Такое имя уже существует',
+  requestExist: 'Такой запрос уже существует',
 };
 
 export {
