@@ -16,10 +16,12 @@
             label="Email"
             label-color="text-grey"
             class="login__form-group"
+            :is-valid="!v$.email.$error"
           />
           <InputPassword
             v-model="password"
             class="login__form-group"
+            :is-valid="!v$.password.$error"
           />
           <AppError :errors="errors" />
           <div class="login__buttons">
@@ -51,6 +53,8 @@ import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
 import { authErrors } from '@/consts/globalParams';
+import useVuelidate from '@vuelidate/core';
+import { email, required } from '@vuelidate/validators';
 
 export default {
   name: 'SignIn',
@@ -68,19 +72,34 @@ export default {
       email: '',
       password: '',
       errors: [],
+      v$: useVuelidate(),
+    };
+  },
+  validations() {
+    return {
+      email: {
+        required,
+        email,
+      },
+      password: {
+        required,
+      },
     };
   },
   methods: {
     async signIn() {
       this.errors = [];
-      try {
-        await this.$store.dispatch('auth/signIn', {
-          email: this.email, password: this.password,
-        });
-        await this.$router.push('/search');
-      } catch (e) {
-        const errorMessage = e.response.data.error.message;
-        this.errors.push(authErrors[errorMessage]);
+      const isFormValid = await this.v$.$validate();
+      if (isFormValid) {
+        try {
+          await this.$store.dispatch('auth/signIn', {
+            email: this.email, password: this.password,
+          });
+          await this.$router.push('/search');
+        } catch (e) {
+          const errorMessage = e.response.data.error.message;
+          this.errors.push(authErrors[errorMessage]);
+        }
       }
     },
   },
