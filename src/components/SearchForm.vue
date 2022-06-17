@@ -93,7 +93,7 @@ export default {
     ...mapState('search', { request: 'request' }),
     iconName() {
       if (this.hasIcon) {
-        return 'Heart';
+        return searchForm.icon;
       }
       return null;
     },

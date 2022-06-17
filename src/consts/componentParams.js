@@ -14,6 +14,7 @@ const input = {
 const searchForm = {
   sizes: ['small', 'large'],
   defaultSize: 'small',
+  icon: 'Heart',
 };
 const select = {
   defaultLabel: 'Сортировать по',
