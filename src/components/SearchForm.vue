@@ -9,7 +9,7 @@
       ref="searchInput"
       v-model="searchRequest"
       label="Поиск"
-      label-hidden
+      is-label-hidden
       placeholder="Что хотите посмотреть?"
       size="large"
       class="search-form__wrapper"

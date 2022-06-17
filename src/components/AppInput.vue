@@ -5,8 +5,8 @@
       :class="[
         labelColor ? `input__label--${labelColor}`: null,
         {
-          'input__label--hidden': labelHidden,
-          'input__label--required': required,
+          'input__label--hidden': isLabelHidden,
+          'input__label--required': isRequired,
         }]"
       :for="id"
     >
@@ -27,7 +27,7 @@
         :type="type"
         :name="id"
         :placeholder="placeholder"
-        :disabled="disabled"
+        :disabled="isDisabled"
         autocomplete="off"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
@@ -57,7 +57,7 @@ export default {
       type: String,
       required: true,
     },
-    labelHidden: {
+    isLabelHidden: {
       type: Boolean,
       default: false,
       required: false,
@@ -81,7 +81,7 @@ export default {
       default: null,
       required: false,
     },
-    disabled: {
+    isDisabled: {
       type: Boolean,
       default: false,
       required: false,
@@ -104,7 +104,7 @@ export default {
       default: true,
       required: false,
     },
-    required: {
+    isRequired: {
       type: Boolean,
       default: false,
       required: false,

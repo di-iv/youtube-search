@@ -11,13 +11,13 @@
         v-model="request"
         label="Запрос"
         class="modal-favorites__form-group"
-        disabled
+        is-disabled
       />
       <AppInput
         id="name"
         v-model="name"
         label="Название"
-        required
+        is-required
         class="modal-favorites__form-group"
         :is-valid="!v$.name.$error"
       />
