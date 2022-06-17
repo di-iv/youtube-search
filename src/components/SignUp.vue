@@ -65,8 +65,6 @@ export default {
   emits: ['change'],
   data() {
     return {
-      iconName: 'EyeOff',
-      type: 'password',
       email: '',
       password: '',
       errors: [],
