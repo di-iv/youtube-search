@@ -9,7 +9,7 @@
           class="login__icon"
         />
         <h3>Регистрация</h3>
-        <form @submit.prevent="signUp">
+        <form @submit.prevent="trySignUp">
           <AppInput
             id="login"
             v-model="email"
@@ -55,6 +55,7 @@ import InputPassword from '@/components/InputPassword';
 import { authErrors } from '@/consts/globalParams';
 import useVuelidate from '@vuelidate/core';
 import { email, required } from '@vuelidate/validators';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'SignUp',
@@ -87,12 +88,13 @@ export default {
     };
   },
   methods: {
-    async signUp() {
+    ...mapActions('auth', ['signUp']),
+    async trySignUp() {
       this.errors = [];
       const isFormValid = await this.v$.$validate();
       if (isFormValid) {
         try {
-          await this.$store.dispatch('auth/signUp', {
+          await this.signUp({
             email: this.email,
             password: this.password,
           });

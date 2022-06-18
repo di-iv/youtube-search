@@ -9,7 +9,7 @@
           class="login__icon"
         />
         <h3>Вход</h3>
-        <form @submit.prevent="signIn">
+        <form @submit.prevent="trySignIn">
           <AppInput
             id="login"
             v-model="email"
@@ -55,6 +55,7 @@ import InputPassword from '@/components/InputPassword';
 import { authErrors } from '@/consts/globalParams';
 import useVuelidate from '@vuelidate/core';
 import { email, required } from '@vuelidate/validators';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'SignIn',
@@ -87,13 +88,15 @@ export default {
     };
   },
   methods: {
-    async signIn() {
+    ...mapActions('auth', ['signIn']),
+    async trySignIn() {
       this.errors = [];
       const isFormValid = await this.v$.$validate();
       if (isFormValid) {
         try {
-          await this.$store.dispatch('auth/signIn', {
-            email: this.email, password: this.password,
+          await this.signIn({
+            email: this.email,
+            password: this.password,
           });
           await this.$router.push('/search');
         } catch (error) {

@@ -26,7 +26,7 @@
         <router-link
           class="header__logout-link"
           to="/"
-          @click="logout"
+          @click="tryLogout"
         >
           Выйти
         </router-link>
@@ -38,6 +38,7 @@
 <script>
 import AppIcon from '@/components/AppIcon';
 import { navs } from '@/consts/globalParams';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'AppHeader',
@@ -48,8 +49,10 @@ export default {
     };
   },
   methods: {
-    logout() {
-      this.$store.commit('auth/logout');
+    ...mapMutations('auth', ['logout']),
+
+    tryLogout() {
+      this.logout();
     },
   },
 };

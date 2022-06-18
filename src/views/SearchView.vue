@@ -13,7 +13,7 @@
         :size="formSize"
         :has-icon="isResultFormType"
         :class="{'search__control': isResultFormType}"
-        @search="search"
+        @search="trySearch"
         @add-favourite="openModalAddFavourite"
         @remove-favourite="openModalRemoveFavourite"
       />
@@ -74,7 +74,7 @@ import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
 import { searchView } from '@/consts/componentParams';
 import Favourites from '@/services/Favourites';
-import { mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'SearchView',
@@ -120,8 +120,11 @@ export default {
     },
   },
   methods: {
-    async search() {
-      await this.$store.dispatch('search/search', { request: this.currentSearchRequest });
+    ...mapActions('search', ['search']),
+    ...mapMutations('favourites', ['addFavourite']),
+    ...mapMutations('favourites', ['removeFavourite']),
+    async trySearch() {
+      await this.search({ request: this.currentSearchRequest });
     },
     switchView(type) {
       this.viewType = type;
@@ -130,7 +133,7 @@ export default {
       const { isSuccess, newFavourite } = await this.$refs.modal.open(this.currentSearchRequest);
       if (isSuccess) {
         this.$refs.searchForm.openTooltip();
-        this.$store.commit('favourites/addFavourite', {
+        this.addFavourite({
           userId: this.userId,
           request: newFavourite.request,
           name: newFavourite.name,
@@ -143,7 +146,7 @@ export default {
       const modalResult = await this.$refs.modalRemoveFavourite.open(this.currentSearchRequest);
       if (modalResult) {
         const id = Favourites.getIndex('request', this.currentSearchRequest);
-        this.$store.commit('favourites/removeFavourite', id);
+        this.removeFavourite(id);
       }
     },
   },

@@ -51,7 +51,7 @@ import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
 import Favourites from '@/services/Favourites';
 import { searchForm } from '@/consts/componentParams';
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'SearchForm',
@@ -111,9 +111,10 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('favourites/getFavourites');
+    this.getFavourites();
   },
   methods: {
+    ...mapActions('favourites', ['getFavourites']),
     search() {
       if (this.isSearchRequestNotEmpty) {
         this.$emit('search');

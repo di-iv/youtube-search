@@ -50,7 +50,9 @@
 import AppButton from '@/components/AppButton';
 import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
 import ModalEditFavourite from '@/components/ModalEditFavourite';
-import { mapActions, mapGetters, mapState } from 'vuex';
+import {
+  mapActions, mapGetters, mapMutations, mapState,
+} from 'vuex';
 
 export default {
   name: 'FavouritesView',
@@ -64,10 +66,13 @@ export default {
     ...mapGetters('favourites', ['getFavouriteById']),
   },
   mounted() {
-    this.$store.dispatch('favourites/getFavourites');
+    this.getFavourites();
   },
   methods: {
     ...mapActions('search', ['search']),
+    ...mapActions('favourites', ['getFavourites']),
+    ...mapMutations('favourites', ['editFavourite']),
+    ...mapMutations('favourites', ['removeFavourite']),
 
     async doRequest(id) {
       const favourite = this.getFavouriteById(id);
@@ -77,22 +82,19 @@ export default {
     async editFavourite(favourite, id) {
       const result = await this.$refs.modalEdit.open(favourite);
       if (result) {
-        this.$store.commit(
-          'favourites/editFavourite',
-          {
-            id,
-            request: result.request,
-            name: result.name,
-            order: result.order,
-            resultsCount: result.resultsCount,
-          },
-        );
+        await this.editFavourite({
+          id,
+          request: result.request,
+          name: result.name,
+          order: result.order,
+          resultsCount: result.resultsCount,
+        });
       }
     },
     async removeFavourite(favourite, id) {
       const result = await this.$refs.modalRemove.open(favourite);
       if (result) {
-        this.$store.commit('favourites/removeFavourite', id);
+        await this.removeFavourite(id);
       }
     },
   },
