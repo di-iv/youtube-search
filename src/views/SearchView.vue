@@ -127,15 +127,15 @@ export default {
       this.viewType = type;
     },
     async openModalAddFavourite() {
-      const modalResult = await this.$refs.modal.open(this.currentSearchRequest);
-      if (modalResult) {
+      const { isSuccess, newFavourite } = await this.$refs.modal.open(this.currentSearchRequest);
+      if (isSuccess) {
         this.$refs.searchForm.openTooltip();
         this.$store.commit('favourites/addFavourite', {
           userId: this.userId,
-          request: modalResult.request,
-          name: modalResult.name,
-          order: modalResult.order,
-          resultsCount: modalResult.resultsCount,
+          request: newFavourite.request,
+          name: newFavourite.name,
+          order: newFavourite.order,
+          resultsCount: newFavourite.resultsCount,
         });
       }
     },

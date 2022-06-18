@@ -110,16 +110,22 @@ export default {
     },
     async open(request) {
       this.request = request;
-      const res = await this.$refs.modal.open();
-      if (res) {
+      const isModalSubmitted = await this.$refs.modal.open();
+      if (isModalSubmitted) {
         return {
-          request: this.request,
-          name: this.name,
-          order: this.order,
-          resultsCount: this.resultsCount,
+          isSuccess: true,
+          newFavourite: {
+            request: this.request,
+            name: this.name,
+            order: this.order,
+            resultsCount: this.resultsCount,
+          },
         };
       }
-      return res;
+      return {
+        isSuccess: false,
+        newFavourite: null,
+      };
     },
   },
 };
