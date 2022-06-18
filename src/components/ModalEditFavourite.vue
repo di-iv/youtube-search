@@ -105,17 +105,17 @@ export default {
       favourites.splice(this.id, 1);
       return favourites;
     },
-    isNameUniq() {
+    isNameUnique() {
       return Favourites.checkNameUnique(this.favouritesExceptThisOne, this.name);
     },
-    isRequestUniq() {
+    isRequestUnique() {
       return Favourites.checkRequestUnique(this.favouritesExceptThisOne, this.request);
     },
   },
   methods: {
     async save() {
       const isFormValid = await this.v$.$validate();
-      if (isFormValid && this.isNameUniq && this.isRequestUniq) {
+      if (isFormValid && this.isNameUnique && this.isRequestUnique) {
         this.$refs.modal.confirm();
         this.errors = [];
         return;
@@ -124,10 +124,10 @@ export default {
     },
     alertErrors() {
       this.errors = [];
-      if (!this.isRequestUniq) {
+      if (!this.isRequestUnique) {
         this.errors.push(generalErrors.requestExist);
       }
-      if (!this.isNameUniq) {
+      if (!this.isNameUnique) {
         this.errors.push(generalErrors.nameExist);
       }
     },
