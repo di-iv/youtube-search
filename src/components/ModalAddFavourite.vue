@@ -105,8 +105,8 @@ export default {
       if (!isFormValid) {
         return;
       }
-      const nameIsUniq = Favourites.checkNameUnique(this.favourites, this.name);
-      if (!nameIsUniq) {
+      const nameIsNotUnique = !Favourites.checkNameUnique(this.favourites, this.name);
+      if (nameIsNotUnique) {
         this.errors.push(generalErrors.nameExist);
         return;
       }
