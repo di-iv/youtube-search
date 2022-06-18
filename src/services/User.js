@@ -1,7 +1,7 @@
 import { authApi } from '@/services/api';
 import LocalStorage from '@/services/LocalStorage';
 
-export default class Auth {
+export default class User {
   static async signIn(email, password) {
     const res = await authApi.post('accounts:signInWithPassword', {
       email,
