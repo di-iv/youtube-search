@@ -8,15 +8,15 @@
       id="search"
       ref="searchInput"
       v-model="searchRequest"
-      label="Поиск"
-      is-label-hidden
-      placeholder="Что хотите посмотреть?"
-      size="large"
-      class="search-form__wrapper"
       :class="`search-form__wrapper--${size}`"
       :icon-name="iconName"
-      :is-invalid="isSearchInvalid"
       :is-icon-active="isRequestSaved"
+      :is-invalid="isSearchInvalid"
+      class="search-form__wrapper"
+      is-label-hidden
+      label="Поиск"
+      placeholder="Что хотите посмотреть?"
+      size="large"
       @on-icon-click="openModal"
       @update:model-value="updateValue"
     />
@@ -29,17 +29,17 @@
           Поиск сохранён в разделе «Избранное»
         </p>
         <router-link
-          to="/favourites"
           class="search-form__tooltip-link"
+          to="/favourites"
         >
           Перейти в избранное
         </router-link>
       </div>
     </transition>
     <AppButton
+      style-type="fill"
       text="Найти"
       type="submit"
-      style-type="fill"
       @click="search"
     />
   </form-group>

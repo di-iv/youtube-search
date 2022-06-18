@@ -1,7 +1,6 @@
 <template>
   <div class="input">
     <label
-      class="input__label"
       :class="[
         labelColor ? `input__label--${labelColor}`: null,
         {
@@ -9,6 +8,7 @@
           'input__label--required': isRequired,
         }]"
       :for="id"
+      class="input__label"
     >
       {{ label }}
     </label>
@@ -16,7 +16,6 @@
       <input
         :id="id"
         ref="input"
-        class="input__field"
         :class="[
           `input__field--${size}`,
           {
@@ -24,19 +23,20 @@
             'input__field--invalid': isInvalid
           }
         ]"
-        :type="type"
+        :disabled="isDisabled"
         :name="id"
         :placeholder="placeholder"
-        :disabled="isDisabled"
-        autocomplete="off"
+        :type="type"
         :value="modelValue"
+        autocomplete="off"
+        class="input__field"
         @input="updateValue"
       >
       <AppIcon
         v-if="hasIcon"
-        class="input__icon"
         :class="{'input__icon--active': isIconActive}"
         :icon-name="iconName"
+        class="input__icon"
         @click="onIconClick"
       />
     </div>

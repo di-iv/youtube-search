@@ -13,9 +13,9 @@
             class="header__nav-item"
           >
             <router-link
-              class="header__nav-link"
-              active-class="header__nav-link--active"
               :to="nav.link"
+              active-class="header__nav-link--active"
+              class="header__nav-link"
             >
               {{ nav.title }}
             </router-link>

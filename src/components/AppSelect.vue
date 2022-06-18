@@ -1,8 +1,8 @@
 <template>
   <div class="select">
     <label
-      for="select"
       class="select__label"
+      for="select"
     >{{ label }}</label>
     <select
       class="select__select"
@@ -11,8 +11,8 @@
       <option
         v-for="option in options"
         :key="option"
-        :value="option.value"
         :selected="option.value === modelValue"
+        :value="option.value"
       >
         {{ option.text }}
       </option>

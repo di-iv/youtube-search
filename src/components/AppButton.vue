@@ -1,12 +1,12 @@
 <template>
   <button
-    class="btn"
     :class="[
       `btn--${styleType}`,
       size ? `btn--${size}` : null,
       color ? `btn--${color}` : null,
     ]"
     :type="type"
+    class="btn"
   >
     {{ text }}
   </button>

@@ -1,24 +1,24 @@
 <template>
   <div class="input-range">
     <label
-      for="input"
       class="input-range__label"
+      for="input"
     >Максимальное количество</label>
     <div class="input-range__wrapper">
       <input
         v-model.number="value"
+        :max="max"
+        :min="min"
         class="input-range__slider"
         type="range"
-        :min="min"
-        :max="max"
         @input="updateValue"
       >
       <input
         v-model="value"
+        :max="max"
+        :min="min"
         class="input-range__text"
         type="number"
-        :min="min"
-        :max="max"
         @input="updateValue"
       >
     </div>

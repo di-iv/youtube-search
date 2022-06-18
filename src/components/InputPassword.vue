@@ -3,10 +3,10 @@
     id="password"
     v-model="password"
     :icon-name="icon"
+    :is-invalid="isInvalid"
+    :type="type"
     label="Пароль"
     label-color="text-grey"
-    :type="type"
-    :is-invalid="isInvalid"
     @on-icon-click="togglePasswordVisibility"
     @update:model-value="updateValue"
   />

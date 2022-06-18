@@ -5,13 +5,13 @@
     <a
       v-for="result in searchResults"
       :key="result"
-      class="results__item"
       :href="`${youtubeVideoLink}${result.id.videoId}`"
+      class="results__item"
       target="_blank"
     >
       <img
-        :src="result.snippet.thumbnails.medium.url"
         :alt="result.snippet.title"
+        :src="result.snippet.thumbnails.medium.url"
         class="results__item-img"
       >
       <div class="results__item-info">

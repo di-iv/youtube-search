@@ -3,8 +3,8 @@
     <TheHeader />
     <router-view v-slot="{Component}">
       <transition
-        name="layout"
         mode="out-in"
+        name="layout"
       >
         <keep-alive>
           <component :is="Component" />

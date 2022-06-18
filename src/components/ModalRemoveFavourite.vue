@@ -7,16 +7,16 @@
     <h3>Удалить запрос {{ requestName }}?</h3>
     <div class="modal-favorites__buttons">
       <app-button
+        class="modal-favorites__button"
         style-type="outline"
         text="Отмена"
-        class="modal-favorites__button"
         @click="cancel"
       />
       <app-button
+        class="modal-favorites__button"
+        size="medium"
         style-type="fill"
         text="Удалить"
-        size="medium"
-        class="modal-favorites__button"
         @click="confirm"
       />
     </div>

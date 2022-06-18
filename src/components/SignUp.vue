@@ -3,39 +3,39 @@
     <app-card>
       <div class="login__card">
         <AppIcon
-          icon-name="Logo"
-          :width="88"
           :height="88"
+          :width="88"
           class="login__icon"
+          icon-name="Logo"
         />
         <h3>Регистрация</h3>
         <form @submit.prevent="trySignUp">
           <AppInput
             id="login"
             v-model="email"
+            :is-invalid="v$.email.$error"
+            class="login__form-group"
             label="Email"
             label-color="text-grey"
-            class="login__form-group"
-            :is-invalid="v$.email.$error"
           />
           <InputPassword
             v-model="password"
-            class="login__form-group"
             :is-invalid="v$.password.$error"
+            class="login__form-group"
           />
           <AppError :errors="errors" />
           <div class="login__buttons">
             <AppButton
-              text="Создать"
-              size="medium"
-              type="submit"
-              style-type="fill"
               class="login__button"
+              size="medium"
+              style-type="fill"
+              text="Создать"
+              type="submit"
             />
             <AppButton
-              text="Войти"
-              style-type="link"
               class="login__button login__button--link"
+              style-type="link"
+              text="Войти"
               @click="$emit('change', 'signIn')"
             />
           </div>

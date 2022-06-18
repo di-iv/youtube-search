@@ -15,24 +15,24 @@
         >
           <p
             class="favourites__requests-item-name"
-            @keydown="doRequest(id)"
             @click="doRequest(id)"
+            @keydown="doRequest(id)"
           >
             {{ favourite.name }}
           </p>
           <div class="favourites__requests-item-buttons">
             <app-button
-              text="Изменить"
-              style-type="link"
-              color="primary"
               class="favourites__requests-item-button"
+              color="primary"
+              style-type="link"
+              text="Изменить"
               @click="editFavourite(favourite, id)"
             />
             <app-button
-              text="Удалить"
-              style-type="link"
-              color="danger"
               class="favourites__requests-item-button"
+              color="danger"
+              style-type="link"
+              text="Удалить"
               @click="removeFavourite(favourite, id)"
             />
           </div>

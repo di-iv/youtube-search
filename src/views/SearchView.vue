@@ -1,8 +1,8 @@
 <template>
   <section class="search">
     <div
-      class="search__wrapper container"
       :class="`search__wrapper--${formType}`"
+      class="search__wrapper container"
     >
       <h1 :class="{'search__title': isResultFormType}">
         Поиск видео
@@ -10,9 +10,9 @@
       <SearchForm
         ref="searchForm"
         v-model="currentSearchRequest"
-        :size="formSize"
-        :has-icon="isResultFormType"
         :class="{'search__control': isResultFormType}"
+        :has-icon="isResultFormType"
+        :size="formSize"
         @search="trySearch"
         @add-favourite="openModalAddFavourite"
         @remove-favourite="openModalRemoveFavourite"
@@ -28,15 +28,15 @@
           </p>
           <div class="search__view-switcher">
             <AppIcon
-              icon-name="List"
-              class="search__view-switcher-icon"
               :class="{'search__view-switcher-icon--active': isListViewType}"
+              class="search__view-switcher-icon"
+              icon-name="List"
               @click="switchView(listViewType)"
             />
             <AppIcon
-              icon-name="Grid"
-              class="search__view-switcher-icon"
               :class="{'search__view-switcher-icon--active': isGridViewType}"
+              class="search__view-switcher-icon"
+              icon-name="Grid"
               @click="switchView(gridViewType)"
             />
           </div>
@@ -46,23 +46,19 @@
         >
           <SearchResults
             v-if="isGridViewType"
-            class="results__list--grid"
             :search-results="searchResults"
+            class="results__list--grid"
           />
           <SearchResults
             v-else
-            class="results__list--list"
             :search-results="searchResults"
+            class="results__list--list"
           />
         </transition>
       </div>
     </div>
-    <ModalAddFavourite
-      ref="modal"
-    />
-    <ModalRemoveFavourite
-      ref="modalRemoveFavourite"
-    />
+    <ModalAddFavourite ref="modal" />
+    <ModalRemoveFavourite ref="modalRemoveFavourite" />
   </section>
 </template>
 

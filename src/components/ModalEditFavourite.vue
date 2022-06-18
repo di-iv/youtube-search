@@ -8,18 +8,18 @@
     <AppInput
       id="request"
       v-model="request"
-      label="Запрос"
-      class="modal-favorites__form-group"
       :is-invalid="v$.request.$error"
+      class="modal-favorites__form-group"
       is-required
+      label="Запрос"
     />
     <AppInput
       id="name"
       v-model="name"
-      label="Название"
-      is-required
-      class="modal-favorites__form-group"
       :is-invalid="v$.name.$error"
+      class="modal-favorites__form-group"
+      is-required
+      label="Название"
     />
     <AppSelect
       v-model="order"
@@ -28,24 +28,24 @@
     />
     <InputRange
       v-model="resultsCount"
-      class="modal-favorites__form-group"
-      :min="$options.youtubeResultsRange.min"
       :max="$options.youtubeResultsRange.max"
+      :min="$options.youtubeResultsRange.min"
+      class="modal-favorites__form-group"
     />
     <AppError :errors="errors" />
     <div class="modal-favorites__buttons">
       <AppButton
-        text="Не изменять"
-        style-type="outline"
-        size="large"
         class="modal-favorites__button"
+        size="large"
+        style-type="outline"
+        text="Не изменять"
         @click="cancel"
       />
       <AppButton
-        text="Изменить"
+        class="modal-favorites__button"
         size="large"
         style-type="fill"
-        class="modal-favorites__button"
+        text="Изменить"
         @click="save"
       />
     </div>
