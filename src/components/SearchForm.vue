@@ -83,7 +83,7 @@ export default {
   emits: ['search', 'add-favourite', 'update:modelValue', 'remove-favourite'],
   data() {
     return {
-      tooltipVisibility: false,
+      isTooltipVisibility: false,
       isSearchInvalid: false,
       searchRequest: '',
     };
@@ -128,11 +128,11 @@ export default {
       }
     },
     openTooltip() {
-      this.tooltipVisibility = true;
+      this.isTooltipVisibility = true;
       document.addEventListener('click', this.closeTooltip);
     },
     closeTooltip() {
-      this.tooltipVisibility = false;
+      this.isTooltipVisibility = false;
       document.removeEventListener('click', this.closeTooltip);
     },
     updateValue() {
