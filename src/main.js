@@ -4,4 +4,8 @@ import router from './router';
 import store from './store';
 import './styles/index.scss';
 
-createApp(App).use(store).use(router).mount('#app');
+const app = createApp(App).use(store).use(router);
+
+store.dispatch('auth/checkToken').then(() => {
+  app.mount('#app');
+});

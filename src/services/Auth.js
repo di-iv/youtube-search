@@ -26,4 +26,10 @@ export default class Auth {
     const expirationDate = new Date(expirationDateMs);
     LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
   }
+
+  static checkToken() {
+    const nowDateMs = new Date().getTime();
+    const expirationDateMs = LocalStorage.get('expirationDate')?.ms;
+    return expirationDateMs > nowDateMs;
+  }
 }

@@ -18,6 +18,7 @@ export default {
       state.userId = '';
       state.userToken = '';
       LocalStorage.remove('userInfo');
+      LocalStorage.remove('expirationDate');
     },
   },
   actions: {
@@ -28,6 +29,12 @@ export default {
     async signUp({ commit }, { email, password }) {
       const res = await Auth.signUp(email, password);
       commit('setUser', res);
+    },
+    checkToken({ commit }) {
+      const isTokenNotValid = !Auth.checkToken();
+      if (isTokenNotValid) {
+        commit('logout');
+      }
     },
   },
 };
