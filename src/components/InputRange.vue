@@ -8,16 +8,16 @@
       <input
         class="input-range__slider"
         type="range"
-        min="0"
-        max="50"
+        :min="min"
+        :max="max"
         :value="modelValue"
         @input="updateValue"
       >
       <input
         class="input-range__text"
         type="number"
-        min="0"
-        max="50"
+        :min="min"
+        :max="max"
         :value="modelValue"
         @input="updateValue"
       >
@@ -30,6 +30,14 @@ export default {
   name: 'InputRange',
   props: {
     modelValue: {
+      type: Number,
+      required: true,
+    },
+    min: {
+      type: Number,
+      required: true,
+    },
+    max: {
       type: Number,
       required: true,
     },

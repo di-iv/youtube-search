@@ -29,6 +29,8 @@
     <InputRange
       v-model="resultsCount"
       class="modal-favorites__form-group"
+      :min="$options.youtubeResultsRange.min"
+      :max="$options.youtubeResultsRange.max"
     />
     <AppError :errors="errors" />
     <div class="modal-favorites__buttons">
@@ -58,7 +60,7 @@ import AppModal from '@/components/AppModal';
 import AppSelect from '@/components/AppSelect';
 import InputRange from '@/components/InputRange';
 import Favourites from '@/services/Favourites';
-import { generalErrors, youtubeOrderOptions } from '@/consts/globalParams';
+import { generalErrors, youtubeOrderOptions, youtubeResultsRange } from '@/consts/globalParams';
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { mapState } from 'vuex';
@@ -74,6 +76,7 @@ export default {
     AppModal,
   },
   youtubeOrderOptions,
+  youtubeResultsRange,
   data() {
     return {
       request: '',

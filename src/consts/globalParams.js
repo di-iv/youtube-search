@@ -32,7 +32,17 @@ const generalErrors = {
   requestExist: 'Такой запрос уже существует',
 };
 const youtubeVideoLink = 'https://www.youtube.com/watch?v=';
+const youtubeResultsRange = {
+  min: 0,
+  max: 50,
+};
 
 export {
-  navs, youtubeOrderOptions, authErrors, apiUrls, generalErrors, youtubeVideoLink,
+  navs,
+  youtubeOrderOptions,
+  authErrors,
+  apiUrls,
+  generalErrors,
+  youtubeVideoLink,
+  youtubeResultsRange,
 };
