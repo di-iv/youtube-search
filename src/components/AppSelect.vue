@@ -42,8 +42,8 @@ export default {
   },
   emits: ['update:modelValue'],
   methods: {
-    updateValue(e) {
-      this.$emit('update:modelValue', e.target.value);
+    updateValue(event) {
+      this.$emit('update:modelValue', event.target.value);
     },
   },
 };

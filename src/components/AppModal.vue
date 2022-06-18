@@ -56,8 +56,8 @@ export default {
 
       return modalPromise;
     },
-    handleKeydown(e) {
-      if (e.key === 'Escape') {
+    handleKeydown(event) {
+      if (event.key === 'Escape') {
         this.close();
       }
     },
