@@ -23,12 +23,12 @@ export default {
   },
   actions: {
     async signIn({ commit }, { email, password }) {
-      const res = await User.signIn(email, password);
-      commit('setUser', res);
+      const user = await User.signIn(email, password);
+      commit('setUser', user);
     },
     async signUp({ commit }, { email, password }) {
-      const res = await User.signUp(email, password);
-      commit('setUser', res);
+      const user = await User.signUp(email, password);
+      commit('setUser', user);
     },
     checkToken({ commit }) {
       const isTokenNotValid = !User.checkToken();
