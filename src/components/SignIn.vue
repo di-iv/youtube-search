@@ -96,8 +96,8 @@ export default {
             email: this.email, password: this.password,
           });
           await this.$router.push('/search');
-        } catch (e) {
-          const errorMessage = e.response.data.error.message;
+        } catch (error) {
+          const errorMessage = error.response.data.error.message;
           this.errors.push(authErrors[errorMessage]);
         }
       }
