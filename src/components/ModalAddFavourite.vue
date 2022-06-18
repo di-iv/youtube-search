@@ -23,7 +23,7 @@
       />
       <AppSelect
         v-model="order"
-        :options="options"
+        :options="$options.youtubeOrderOptions"
         class="modal-favorites__form-group"
       />
       <InputRange
@@ -74,13 +74,13 @@ export default {
     AppInput,
     AppModal,
   },
+  youtubeOrderOptions,
   data() {
     return {
       request: '',
       name: '',
       errors: [],
       v$: useVuelidate(),
-      options: youtubeOrderOptions,
       order: null,
       resultsCount: 12,
     };
