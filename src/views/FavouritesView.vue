@@ -64,7 +64,7 @@ export default {
     ...mapGetters('favourites', ['getFavouriteById']),
   },
   mounted() {
-    this.$store.commit('favourites/getFavouriteFromStorage');
+    this.$store.dispatch('favourites/getFavourites');
   },
   methods: {
     ...mapActions('search', ['search']),
