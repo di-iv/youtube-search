@@ -33,7 +33,7 @@ const generalErrors = {
 };
 const youtubeVideoLink = 'https://www.youtube.com/watch?v=';
 const youtubeResultsRange = {
-  min: 0,
+  min: 1,
   max: 50,
 };
 
