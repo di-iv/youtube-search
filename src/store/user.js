@@ -5,18 +5,18 @@ export default {
   namespaced: true,
   state: {
     id: LocalStorage.get('userInfo')?.id || '',
-    userToken: LocalStorage.get('userInfo')?.token || '',
+    token: LocalStorage.get('userInfo')?.token || '',
   },
   mutations: {
     setUser(state, data) {
       state.id = data.localId;
-      state.userToken = data.idToken;
-      LocalStorage.set('userInfo', { id: state.id, token: state.userToken });
+      state.token = data.idToken;
+      LocalStorage.set('userInfo', { id: state.id, token: state.token });
       User.setExpirationTokenDate(data.expiresIn);
     },
     logout(state) {
       state.id = '';
-      state.userToken = '';
+      state.token = '';
       LocalStorage.remove('userInfo');
       LocalStorage.remove('expirationDate');
     },
