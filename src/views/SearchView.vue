@@ -92,7 +92,7 @@ export default {
   computed: {
     ...mapState('search', { searchResults: 'results' }),
     ...mapState('search', { oldSearchRequest: 'request' }),
-    ...mapState('user', { userId: 'userId' }),
+    ...mapState('user', { userId: 'id' }),
     formSize() {
       if (this.searchResults) {
         return searchView.formSize.large;

@@ -4,18 +4,18 @@ import LocalStorage from '@/services/LocalStorage';
 export default {
   namespaced: true,
   state: {
-    userId: LocalStorage.get('userInfo')?.id || '',
+    id: LocalStorage.get('userInfo')?.id || '',
     userToken: LocalStorage.get('userInfo')?.token || '',
   },
   mutations: {
     setUser(state, data) {
-      state.userId = data.localId;
+      state.id = data.localId;
       state.userToken = data.idToken;
-      LocalStorage.set('userInfo', { id: state.userId, token: state.userToken });
+      LocalStorage.set('userInfo', { id: state.id, token: state.userToken });
       User.setExpirationTokenDate(data.expiresIn);
     },
     logout(state) {
-      state.userId = '';
+      state.id = '';
       state.userToken = '';
       LocalStorage.remove('userInfo');
       LocalStorage.remove('expirationDate');
