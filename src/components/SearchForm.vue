@@ -15,7 +15,7 @@
       class="search-form__wrapper"
       :class="`search-form__wrapper--${size}`"
       :icon-name="iconName"
-      :is-valid="isSearchValid"
+      :is-invalid="isSearchInvalid"
       :is-icon-active="isRequestSaved"
       @on-icon-click="openModal"
       @update:model-value="updateValue"
@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       tooltipVisibility: false,
-      isSearchValid: true,
+      isSearchInvalid: false,
       searchRequest: '',
     };
   },
@@ -104,7 +104,7 @@ export default {
   watch: {
     searchRequest() {
       if (this.searchRequest.length > 0) {
-        this.isSearchValid = true;
+        this.isSearchInvalid = false;
       }
     },
   },
@@ -120,7 +120,7 @@ export default {
         return;
       }
       this.$refs.searchInput.focus();
-      this.isSearchValid = false;
+      this.isSearchInvalid = true;
     },
     openModal() {
       if (this.isRequestSaved) {

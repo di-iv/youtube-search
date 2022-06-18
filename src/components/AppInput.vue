@@ -21,7 +21,7 @@
           `input__field--${size}`,
           {
             'input__field--icon': hasIcon,
-            'input__field--invalid': !isValid
+            'input__field--invalid': isInvalid
           }
         ]"
         :type="type"
@@ -99,9 +99,9 @@ export default {
       type: String,
       required: true,
     },
-    isValid: {
+    isInvalid: {
       type: Boolean,
-      default: true,
+      default: false,
       required: false,
     },
     isRequired: {

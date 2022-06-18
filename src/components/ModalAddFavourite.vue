@@ -19,7 +19,7 @@
         label="Название"
         is-required
         class="modal-favorites__form-group"
-        :is-valid="!v$.name.$error"
+        :is-invalid="v$.name.$error"
       />
       <AppSelect
         v-model="order"

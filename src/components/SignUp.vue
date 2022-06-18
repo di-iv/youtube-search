@@ -16,12 +16,12 @@
             label="Email"
             label-color="text-grey"
             class="login__form-group"
-            :is-valid="!v$.email.$error"
+            :is-invalid="v$.email.$error"
           />
           <InputPassword
             v-model="password"
             class="login__form-group"
-            :is-valid="!v$.password.$error"
+            :is-invalid="v$.password.$error"
           />
           <AppError :errors="errors" />
           <div class="login__buttons">

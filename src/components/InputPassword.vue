@@ -6,7 +6,7 @@
     label="Пароль"
     label-color="text-grey"
     :type="type"
-    :is-valid="isValid"
+    :is-invalid="isInvalid"
     @on-icon-click="togglePasswordVisibility"
     @update:model-value="updateValue"
   />
@@ -24,9 +24,9 @@ export default {
       type: String,
       required: true,
     },
-    isValid: {
+    isInvalid: {
       type: Boolean,
-      default: true,
+      default: false,
       required: false,
     },
   },

@@ -10,7 +10,7 @@
       v-model="request"
       label="Запрос"
       class="modal-favorites__form-group"
-      :is-valid="!v$.request.$error"
+      :is-invalid="v$.request.$error"
       is-required
     />
     <AppInput
@@ -19,7 +19,7 @@
       label="Название"
       is-required
       class="modal-favorites__form-group"
-      :is-valid="!v$.name.$error"
+      :is-invalid="v$.name.$error"
     />
     <AppSelect
       v-model="order"
