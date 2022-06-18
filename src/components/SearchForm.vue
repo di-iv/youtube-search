@@ -89,7 +89,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('favourites', { favourites: 'favorites' }),
+    ...mapState('favourites', { favourites: 'favourites' }),
     iconName() {
       if (this.hasIcon) {
         return searchForm.icon;

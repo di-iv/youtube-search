@@ -3,16 +3,16 @@ import Favourites from '@/services/Favourites';
 export default {
   namespaced: true,
   state: {
-    favorites: [],
+    favourites: [],
   },
   getters: {
-    getFavouriteById: (state) => (id) => state.favorites[id],
+    getFavouriteById: (state) => (id) => state.favourites[id],
   },
   mutations: {
     addFavourite(state, {
       userId, request, name, order = 'null', resultsCount = 12,
     }) {
-      state.favorites.push({
+      state.favourites.push({
         request, name, order, resultsCount, userId,
       });
       Favourites.addToStorage({
@@ -22,17 +22,17 @@ export default {
     editFavourite(state, {
       id, request, name, order, resultsCount,
     }) {
-      state.favorites[id] = {
+      state.favourites[id] = {
         request, name, order, resultsCount,
       };
-      Favourites.addToStorage(state.favorites);
+      Favourites.addToStorage(state.favourites);
     },
     removeFavourite(state, id) {
-      state.favorites.splice(id, 1);
-      Favourites.addToStorage(state.favorites);
+      state.favourites.splice(id, 1);
+      Favourites.addToStorage(state.favourites);
     },
     setFavourites(state, data) {
-      state.favorites = data;
+      state.favourites = data;
     },
   },
   actions: {

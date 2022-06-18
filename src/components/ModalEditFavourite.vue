@@ -2,14 +2,14 @@
   <app-modal
     ref="modal"
     v-slot="{cancel}"
-    class="modal-favorites"
+    class="modal-favourites"
   >
     <h3>Изменить запрос</h3>
     <AppInput
       id="request"
       v-model="request"
       :is-invalid="v$.request.$error"
-      class="modal-favorites__form-group"
+      class="modal-favourites__form-group"
       is-required
       label="Запрос"
     />
@@ -17,32 +17,32 @@
       id="name"
       v-model="name"
       :is-invalid="v$.name.$error"
-      class="modal-favorites__form-group"
+      class="modal-favourites__form-group"
       is-required
       label="Название"
     />
     <AppSelect
       v-model="order"
       :options="$options.youtubeOrderOptions"
-      class="modal-favorites__form-group"
+      class="modal-favourites__form-group"
     />
     <InputRange
       v-model="resultsCount"
       :max="$options.youtubeResultsRange.max"
       :min="$options.youtubeResultsRange.min"
-      class="modal-favorites__form-group"
+      class="modal-favourites__form-group"
     />
     <AppError :errors="errors" />
-    <div class="modal-favorites__buttons">
+    <div class="modal-favourites__buttons">
       <AppButton
-        class="modal-favorites__button"
+        class="modal-favourites__button"
         size="large"
         style-type="outline"
         text="Не изменять"
         @click="cancel"
       />
       <AppButton
-        class="modal-favorites__button"
+        class="modal-favourites__button"
         size="large"
         style-type="fill"
         text="Изменить"
@@ -99,7 +99,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('favourites', { favourites: 'favorites' }),
+    ...mapState('favourites', { favourites: 'favourites' }),
     favouritesExceptThisOne() {
       const favourites = [...this.favourites];
       favourites.splice(this.id, 1);

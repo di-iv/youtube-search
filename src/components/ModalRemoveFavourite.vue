@@ -2,18 +2,18 @@
   <app-modal
     ref="modal"
     v-slot="{confirm, cancel}"
-    class="modal-favorites"
+    class="modal-favourites"
   >
     <h3>Удалить запрос {{ requestName }}?</h3>
-    <div class="modal-favorites__buttons">
+    <div class="modal-favourites__buttons">
       <app-button
-        class="modal-favorites__button"
+        class="modal-favourites__button"
         style-type="outline"
         text="Отмена"
         @click="cancel"
       />
       <app-button
-        class="modal-favorites__button"
+        class="modal-favourites__button"
         size="medium"
         style-type="fill"
         text="Удалить"

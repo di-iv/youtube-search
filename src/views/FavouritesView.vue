@@ -61,7 +61,7 @@ export default {
     AppButton,
   },
   computed: {
-    ...mapState('favourites', { favourites: 'favorites' }),
+    ...mapState('favourites', { favourites: 'favourites' }),
     ...mapGetters('favourites', ['getFavouriteById']),
   },
   mounted() {
