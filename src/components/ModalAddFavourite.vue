@@ -102,14 +102,15 @@ export default {
     async save() {
       this.errors = [];
       const isFormValid = await this.v$.$validate();
-      if (isFormValid) {
-        const nameIsUniq = Favourites.checkNameUnique(this.favourites, this.name);
-        if (!nameIsUniq) {
-          this.errors.push(generalErrors.nameExist);
-          return;
-        }
-        this.$refs.modal.confirm();
+      if (!isFormValid) {
+        return;
       }
+      const nameIsUniq = Favourites.checkNameUnique(this.favourites, this.name);
+      if (!nameIsUniq) {
+        this.errors.push(generalErrors.nameExist);
+        return;
+      }
+      this.$refs.modal.confirm();
     },
     async open(request) {
       this.request = request;
