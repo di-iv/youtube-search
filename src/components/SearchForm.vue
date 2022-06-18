@@ -22,7 +22,7 @@
     />
     <transition name="fade">
       <div
-        v-if="tooltipVisibility"
+        v-if="isTooltipVisibility"
         class="search-form__tooltip"
       >
         <p class="search-form__tooltip-text">
