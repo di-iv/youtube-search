@@ -106,10 +106,10 @@ export default {
       return favourites;
     },
     isNameUniq() {
-      return Favourites.checkUniq(this.favouritesExceptThisOne, 'name', this.name);
+      return Favourites.checkNameUnique(this.favouritesExceptThisOne, this.name);
     },
     isRequestUniq() {
-      return Favourites.checkUniq(this.favouritesExceptThisOne, 'request', this.request);
+      return Favourites.checkRequestUnique(this.favouritesExceptThisOne, this.request);
     },
   },
   methods: {

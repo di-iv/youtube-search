@@ -103,7 +103,7 @@ export default {
       this.errors = [];
       const isFormValid = await this.v$.$validate();
       if (isFormValid) {
-        const nameIsUniq = Favourites.checkUniq(this.favourites, 'name', this.name);
+        const nameIsUniq = Favourites.checkNameUnique(this.favourites, this.name);
         if (!nameIsUniq) {
           this.errors.push(generalErrors.nameExist);
           return;

@@ -97,7 +97,7 @@ export default {
       return null;
     },
     isRequestSaved() {
-      return !Favourites.checkUniq(this.favourites, 'request', this.searchRequest);
+      return !Favourites.checkRequestUnique(this.favourites, this.searchRequest);
     },
   },
   watch: {

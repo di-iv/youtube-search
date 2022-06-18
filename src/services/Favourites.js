@@ -15,8 +15,12 @@ export default class Favourites {
     return null;
   }
 
-  static checkUniq(favourites, field, value) {
-    return !hasValue(favourites, field, value);
+  static checkNameUnique(favourites, value) {
+    return !hasValue(favourites, 'name', value);
+  }
+
+  static checkRequestUnique(favourites, value) {
+    return !hasValue(favourites, 'request', value);
   }
 
   static getIndex(field, value) {
