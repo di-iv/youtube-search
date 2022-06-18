@@ -15,8 +15,7 @@
         >
           <p
             class="favourites__requests-item-name"
-            @click="doRequest(id)"
-            @keydown="doRequest(id)"
+            @mouseup="doRequest(id)"
           >
             {{ favourite.name }}
           </p>
