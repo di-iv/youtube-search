@@ -90,7 +90,6 @@ export default {
   },
   computed: {
     ...mapState('favourites', { favourites: 'favorites' }),
-    ...mapState('search', { request: 'request' }),
     iconName() {
       if (this.hasIcon) {
         return searchForm.icon;
@@ -110,7 +109,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('favourites/getFavourites');
-    this.searchRequest = this.request;
   },
   methods: {
     search() {
