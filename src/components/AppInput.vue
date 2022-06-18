@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import AppIcon from '@/components/AppIcon';
 import { input } from '@/consts/componentParams';
+import AppIcon from '@/components/AppIcon';
 
 export default {
   name: 'AppInput',

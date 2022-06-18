@@ -1,6 +1,6 @@
+import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '@/layouts/MainLayout';
 import store from '@/store';
-import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {

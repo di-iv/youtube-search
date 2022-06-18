@@ -67,14 +67,14 @@
 </template>
 
 <script>
+import { mapActions, mapMutations, mapState } from 'vuex';
+import { searchView } from '@/consts/componentParams';
+import Favourites from '@/services/Favourites';
 import AppIcon from '@/components/AppIcon';
 import ModalAddFavourite from '@/components/ModalAddFavourite';
 import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
-import { searchView } from '@/consts/componentParams';
-import Favourites from '@/services/Favourites';
-import { mapActions, mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'SearchView',

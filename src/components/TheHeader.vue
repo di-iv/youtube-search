@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import AppIcon from '@/components/AppIcon';
-import { navs } from '@/consts/globalParams';
 import { mapMutations } from 'vuex';
+import { navs } from '@/consts/globalParams';
+import AppIcon from '@/components/AppIcon';
 
 export default {
   name: 'AppHeader',

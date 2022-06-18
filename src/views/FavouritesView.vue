@@ -47,12 +47,12 @@
   </section>
 </template>
 <script>
-import AppButton from '@/components/AppButton';
-import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
-import ModalEditFavourite from '@/components/ModalEditFavourite';
 import {
   mapActions, mapGetters, mapMutations, mapState,
 } from 'vuex';
+import AppButton from '@/components/AppButton';
+import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
+import ModalEditFavourite from '@/components/ModalEditFavourite';
 
 export default {
   name: 'FavouritesView',

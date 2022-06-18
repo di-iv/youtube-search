@@ -1,5 +1,5 @@
-import { apiUrls } from '@/consts/globalParams';
 import axios from 'axios';
+import { apiUrls } from '@/consts/globalParams';
 
 const youtubeApi = axios.create({
   baseURL: apiUrls.youtube,

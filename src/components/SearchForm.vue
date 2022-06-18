@@ -46,12 +46,12 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
+import { searchForm } from '@/consts/componentParams';
+import Favourites from '@/services/Favourites';
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';
-import Favourites from '@/services/Favourites';
-import { searchForm } from '@/consts/componentParams';
-import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'SearchForm',

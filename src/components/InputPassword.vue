@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import AppInput from '@/components/AppInput';
 import { inputPassword } from '@/consts/componentParams';
+import AppInput from '@/components/AppInput';
 
 export default {
   name: 'InputPassword',

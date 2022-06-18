@@ -46,16 +46,16 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core';
+import { email, required } from '@vuelidate/validators';
+import { mapActions } from 'vuex';
+import { authErrors } from '@/consts/globalParams';
 import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
 import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
-import { authErrors } from '@/consts/globalParams';
-import useVuelidate from '@vuelidate/core';
-import { email, required } from '@vuelidate/validators';
-import { mapActions } from 'vuex';
 
 export default {
   name: 'SignUp',
