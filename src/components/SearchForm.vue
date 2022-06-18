@@ -109,7 +109,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.commit('favourites/getFavouriteFromStorage');
+    this.$store.dispatch('favourites/getFavourites');
     this.searchRequest = this.request;
   },
   methods: {

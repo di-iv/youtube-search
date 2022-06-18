@@ -1,5 +1,4 @@
 import Favourites from '@/services/Favourites';
-import auth from '@/store/auth';
 
 export default {
   namespaced: true,
@@ -32,8 +31,14 @@ export default {
       state.favorites.splice(id, 1);
       Favourites.addToStorage(state.favorites);
     },
-    getFavouriteFromStorage(state) {
-      state.favorites = Favourites.getFromStorageByUserId(auth.state.userId) ?? [];
+    setFavourites(state, data) {
+      state.favorites = data;
+    },
+  },
+  actions: {
+    getFavourites({ rootState, commit }) {
+      const favourites = Favourites.getFromStorageByUserId(rootState.auth.userId) ?? [];
+      commit('setFavourites', favourites);
     },
   },
 };
