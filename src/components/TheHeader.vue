@@ -49,7 +49,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations('auth', ['logout']),
+    ...mapMutations('user', ['logout']),
 
     tryLogout() {
       this.logout();

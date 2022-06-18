@@ -6,6 +6,6 @@ import './styles/index.scss';
 
 const app = createApp(App).use(store).use(router);
 
-store.dispatch('auth/checkToken').then(() => {
+store.dispatch('user/checkToken').then(() => {
   app.mount('#app');
 });

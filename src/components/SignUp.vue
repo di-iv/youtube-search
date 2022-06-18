@@ -88,7 +88,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('auth', ['signUp']),
+    ...mapActions('user', ['signUp']),
     async trySignUp() {
       this.errors = [];
       const isFormValid = await this.v$.$validate();
