@@ -99,6 +99,9 @@ export default {
     isRequestSaved() {
       return !Favourites.checkRequestUnique(this.favourites, this.searchRequest);
     },
+    isSearchRequestNotEmpty() {
+      return this.searchRequest.length > 0;
+    },
   },
   watch: {
     searchRequest() {
@@ -112,7 +115,7 @@ export default {
   },
   methods: {
     search() {
-      if (this.searchRequest !== '') {
+      if (this.isSearchRequestNotEmpty) {
         this.$emit('search');
         this.$refs.searchInput.blur();
         return;
