@@ -1,4 +1,5 @@
 import { authApi } from '@/services/api';
+import LocalStorage from '@/services/LocalStorage';
 
 export default class Auth {
   static async signIn(email, password) {
@@ -17,5 +18,12 @@ export default class Auth {
       returnSecureToken: true,
     });
     return res.data;
+  }
+
+  static setExpirationTokenDate(expiresIn) {
+    const nowDate = new Date();
+    const expirationDateMs = nowDate.getTime() + expiresIn * 1000;
+    const expirationDate = new Date(expirationDateMs);
+    LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
   }
 }

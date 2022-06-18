@@ -12,6 +12,7 @@ export default {
       state.userId = data.localId;
       state.userToken = data.idToken;
       LocalStorage.set('userInfo', { id: state.userId, token: state.userToken });
+      Auth.setExpirationTokenDate(data.expiresIn);
     },
     logout(state) {
       state.userId = '';
