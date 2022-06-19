@@ -14,7 +14,7 @@ export default {
   },
   actions: {
     async search({ commit }, { request, order, resultsCount }) {
-      const results = await YouTube.searchRequest(request, order, resultsCount);
+      const results = await YouTube.search(request, order, resultsCount);
       commit('search', { request, results });
     },
   },
