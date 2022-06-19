@@ -1,4 +1,4 @@
-import Search from '@/services/Search';
+import YouTube from '@/services/YouTube';
 
 export default {
   namespaced: true,
@@ -14,7 +14,7 @@ export default {
   },
   actions: {
     async search({ commit }, { request, order, resultsCount }) {
-      const results = await Search.searchRequest(request, order, resultsCount);
+      const results = await YouTube.searchRequest(request, order, resultsCount);
       commit('search', { request, results });
     },
   },
