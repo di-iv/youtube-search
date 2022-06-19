@@ -92,17 +92,18 @@ export default {
     async trySignUp() {
       this.errors = [];
       const isFormValid = await this.v$.$validate();
-      if (isFormValid) {
-        try {
-          await this.signUp({
-            email: this.email,
-            password: this.password,
-          });
-          await this.$router.push('/search');
-        } catch (error) {
-          const errorMessage = error.response.data.error.message;
-          this.errors.push(authErrors[errorMessage]);
-        }
+      if (!isFormValid) {
+        return;
+      }
+      try {
+        await this.signUp({
+          email: this.email,
+          password: this.password,
+        });
+        await this.$router.push('/search');
+      } catch (error) {
+        const errorMessage = error.response.data.error.message;
+        this.errors.push(authErrors[errorMessage]);
       }
     },
     onClick() {
