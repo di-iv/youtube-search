@@ -36,7 +36,7 @@
               class="login__button login__button--link"
               style-type="link"
               text="Войти"
-              @click="$emit('change', 'signIn')"
+              @click="onClick"
             />
           </div>
         </form>
@@ -104,6 +104,9 @@ export default {
           this.errors.push(authErrors[errorMessage]);
         }
       }
+    },
+    onClick() {
+      this.$emit('change', 'signIn');
     },
   },
 };

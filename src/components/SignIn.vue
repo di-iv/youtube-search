@@ -36,7 +36,7 @@
               class="login__button login__button--link"
               style-type="link"
               text="Зарегистрироваться"
-              @click="$emit('change', 'signUp')"
+              @click="onClick"
             />
           </div>
         </form>
@@ -105,6 +105,9 @@ export default {
         const errorMessage = error.response.data.error.message;
         this.errors = [authErrors[errorMessage]];
       }
+    },
+    onClick() {
+      this.$emit('change', 'signUp');
     },
   },
 };
