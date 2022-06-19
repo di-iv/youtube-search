@@ -10,7 +10,7 @@
       v-model="searchRequest"
       :class="`search-form__wrapper--${size}`"
       :icon-name="iconName"
-      :is-icon-active="isRequestSaved"
+      :is-icon-active="isIconActive"
       :is-invalid="isSearchInvalid"
       class="search-form__wrapper"
       is-label-hidden
@@ -101,6 +101,9 @@ export default {
     },
     isSearchRequestNotEmpty() {
       return this.searchRequest.length > 0;
+    },
+    isIconActive() {
+      return this.isRequestSaved;
     },
   },
   watch: {
