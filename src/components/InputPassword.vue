@@ -47,7 +47,8 @@ export default {
     icon() {
       if (this.isPasswordHidden) {
         return inputPassword.icons.hidden;
-      } return inputPassword.icons.visible;
+      }
+      return inputPassword.icons.visible;
     },
   },
   methods: {
