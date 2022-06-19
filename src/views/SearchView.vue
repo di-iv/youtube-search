@@ -31,13 +31,13 @@
               :class="{'search__view-switcher-icon--active': isListViewType}"
               class="search__view-switcher-icon"
               icon-name="List"
-              @click="switchView(listViewType)"
+              @click="switchView($options.listViewType)"
             />
             <AppIcon
               :class="{'search__view-switcher-icon--active': isGridViewType}"
               class="search__view-switcher-icon"
               icon-name="Grid"
-              @click="switchView(gridViewType)"
+              @click="switchView($options.gridViewType)"
             />
           </div>
         </div>
@@ -81,12 +81,12 @@ export default {
     SearchForm,
     AppIcon,
   },
+  gridViewType: searchView.viewType.grid,
+  listViewType: searchView.viewType.list,
   data() {
     return {
       currentSearchRequest: '',
       viewType: searchView.viewType.grid,
-      gridViewType: searchView.viewType.grid,
-      listViewType: searchView.viewType.list,
     };
   },
   computed: {
