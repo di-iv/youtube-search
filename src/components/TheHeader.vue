@@ -26,7 +26,7 @@
         <router-link
           class="header__logout-link"
           to="/"
-          @click="tryLogout"
+          @click="logout"
         >
           Выйти
         </router-link>
@@ -50,10 +50,6 @@ export default {
   },
   methods: {
     ...mapMutations('user', ['logout']),
-
-    tryLogout() {
-      this.logout();
-    },
   },
 };
 </script>
