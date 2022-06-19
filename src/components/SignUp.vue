@@ -90,7 +90,6 @@ export default {
   methods: {
     ...mapActions('user', ['signUp']),
     async trySignUp() {
-      this.errors = [];
       const isFormValid = await this.v$.$validate();
       if (!isFormValid) {
         return;
@@ -103,7 +102,7 @@ export default {
         await this.$router.push('/search');
       } catch (error) {
         const errorMessage = error.response.data.error.message;
-        this.errors.push(authErrors[errorMessage]);
+        this.errors = [authErrors[errorMessage]];
       }
     },
     onClick() {
