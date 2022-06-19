@@ -4,14 +4,14 @@
       :class="`search__wrapper--${formType}`"
       class="search__wrapper container"
     >
-      <h1 :class="{'search__title': isResultFormType}">
+      <h1 :class="{'search__title': hasResults}">
         Поиск видео
       </h1>
       <SearchForm
         ref="searchForm"
         v-model="currentSearchRequest"
-        :class="{'search__control': isResultFormType}"
-        :has-icon="isResultFormType"
+        :class="{'search__control': hasResults}"
+        :has-icon="hasIcon"
         :size="formSize"
         @search="trySearch"
         @add-favourite="openModalAddFavourite"
@@ -105,7 +105,7 @@ export default {
       }
       return searchView.formType.main;
     },
-    isResultFormType() {
+    hasResults() {
       return this.searchResults !== null;
     },
     isGridViewType() {
@@ -113,6 +113,9 @@ export default {
     },
     isListViewType() {
       return this.viewType === searchView.viewType.list;
+    },
+    hasIcon() {
+      return this.hasResults;
     },
   },
   methods: {
