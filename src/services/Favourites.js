@@ -2,10 +2,10 @@ import LocalStorage from '@/services/LocalStorage';
 import { hasValue, getIndex } from '@/utilities/helpers';
 
 export default class Favourites {
-  static addToStorage(data) {
+  static save(newFavourite) {
     const favourites = LocalStorage.get('favourites') ?? [];
-    favourites.push(data);
-    LocalStorage.set('favourites', favourites);
+    const updatedFavourites = [...favourites, newFavourite];
+    LocalStorage.set('favourites', updatedFavourites);
   }
 
   static getFromStorageByUserId(userId) {

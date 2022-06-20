@@ -15,7 +15,7 @@ export default {
       state.favourites.push({
         request, name, order, resultsCount, userId,
       });
-      Favourites.addToStorage({
+      Favourites.save({
         request, name, order, resultsCount, userId,
       });
     },
