@@ -6,7 +6,7 @@ export default {
     favourites: [],
   },
   getters: {
-    getFavouriteById: (state) => (id) => state.favourites[id],
+    getFavouriteByIdx: (state) => (idx) => state.favourites[idx],
   },
   mutations: {
     addFavourite(state, {

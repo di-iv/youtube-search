@@ -9,13 +9,13 @@
         class="favourites__requests"
       >
         <div
-          v-for="(favourite, id) in favourites"
-          :key="favourite"
+          v-for="(favourite, idx) in favourites"
+          :key="idx"
           class="favourites__requests-item"
         >
           <p
             class="favourites__requests-item-name"
-            @mouseup="doRequest(id)"
+            @mouseup="doRequest(idx)"
           >
             {{ favourite.name }}
           </p>
@@ -25,14 +25,14 @@
               color="primary"
               style-type="link"
               text="Изменить"
-              @click="editFavourite(favourite, id)"
+              @click="editFavourite(favourite, idx)"
             />
             <app-button
               class="favourites__requests-item-button"
               color="danger"
               style-type="link"
               text="Удалить"
-              @click="removeFavourite(favourite, id)"
+              @click="removeFavourite(favourite, idx)"
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ export default {
   },
   computed: {
     ...mapState('favourites', { favourites: 'favourites' }),
-    ...mapGetters('favourites', ['getFavouriteById']),
+    ...mapGetters('favourites', ['getFavouriteByIdx']),
     isFavouritesEmpty() {
       return this.favourites.length !== 0;
     },
@@ -76,8 +76,8 @@ export default {
     ...mapMutations('favourites', ['editFavourite']),
     ...mapMutations('favourites', ['removeFavourite']),
 
-    async doRequest(id) {
-      const favourite = this.getFavouriteById(id);
+    async doRequest(idx) {
+      const favourite = this.getFavouriteByIdx(idx);
       await this.search({ request: favourite.request });
       await this.$router.push({ name: 'search' });
     },
