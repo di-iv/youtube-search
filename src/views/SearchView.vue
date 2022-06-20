@@ -144,8 +144,8 @@ export default {
     async openModalRemoveFavourite() {
       const modalResult = await this.$refs.modalRemoveFavourite.open(this.currentSearchRequest);
       if (modalResult) {
-        const id = Favourites.getIndex('request', this.currentSearchRequest, this.userId);
-        this.removeFavourite(id);
+        const idx = Favourites.getIndex('request', this.currentSearchRequest, this.userId);
+        this.removeFavourite({ idx, userId: this.userId });
       }
     },
   },

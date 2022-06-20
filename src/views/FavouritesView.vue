@@ -95,10 +95,10 @@ export default {
         });
       }
     },
-    async removeFavourite(favourite, id) {
+    async removeFavourite(favourite, idx) {
       const result = await this.$refs.modalRemove.open(favourite);
       if (result) {
-        await this.remove(id);
+        await this.remove({ idx, userId: this.userId });
       }
     },
   },

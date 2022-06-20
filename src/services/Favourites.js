@@ -1,22 +1,39 @@
 import LocalStorage from '@/services/LocalStorage';
-import { hasValue, getIndex } from '@/utilities/helpers';
+import { getIndex, hasValue } from '@/utilities/helpers';
 
 export default class Favourites {
-  static save(newFavourite) {
-    const favourites = LocalStorage.get('favourites') ?? [];
-    const updatedFavourites = [...favourites, newFavourite];
-    LocalStorage.set('favourites', updatedFavourites);
+  static #get() {
+    return LocalStorage.get('favourites') ?? [];
   }
 
-  static update(updatedFavourites) {
-    LocalStorage.set('favourites', updatedFavourites);
+  static save(newFavourite) {
+    const favourites = Favourites.#get();
+    favourites.push(newFavourite);
+    LocalStorage.set('favourites', favourites);
+  }
+
+  static findIndexByRequestAndUserId(request, userId) {
+    const favourites = Favourites.#get();
+    return favourites.findIndex((el) => (
+      el.request === request && el.userId === userId
+    ));
+  }
+
+  static update(idx, favourite) {
+    const favourites = Favourites.#get();
+    favourites[idx] = favourite;
+    LocalStorage.set('favourites', favourites);
+  }
+
+  static remove(idx) {
+    const favourites = Favourites.#get();
+    favourites.splice(idx, 1);
+    LocalStorage.set('favourites', favourites);
   }
 
   static getByUserId(userId) {
-    if (LocalStorage.get('favourites')) {
-      return LocalStorage.get('favourites').filter((favourite) => favourite.userId === userId);
-    }
-    return null;
+    const favourites = Favourites.#get();
+    return favourites.filter((favourite) => favourite.userId === userId);
   }
 
   static checkNameUnique(favourites, value) {

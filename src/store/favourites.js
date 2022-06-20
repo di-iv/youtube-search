@@ -22,14 +22,24 @@ export default {
     editFavourite(state, {
       idx, request, name, order, resultsCount, userId,
     }) {
+      const indexInStorage = Favourites.findIndexByRequestAndUserId(
+        state.favourites[idx].request,
+        userId,
+      );
       state.favourites[idx] = {
         request, name, order, resultsCount, userId,
       };
-      Favourites.update(state.favourites);
+      Favourites.update(indexInStorage, {
+        request, name, order, resultsCount, userId,
+      });
     },
-    removeFavourite(state, id) {
-      state.favourites.splice(id, 1);
-      Favourites.update(state.favourites);
+    removeFavourite(state, { idx, userId }) {
+      const indexInStorage = Favourites.findIndexByRequestAndUserId(
+        state.favourites[idx].request,
+        userId,
+      );
+      state.favourites.splice(idx, 1);
+      Favourites.remove(indexInStorage);
     },
     setFavourites(state, data) {
       state.favourites = data;
