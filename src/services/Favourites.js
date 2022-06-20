@@ -27,8 +27,8 @@ export default class Favourites {
     return !hasValue(favourites, 'request', value);
   }
 
-  static getIndex(field, value) {
-    const favourites = Favourites.getFromStorageByUserId();
+  static getIndex(field, value, userId) {
+    const favourites = Favourites.getFromStorageByUserId(userId);
     return getIndex(favourites, field, value);
   }
 }

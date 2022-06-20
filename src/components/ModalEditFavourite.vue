@@ -100,6 +100,7 @@ export default {
   },
   computed: {
     ...mapState('favourites', { favourites: 'favourites' }),
+    ...mapState('user', { userId: 'id' }),
     favouritesExceptThisOne() {
       const favourites = [...this.favourites];
       favourites.splice(this.id, 1);
@@ -137,6 +138,7 @@ export default {
       this.order = data.order;
       this.resultsCount = data.resultsCount;
       this.errors = [];
+      this.id = Favourites.getIndex('request', this.request, this.userId);
       const res = await this.$refs.modal.open();
       if (res) {
         return {
