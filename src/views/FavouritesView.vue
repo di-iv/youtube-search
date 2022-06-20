@@ -63,6 +63,7 @@ export default {
   computed: {
     ...mapState('favourites', { favourites: 'favourites' }),
     ...mapGetters('favourites', ['getFavouriteByIdx']),
+    ...mapState('user', { userId: 'id' }),
     isFavouritesEmpty() {
       return this.favourites.length !== 0;
     },
@@ -90,6 +91,7 @@ export default {
           name: result.name,
           order: result.order,
           resultsCount: result.resultsCount,
+          userId: this.userId,
         });
       }
     },
