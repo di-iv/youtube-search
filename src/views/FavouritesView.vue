@@ -5,7 +5,7 @@
         Избранное
       </h1>
       <div
-        v-if="favourites.length !== 0"
+        v-if="isFavouritesEmpty"
         class="favourites__requests"
       >
         <div
@@ -63,6 +63,9 @@ export default {
   computed: {
     ...mapState('favourites', { favourites: 'favourites' }),
     ...mapGetters('favourites', ['getFavouriteById']),
+    isFavouritesEmpty() {
+      return this.favourites.length !== 0;
+    },
   },
   mounted() {
     this.getFavourites();
