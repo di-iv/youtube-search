@@ -25,11 +25,11 @@ export default {
       state.favourites[id] = {
         request, name, order, resultsCount,
       };
-      Favourites.addToStorage(state.favourites);
+      Favourites.update(state.favourites);
     },
     removeFavourite(state, id) {
       state.favourites.splice(id, 1);
-      Favourites.addToStorage(state.favourites);
+      Favourites.update(state.favourites);
     },
     setFavourites(state, data) {
       state.favourites = data;

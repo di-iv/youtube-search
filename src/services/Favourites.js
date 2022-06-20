@@ -8,6 +8,10 @@ export default class Favourites {
     LocalStorage.set('favourites', updatedFavourites);
   }
 
+  static update(updatedFavourites) {
+    LocalStorage.set('favourites', updatedFavourites);
+  }
+
   static getFromStorageByUserId(userId) {
     if (LocalStorage.get('favourites')) {
       return LocalStorage.get('favourites').filter((favourite) => favourite.userId === userId);
