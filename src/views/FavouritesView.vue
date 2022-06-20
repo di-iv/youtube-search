@@ -73,8 +73,8 @@ export default {
   methods: {
     ...mapActions('search', ['search']),
     ...mapActions('favourites', ['getFavourites']),
-    ...mapMutations('favourites', ['editFavourite']),
-    ...mapMutations('favourites', ['removeFavourite']),
+    ...mapMutations('favourites', { edit: 'editFavourite' }),
+    ...mapMutations('favourites', { remove: 'removeFavourite' }),
 
     async doRequest(idx) {
       const favourite = this.getFavouriteByIdx(idx);
@@ -84,7 +84,7 @@ export default {
     async editFavourite(favourite, id) {
       const result = await this.$refs.modalEdit.open(favourite);
       if (result) {
-        await this.editFavourite({
+        await this.edit({
           id,
           request: result.request,
           name: result.name,
@@ -96,7 +96,7 @@ export default {
     async removeFavourite(favourite, id) {
       const result = await this.$refs.modalRemove.open(favourite);
       if (result) {
-        await this.removeFavourite(id);
+        await this.remove(id);
       }
     },
   },
