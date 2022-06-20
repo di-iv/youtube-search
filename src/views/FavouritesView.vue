@@ -76,7 +76,7 @@ export default {
     async doRequest(id) {
       const favourite = this.getFavouriteById(id);
       await this.search({ request: favourite.request });
-      await this.$router.push('/search');
+      await this.$router.push({ name: 'search' });
     },
     async editFavourite(favourite, id) {
       const result = await this.$refs.modalEdit.open(favourite);

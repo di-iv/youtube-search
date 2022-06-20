@@ -100,7 +100,7 @@ export default {
           email: this.email,
           password: this.password,
         });
-        await this.$router.push('/search');
+        await this.$router.push({ name: 'search' });
       } catch (error) {
         const errorMessage = error.response.data.error.message;
         this.errors = [authErrors[errorMessage]];
