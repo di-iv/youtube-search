@@ -57,7 +57,9 @@
 import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { mapState } from 'vuex';
-import { generalErrors, youtubeOrderOptions, youtubeResultsRange } from '@/consts/globalParams';
+import {
+  generalErrors, youtubeOrderOptions, youtubeResultsRange, defaultYoutubeOrder,
+} from '@/consts/globalParams';
 import Favourites from '@/services/Favourites';
 import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
@@ -78,13 +80,14 @@ export default {
   },
   youtubeOrderOptions,
   youtubeResultsRange,
+  defaultYoutubeOrder,
   data() {
     return {
       request: '',
       name: '',
       errors: [],
       v$: useVuelidate(),
-      order: null,
+      order: this.$options.defaultYoutubeOrder,
       resultsCount: 12,
     };
   },

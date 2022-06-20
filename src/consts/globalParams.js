@@ -9,11 +9,12 @@ const navs = [
   },
 ];
 const youtubeOrderOptions = [
-  { value: 'null', text: 'Без сортировки' },
+  { value: 'relevance', text: 'Без сортировки' },
   { value: 'date', text: 'Дате' },
   { value: 'rating', text: 'Рейтингу' },
   { value: 'title', text: 'Алфавиту' },
 ];
+const defaultYoutubeOrder = 'relevance';
 const authErrors = {
   INVALID_EMAIL: 'Неверный email',
   EMAIL_NOT_FOUND: 'Пользователь не найден',
@@ -45,4 +46,5 @@ export {
   generalErrors,
   youtubeVideoLink,
   youtubeResultsRange,
+  defaultYoutubeOrder,
 };
