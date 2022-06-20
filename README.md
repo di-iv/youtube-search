@@ -1,5 +1,11 @@
 # youtube-search
 
+App for searching youtube-videos by keywords and saving search requests. Using Firebase Auth and YouTube API.
+
+### Deploy
+
+[youtube-search-pi.vercel.app](https://youtube-search-pi.vercel.app/)
+
 ## Project setup
 ```
 npm install
