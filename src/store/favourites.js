@@ -37,7 +37,7 @@ export default {
   },
   actions: {
     getFavourites({ rootState, commit }) {
-      const favourites = Favourites.getFromStorageByUserId(rootState.user.id) ?? [];
+      const favourites = Favourites.getByUserId(rootState.user.id) ?? [];
       commit('setFavourites', favourites);
     },
   },

@@ -12,7 +12,7 @@ export default class Favourites {
     LocalStorage.set('favourites', updatedFavourites);
   }
 
-  static getFromStorageByUserId(userId) {
+  static getByUserId(userId) {
     if (LocalStorage.get('favourites')) {
       return LocalStorage.get('favourites').filter((favourite) => favourite.userId === userId);
     }
@@ -28,7 +28,7 @@ export default class Favourites {
   }
 
   static getIndex(field, value, userId) {
-    const favourites = Favourites.getFromStorageByUserId(userId);
+    const favourites = Favourites.getByUserId(userId);
     return getIndex(favourites, field, value);
   }
 }
