@@ -136,7 +136,7 @@ export default {
       this.name = data.name;
       this.order = data.order;
       this.resultsCount = data.resultsCount;
-      this.id = Favourites.getIndex('request', this.request);
+      this.errors = [];
       const res = await this.$refs.modal.open();
       if (res) {
         return {
