@@ -20,9 +20,9 @@ export default {
       });
     },
     editFavourite(state, {
-      id, request, name, order, resultsCount, userId,
+      idx, request, name, order, resultsCount, userId,
     }) {
-      state.favourites[id] = {
+      state.favourites[idx] = {
         request, name, order, resultsCount, userId,
       };
       Favourites.update(state.favourites);

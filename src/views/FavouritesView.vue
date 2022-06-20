@@ -82,11 +82,11 @@ export default {
       await this.search({ request: favourite.request });
       await this.$router.push({ name: 'search' });
     },
-    async editFavourite(favourite, id) {
-      const result = await this.$refs.modalEdit.open(favourite);
+    async editFavourite(favourite, idx) {
+      const result = await this.$refs.modalEdit.open(favourite, idx);
       if (result) {
         await this.edit({
-          id,
+          idx,
           request: result.request,
           name: result.name,
           order: result.order,

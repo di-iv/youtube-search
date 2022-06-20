@@ -82,7 +82,7 @@ export default {
       request: '',
       name: '',
       errors: [],
-      id: '',
+      idx: '',
       v$: useVuelidate(),
       order: '',
       resultsCount: 0,
@@ -103,7 +103,7 @@ export default {
     ...mapState('user', { userId: 'id' }),
     favouritesExceptThisOne() {
       const favourites = [...this.favourites];
-      favourites.splice(this.id, 1);
+      favourites.splice(this.idx, 1);
       return favourites;
     },
     isNameUnique() {
@@ -132,13 +132,13 @@ export default {
         this.errors.push(generalErrors.nameExist);
       }
     },
-    async open(data) {
-      this.request = data.request;
-      this.name = data.name;
-      this.order = data.order;
-      this.resultsCount = data.resultsCount;
+    async open(favourite, idx) {
+      this.request = favourite.request;
+      this.name = favourite.name;
+      this.order = favourite.order;
+      this.resultsCount = favourite.resultsCount;
       this.errors = [];
-      this.id = Favourites.getIndex('request', this.request, this.userId);
+      this.idx = idx;
       const res = await this.$refs.modal.open();
       if (res) {
         return {
