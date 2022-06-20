@@ -4,51 +4,53 @@
     v-slot="{cancel}"
     class="modal-favourites"
   >
-    <h3>Изменить запрос</h3>
-    <AppInput
-      id="request"
-      v-model="request"
-      :is-invalid="v$.request.$error"
-      class="modal-favourites__form-group"
-      is-required
-      label="Запрос"
-    />
-    <AppInput
-      id="name"
-      v-model="name"
-      :is-invalid="v$.name.$error"
-      class="modal-favourites__form-group"
-      is-required
-      label="Название"
-    />
-    <AppSelect
-      v-model="order"
-      :options="$options.youtubeOrderOptions"
-      class="modal-favourites__form-group"
-    />
-    <InputRange
-      v-model="resultsCount"
-      :max="$options.youtubeResultsRange.max"
-      :min="$options.youtubeResultsRange.min"
-      class="modal-favourites__form-group"
-    />
-    <AppError :errors="errors" />
-    <div class="modal-favourites__buttons">
-      <AppButton
-        class="modal-favourites__button"
-        size="large"
-        style-type="outline"
-        text="Не изменять"
-        @click="cancel"
+    <form @submit.prevent="save">
+      <h3>Изменить запрос</h3>
+      <AppInput
+        id="request"
+        v-model="request"
+        :is-invalid="v$.request.$error"
+        class="modal-favourites__form-group"
+        is-required
+        label="Запрос"
       />
-      <AppButton
-        class="modal-favourites__button"
-        size="large"
-        style-type="fill"
-        text="Изменить"
-        @click="save"
+      <AppInput
+        id="name"
+        v-model="name"
+        :is-invalid="v$.name.$error"
+        class="modal-favourites__form-group"
+        is-required
+        label="Название"
       />
-    </div>
+      <AppSelect
+        v-model="order"
+        :options="$options.youtubeOrderOptions"
+        class="modal-favourites__form-group"
+      />
+      <InputRange
+        v-model="resultsCount"
+        :max="$options.youtubeResultsRange.max"
+        :min="$options.youtubeResultsRange.min"
+        class="modal-favourites__form-group"
+      />
+      <AppError :errors="errors" />
+      <div class="modal-favourites__buttons">
+        <AppButton
+          class="modal-favourites__button"
+          size="large"
+          style-type="outline"
+          text="Не изменять"
+          @click="cancel"
+        />
+        <AppButton
+          class="modal-favourites__button"
+          size="large"
+          style-type="fill"
+          text="Изменить"
+          type="submit"
+        />
+      </div>
+    </form>
   </app-modal>
 </template>
 
