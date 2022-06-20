@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MainLayout from '@/layouts/MainLayout';
 import store from '@/store';
 
 const routes = [
@@ -20,7 +19,7 @@ const routes = [
     path: '/search',
     name: 'search',
     meta: {
-      layout: MainLayout,
+      layout: 'MainLayout',
       auth: true,
     },
     component: () => import('../views/SearchView'),
@@ -29,7 +28,7 @@ const routes = [
     path: '/favourites',
     name: 'favourites',
     meta: {
-      layout: MainLayout,
+      layout: 'MainLayout',
       auth: true,
     },
     component: () => import('../views/FavouritesView'),

@@ -6,11 +6,13 @@
 
 <script>
 import EmptyLayout from '@/layouts/EmptyLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 export default {
   name: 'TheLayout',
   components: {
     EmptyLayout,
+    MainLayout,
   },
   computed: {
     layoutComponent() {
