@@ -1,6 +1,7 @@
 # youtube-search
 
-App for searching youtube-videos by keywords and saving search requests. Using Firebase Auth and YouTube API.
+App for searching youtube-videos by keywords and saving search requests.
+Using Firebase Auth and YouTube API.
 
 ### Deploy
 
