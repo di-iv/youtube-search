@@ -2,14 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '@/layouts/MainLayout';
 import store from '@/store';
 
-const isUserAuthorized = store.state.user.token;
-
 const routes = [
   {
     path: '/',
     name: 'login',
     component: () => import('../views/LoginView'),
     beforeEnter(to, from, next) {
+      const isUserAuthorized = store.state.user.token;
       if (isUserAuthorized) {
         next({ name: 'search' });
         return;
@@ -48,6 +47,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const isAuthNotRequired = to.matched.every((record) => !record.meta.auth);
+  const isUserAuthorized = store.state.user.token;
   if (isAuthNotRequired) {
     next();
     return;
