@@ -31,7 +31,7 @@ export default {
       commit('setUser', user);
     },
     checkToken({ commit }) {
-      const isTokenNotValid = !User.checkToken();
+      const isTokenNotValid = !User.isTokenValid();
       if (isTokenNotValid) {
         commit('logout');
       }

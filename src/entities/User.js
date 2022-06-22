@@ -27,7 +27,7 @@ export default class User {
     LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
   }
 
-  static checkToken() {
+  static isTokenValid() {
     const nowDateMs = new Date().getTime();
     const expirationDateMs = LocalStorage.get('expirationDate')?.ms;
     return expirationDateMs > nowDateMs;
