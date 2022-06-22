@@ -69,8 +69,8 @@ import Favourites from '@/entities/Favourites';
 import AppIcon from '@/components/AppIcon';
 import ModalAddFavourite from '@/components/modals/ModalAddFavourite';
 import ModalRemoveFavourite from '@/components/modals/ModalRemoveFavourite';
-import SearchForm from '@/components/SearchForm';
-import SearchResults from '@/components/SearchResults';
+import SearchForm from '@/components/search/SearchForm';
+import SearchResults from '@/components/search/SearchResults';
 
 export default {
   name: 'SearchView',
