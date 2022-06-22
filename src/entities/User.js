@@ -2,12 +2,20 @@ import { authApi } from '@/services/api';
 import LocalStorage from '@/entities/LocalStorage';
 
 export default class User {
+  /**
+   * Check token validation
+   * @returns {boolean}
+   */
   static isTokenValid() {
     const nowDateMs = new Date().getTime();
     const expirationDateMs = LocalStorage.get('expirationDate')?.ms;
     return expirationDateMs > nowDateMs;
   }
 
+  /**
+   * Set expiration token date
+   * @param {number} expiresIn - amount of seconds
+   */
   static setExpirationTokenDate(expiresIn) {
     const nowDate = new Date();
     const expirationDateMs = nowDate.getTime() + expiresIn * 1000;
