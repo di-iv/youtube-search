@@ -2,6 +2,8 @@
   &__locale {
     padding: 0 3px;
 
+    color: $light-grey;
+
     font-size: 14px;
     line-height: 20px;
     text-transform: uppercase;
@@ -10,6 +12,7 @@
     cursor: pointer;
 
     &--active {
+      color: $blue;
       text-decoration: underline;
     }
   }
