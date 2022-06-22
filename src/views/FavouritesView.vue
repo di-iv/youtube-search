@@ -50,8 +50,8 @@ import {
   mapActions, mapGetters, mapMutations, mapState,
 } from 'vuex';
 import AppButton from '@/components/AppButton';
-import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';
-import ModalEditFavourite from '@/components/ModalEditFavourite';
+import ModalRemoveFavourite from '@/components/modals/ModalRemoveFavourite';
+import ModalEditFavourite from '@/components/modals/ModalEditFavourite';
 
 export default {
   name: 'FavouritesView',
