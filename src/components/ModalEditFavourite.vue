@@ -109,7 +109,7 @@ export default {
       return favourites;
     },
     isNameUnique() {
-      return Favourites.checkNameUnique(this.favouritesExceptThisOne, this.name);
+      return Favourites.isNameUnique(this.favouritesExceptThisOne, this.name);
     },
     isRequestUnique() {
       return Favourites.checkRequestUnique(this.favouritesExceptThisOne, this.request);

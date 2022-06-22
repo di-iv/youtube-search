@@ -36,7 +36,7 @@ export default class Favourites {
     return favourites.filter((favourite) => favourite.userId === userId);
   }
 
-  static checkNameUnique(favourites, value) {
+  static isNameUnique(favourites, value) {
     return !hasValue(favourites, 'name', value);
   }
 
