@@ -49,9 +49,9 @@
 import { mapActions, mapState } from 'vuex';
 import { searchForm } from '@/consts/componentParams';
 import Favourites from '@/entities/Favourites';
-import AppButton from '@/components/AppButton';
-import AppInput from '@/components/AppInput';
-import AppFormGroup from '@/components/AppFormGroup';
+import AppButton from '@/components/app/AppButton';
+import AppInput from '@/components/app/AppInput';
+import AppFormGroup from '@/components/app/AppFormGroup';
 
 export default {
   name: 'SearchForm',

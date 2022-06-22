@@ -14,7 +14,7 @@
 
 <script>
 import { inputPassword } from '@/consts/componentParams';
-import AppInput from '@/components/AppInput';
+import AppInput from '@/components/app/AppInput';
 
 export default {
   name: 'AppInputPassword',

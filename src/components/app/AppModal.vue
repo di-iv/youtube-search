@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import AppCard from '@/components/AppCard';
+import AppCard from '@/components/app/AppCard';
 
 export default {
   name: 'AppModal',

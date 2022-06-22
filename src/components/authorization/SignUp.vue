@@ -51,12 +51,12 @@ import useVuelidate from '@vuelidate/core';
 import { email, required } from '@vuelidate/validators';
 import { mapActions } from 'vuex';
 import { authErrors } from '@/consts/globalParams';
-import AppButton from '@/components/AppButton';
-import AppError from '@/components/AppError';
-import AppIcon from '@/components/AppIcon';
-import AppInput from '@/components/AppInput';
-import AppCard from '@/components/AppCard';
-import AppInputPassword from '@/components/AppInputPassword';
+import AppButton from '@/components/app/AppButton';
+import AppError from '@/components/app/AppError';
+import AppIcon from '@/components/app/AppIcon';
+import AppInput from '@/components/app/AppInput';
+import AppCard from '@/components/app/AppCard';
+import AppInputPassword from '@/components/app/AppInputPassword';
 import TheLocaleChanger from '@/components/TheLocaleChanger';
 
 export default {

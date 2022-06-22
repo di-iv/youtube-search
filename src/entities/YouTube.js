@@ -1,4 +1,5 @@
 import { youtubeApi } from '@/services/api';
+import data from '@/mock/data';
 
 export default class YouTube {
   /**
@@ -9,6 +10,7 @@ export default class YouTube {
    * @returns {Promise<array>} - search results
    */
   static async search(request, order = null, resultsCount = 12) {
+    if (data) return data;
     const searchResults = await youtubeApi.get('search', {
       params: {
         part: 'snippet',

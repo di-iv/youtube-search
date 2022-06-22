@@ -61,12 +61,12 @@ import {
   generalErrors, youtubeOrderOptions, youtubeResultsRange, defaultYoutubeOrder,
 } from '@/consts/globalParams';
 import Favourites from '@/entities/Favourites';
-import AppButton from '@/components/AppButton';
-import AppError from '@/components/AppError';
-import AppInput from '@/components/AppInput';
-import AppModal from '@/components/AppModal';
-import AppSelect from '@/components/AppSelect';
-import AppInputRange from '@/components/AppInputRange';
+import AppButton from '@/components/app/AppButton';
+import AppError from '@/components/app/AppError';
+import AppInput from '@/components/app/AppInput';
+import AppModal from '@/components/app/AppModal';
+import AppSelect from '@/components/app/AppSelect';
+import AppInputRange from '@/components/app/AppInputRange';
 
 export default {
   name: 'ModalAddFavourite',

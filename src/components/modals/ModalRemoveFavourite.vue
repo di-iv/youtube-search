@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import AppButton from '@/components/AppButton';
-import AppModal from '@/components/AppModal';
+import AppButton from '@/components/app/AppButton';
+import AppModal from '@/components/app/AppModal';
 
 export default {
   name: 'ModalRemoveFavourite',

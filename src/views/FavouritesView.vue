@@ -49,7 +49,7 @@
 import {
   mapActions, mapGetters, mapMutations, mapState,
 } from 'vuex';
-import AppButton from '@/components/AppButton';
+import AppButton from '@/components/app/AppButton';
 import ModalRemoveFavourite from '@/components/modals/ModalRemoveFavourite';
 import ModalEditFavourite from '@/components/modals/ModalEditFavourite';
 

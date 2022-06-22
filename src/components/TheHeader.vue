@@ -40,7 +40,7 @@
 import TheLocaleChanger from '@/components/TheLocaleChanger';
 import { mapMutations } from 'vuex';
 import { navs } from '@/consts/globalParams';
-import AppIcon from '@/components/AppIcon';
+import AppIcon from '@/components/app/AppIcon';
 
 export default {
   name: 'AppHeader',
