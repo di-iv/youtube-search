@@ -39,6 +39,7 @@
               @click="onClick"
             />
           </div>
+          <TheLocaleChanger />
         </form>
       </div>
     </app-card>
@@ -56,10 +57,12 @@ import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
+import TheLocaleChanger from '@/components/TheLocaleChanger';
 
 export default {
   name: 'SignUp',
   components: {
+    TheLocaleChanger,
     AppError,
     InputPassword,
     AppIcon,
