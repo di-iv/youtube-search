@@ -22,13 +22,16 @@ import { locales } from '@/consts/globalParams';
 export default {
   name: 'LocaleChanger',
   locales,
+  computed: {
+    isLocaleSelected() {
+      return (locale) => this.$i18n.locale === locale;
+    },
+  },
   methods: {
     changeLocale(locale) {
       this.$i18n.locale = locale;
     },
-    isLocaleSelected(locale) {
-      return this.$i18n.locale === locale;
-    },
+
   },
 };
 </script>
