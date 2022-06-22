@@ -1,0 +1,16 @@
+.locale-changer {
+  &__locale {
+    padding: 0 3px;
+
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+
+    background-color: transparent;
+    cursor: pointer;
+
+    &--active {
+      text-decoration: underline;
+    }
+  }
+}

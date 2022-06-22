@@ -37,6 +37,7 @@ const youtubeResultsRange = {
   min: 1,
   max: 50,
 };
+const locales = ['ru', 'en'];
 
 export {
   navs,
@@ -47,4 +48,5 @@ export {
   youtubeVideoLink,
   youtubeResultsRange,
   defaultYoutubeOrder,
+  locales,
 };

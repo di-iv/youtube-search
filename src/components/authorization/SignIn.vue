@@ -39,6 +39,7 @@
               @click="onClick"
             />
           </div>
+          <TheLocaleChanger />
         </form>
       </div>
     </app-card>
@@ -46,6 +47,7 @@
 </template>
 
 <script>
+import TheLocaleChanger from '@/components/TheLocaleChanger';
 import useVuelidate from '@vuelidate/core';
 import { email, required } from '@vuelidate/validators';
 import { mapActions } from 'vuex';
@@ -60,6 +62,7 @@ import InputPassword from '@/components/InputPassword';
 export default {
   name: 'SignIn',
   components: {
+    TheLocaleChanger,
     AppError,
     InputPassword,
     AppIcon,
