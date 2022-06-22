@@ -59,7 +59,7 @@ import useVuelidate from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { mapState } from 'vuex';
 import { generalErrors, youtubeOrderOptions, youtubeResultsRange } from '@/consts/globalParams';
-import Favourites from '@/services/Favourites';
+import Favourites from '@/entities/Favourites';
 import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';

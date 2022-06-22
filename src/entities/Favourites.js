@@ -1,4 +1,4 @@
-import LocalStorage from '@/services/LocalStorage';
+import LocalStorage from '@/entities/LocalStorage';
 import { getIndex, hasValue } from '@/utilities/helpers';
 
 export default class Favourites {

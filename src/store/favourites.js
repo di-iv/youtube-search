@@ -1,4 +1,4 @@
-import Favourites from '@/services/Favourites';
+import Favourites from '@/entities/Favourites';
 
 export default {
   namespaced: true,

@@ -65,7 +65,7 @@
 <script>
 import { mapActions, mapMutations, mapState } from 'vuex';
 import { searchView } from '@/consts/componentParams';
-import Favourites from '@/services/Favourites';
+import Favourites from '@/entities/Favourites';
 import AppIcon from '@/components/AppIcon';
 import ModalAddFavourite from '@/components/ModalAddFavourite';
 import ModalRemoveFavourite from '@/components/ModalRemoveFavourite';

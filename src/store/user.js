@@ -1,5 +1,5 @@
-import User from '@/services/User';
-import LocalStorage from '@/services/LocalStorage';
+import User from '@/entities/User';
+import LocalStorage from '@/entities/LocalStorage';
 
 export default {
   namespaced: true,

@@ -60,7 +60,7 @@ import { mapState } from 'vuex';
 import {
   generalErrors, youtubeOrderOptions, youtubeResultsRange, defaultYoutubeOrder,
 } from '@/consts/globalParams';
-import Favourites from '@/services/Favourites';
+import Favourites from '@/entities/Favourites';
 import AppButton from '@/components/AppButton';
 import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';

@@ -1,5 +1,5 @@
 import { authApi } from '@/services/api';
-import LocalStorage from '@/services/LocalStorage';
+import LocalStorage from '@/entities/LocalStorage';
 
 export default class User {
   static async signIn(email, password) {

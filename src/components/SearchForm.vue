@@ -48,7 +48,7 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 import { searchForm } from '@/consts/componentParams';
-import Favourites from '@/services/Favourites';
+import Favourites from '@/entities/Favourites';
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import FormGroup from '@/components/FormGroup';

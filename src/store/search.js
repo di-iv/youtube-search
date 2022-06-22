@@ -1,4 +1,4 @@
-import YouTube from '@/services/YouTube';
+import YouTube from '@/entities/YouTube';
 
 export default {
   namespaced: true,
