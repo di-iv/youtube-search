@@ -27,7 +27,7 @@
         :options="$options.youtubeOrderOptions"
         class="modal-favourites__form-group"
       />
-      <InputRange
+      <AppInputRange
         v-model="resultsCount"
         :max="$options.youtubeResultsRange.max"
         :min="$options.youtubeResultsRange.min"
@@ -65,12 +65,12 @@ import AppError from '@/components/AppError';
 import AppInput from '@/components/AppInput';
 import AppModal from '@/components/AppModal';
 import AppSelect from '@/components/AppSelect';
-import InputRange from '@/components/InputRange';
+import AppInputRange from '@/components/AppInputRange';
 
 export default {
   name: 'ModalEditFavourite',
   components: {
-    InputRange,
+    AppInputRange,
     AppSelect,
     AppError,
     AppButton,

@@ -18,7 +18,7 @@
             label="Email"
             label-color="text-grey"
           />
-          <InputPassword
+          <AppInputPassword
             v-model="password"
             :is-invalid="v$.password.$error"
             class="login__form-group"
@@ -56,7 +56,7 @@ import AppError from '@/components/AppError';
 import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
-import InputPassword from '@/components/InputPassword';
+import AppInputPassword from '@/components/AppInputPassword';
 import TheLocaleChanger from '@/components/TheLocaleChanger';
 
 export default {
@@ -64,7 +64,7 @@ export default {
   components: {
     TheLocaleChanger,
     AppError,
-    InputPassword,
+    AppInputPassword,
     AppIcon,
     AppButton,
     AppInput,

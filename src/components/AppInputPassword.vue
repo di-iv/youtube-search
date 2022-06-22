@@ -17,7 +17,7 @@ import { inputPassword } from '@/consts/componentParams';
 import AppInput from '@/components/AppInput';
 
 export default {
-  name: 'InputPassword',
+  name: 'AppInputPassword',
   components: { AppInput },
   props: {
     modelValue: {

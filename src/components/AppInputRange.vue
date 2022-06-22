@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'InputRange',
+  name: 'AppInputRange',
   props: {
     modelValue: {
       type: Number,

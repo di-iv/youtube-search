@@ -1,5 +1,5 @@
 <template>
-  <form-group
+  <app-form-group
     class="search-form"
     tag="form"
     @submit.prevent
@@ -42,7 +42,7 @@
       type="submit"
       @click="search"
     />
-  </form-group>
+  </app-form-group>
 </template>
 
 <script>
@@ -51,12 +51,12 @@ import { searchForm } from '@/consts/componentParams';
 import Favourites from '@/entities/Favourites';
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
-import FormGroup from '@/components/FormGroup';
+import AppFormGroup from '@/components/AppFormGroup';
 
 export default {
   name: 'SearchForm',
   components: {
-    FormGroup,
+    AppFormGroup,
     AppInput,
     AppButton,
   },

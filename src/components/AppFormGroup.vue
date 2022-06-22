@@ -11,7 +11,7 @@
 import { formGroup } from '@/consts/componentParams';
 
 export default {
-  name: 'FormGroup',
+  name: 'AppFormGroup',
   props: {
     tag: {
       type: String,
