@@ -4,8 +4,8 @@ import { getIndex, hasValue } from '@/utilities/helpers';
 export default class Favourites {
   static findIndexByRequestAndUserId(request, userId) {
     const favourites = Favourites.#get();
-    return favourites.findIndex((el) => (
-      el.request === request && el.userId === userId
+    return favourites.findIndex((favourite) => (
+      favourite.request === request && favourite.userId === userId
     ));
   }
 

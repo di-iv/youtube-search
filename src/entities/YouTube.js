@@ -2,7 +2,7 @@ import { youtubeApi } from '@/services/api';
 
 export default class YouTube {
   static async search(request, order = null, resultsCount = 12) {
-    const results = await youtubeApi.get('search', {
+    const searchResults = await youtubeApi.get('search', {
       params: {
         part: 'snippet',
         maxResults: resultsCount,
@@ -10,6 +10,6 @@ export default class YouTube {
         q: request,
       },
     });
-    return results.data.items;
+    return searchResults.data.items;
   }
 }
