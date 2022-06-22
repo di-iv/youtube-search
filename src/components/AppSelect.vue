@@ -3,7 +3,7 @@
     <label
       class="select__label"
       for="select"
-    >{{ label }}</label>
+    >{{ $t(label) }}</label>
     <select
       class="select__select"
       @change="updateValue"
@@ -14,7 +14,7 @@
         :selected="option.value === modelValue"
         :value="option.value"
       >
-        {{ option.text }}
+        {{ $t(option.text) }}
       </option>
     </select>
   </div>

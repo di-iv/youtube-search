@@ -2,7 +2,7 @@
   <section class="favourites">
     <div class="favourites__wrapper container">
       <h1 class="favourites__title">
-        Избранное
+        {{ $t('favourites.favourites') }}
       </h1>
       <div
         v-if="isFavouritesEmpty"
@@ -24,21 +24,21 @@
               class="favourites__requests-item-button"
               color="primary"
               style-type="link"
-              text="Изменить"
+              :text="$t('favourites.change')"
               @click="editFavourite(favourite, idx)"
             />
             <app-button
               class="favourites__requests-item-button"
               color="danger"
               style-type="link"
-              text="Удалить"
+              :text="$t('favourites.remove')"
               @click="removeFavourite(favourite, idx)"
             />
           </div>
         </div>
       </div>
       <div v-else>
-        Список пуст
+        {{ $t('favourites.listIsEmpty') }}
       </div>
     </div>
     <ModalEditFavourite ref="modalEdit" />

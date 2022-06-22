@@ -5,14 +5,14 @@
     class="modal-favourites"
   >
     <form @submit.prevent="save">
-      <h3>Изменить запрос</h3>
+      <h3>{{ $t('favourites.changeRequest') }}</h3>
       <AppInput
         id="request"
         v-model="request"
         :is-invalid="v$.request.$error"
         class="modal-favourites__form-group"
         is-required
-        label="Запрос"
+        :label="$t('favourites.request')"
       />
       <AppInput
         id="name"
@@ -20,7 +20,7 @@
         :is-invalid="v$.name.$error"
         class="modal-favourites__form-group"
         is-required
-        label="Название"
+        :label="$t('favourites.name')"
       />
       <AppSelect
         v-model="order"
@@ -39,14 +39,14 @@
           class="modal-favourites__button"
           size="large"
           style-type="outline"
-          text="Не изменять"
+          :text="$t('favourites.doNotChange')"
           @click="cancel"
         />
         <AppButton
           class="modal-favourites__button"
           size="large"
           style-type="fill"
-          text="Изменить"
+          :text="$t('favourites.change')"
           type="submit"
         />
       </div>

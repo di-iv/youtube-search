@@ -17,7 +17,7 @@ const searchForm = {
   icon: 'Heart',
 };
 const select = {
-  defaultLabel: 'Сортировать по',
+  defaultLabel: 'select.sortBy',
 };
 const formGroup = {
   defaultTag: 'div',

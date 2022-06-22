@@ -38,7 +38,7 @@
           class="modal-favourites__button"
           size="large"
           style-type="outline"
-          :text="$t('favourites.cancel')"
+          :text="$t('favourites.doNotSave')"
           @click="cancel"
         />
         <AppButton

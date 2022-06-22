@@ -17,7 +17,7 @@
               active-class="header__nav-link--active"
               class="header__nav-link"
             >
-              {{ nav.title }}
+              {{ $t(nav.title) }}
             </router-link>
           </li>
         </ul>
@@ -29,7 +29,7 @@
           to="/"
           @click="logout"
         >
-          Выйти
+          {{ $t('nav.logout') }}
         </router-link>
       </div>
     </div>

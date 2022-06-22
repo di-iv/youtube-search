@@ -1,18 +1,18 @@
 const navs = [
   {
-    title: 'Поиск',
+    title: 'nav.search',
     link: '/search',
   },
   {
-    title: 'Избранное',
+    title: 'nav.favourites',
     link: '/favourites',
   },
 ];
 const youtubeOrderOptions = [
-  { value: 'relevance', text: 'Без сортировки' },
-  { value: 'date', text: 'Дате' },
-  { value: 'rating', text: 'Рейтингу' },
-  { value: 'title', text: 'Алфавиту' },
+  { value: 'relevance', text: 'youtubeOrder.noOrder' },
+  { value: 'date', text: 'youtubeOrder.date' },
+  { value: 'rating', text: 'youtubeOrder.rating' },
+  { value: 'title', text: 'youtubeOrder.alphabet' },
 ];
 const defaultYoutubeOrder = 'relevance';
 const authErrors = {

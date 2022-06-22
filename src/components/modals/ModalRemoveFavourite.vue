@@ -4,19 +4,19 @@
     v-slot="{confirm, cancel}"
     class="modal-favourites"
   >
-    <h3>Удалить запрос {{ requestName }}?</h3>
+    <h3>{{ $t('favourites.removeRequest') }} {{ requestName }}?</h3>
     <div class="modal-favourites__buttons">
       <app-button
         class="modal-favourites__button"
         style-type="outline"
-        text="Отмена"
+        :text="$t('favourites.cancel')"
         @click="cancel"
       />
       <app-button
         class="modal-favourites__button"
         size="medium"
         style-type="fill"
-        text="Удалить"
+        :text="$t('favourites.remove')"
         @click="confirm"
       />
     </div>

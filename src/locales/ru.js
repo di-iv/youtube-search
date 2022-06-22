@@ -7,6 +7,11 @@ export default {
     registrationForm: 'Регистрация',
     createAccount: 'Создать',
   },
+  nav: {
+    search: 'Поиск',
+    favourites: 'Избранное',
+    logout: 'Выйти',
+  },
   search: {
     searchVideo: 'Поиск видео',
     placeholder: 'Что хотите посмотреть?',
@@ -20,8 +25,25 @@ export default {
     sortBy: 'Сортировать по',
     maxResultsCount: 'Максимальное количество результатов',
     save: 'Сохранить',
-    cancel: 'Не сохранять',
+    doNotSave: 'Не сохранять',
     requestSaved: 'Поиск сохранён в разделе «Избранное»',
     goToFavourites: 'Перейти в избранное',
+    removeRequest: 'Удалить запрос',
+    cancel: 'Отмена',
+    remove: 'Удалить',
+    favourites: 'Избранное',
+    change: 'Изменить',
+    listIsEmpty: 'Список пуст',
+    changeRequest: 'Изменить запрос',
+    doNotChange: 'Не изменять',
+  },
+  youtubeOrder: {
+    noOrder: 'Без сортировки',
+    date: 'Дате',
+    rating: 'Рейтингу',
+    alphabet: 'Алфавиту',
+  },
+  select: {
+    sortBy: 'Сортировать по',
   },
 };

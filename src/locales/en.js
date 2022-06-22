@@ -7,6 +7,11 @@ export default {
     registrationForm: 'Create account',
     createAccount: 'Create',
   },
+  nav: {
+    search: 'Search',
+    favourites: 'Favourites',
+    logout: 'Logout',
+  },
   search: {
     searchVideo: 'Search video',
     placeholder: 'What would you like to watch?',
@@ -20,8 +25,25 @@ export default {
     sortBy: 'Sort by',
     maxResultsCount: 'Max number of results',
     save: 'Save',
-    cancel: 'Do not save',
+    doNotSave: 'Do not save',
     requestSaved: 'Search saved in "Favorites"',
     goToFavourites: 'Go to favourites',
+    removeRequest: 'Remove request',
+    cancel: 'Cancel',
+    remove: 'Remove',
+    favourites: 'Favourites',
+    change: 'Change',
+    listIsEmpty: 'List is empty',
+    changeRequest: 'Change request',
+    doNotChange: 'Do not change',
+  },
+  youtubeOrder: {
+    noOrder: 'No order',
+    date: 'Date',
+    rating: 'Rating',
+    alphabet: 'Alphabet',
+  },
+  select: {
+    sortBy: 'Sort by',
   },
 };
