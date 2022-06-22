@@ -22,7 +22,8 @@
           </li>
         </ul>
       </nav>
-      <div class="header__logout">
+      <div class="header__right-side">
+        <TheLocaleChanger class="header__locale-changer" />
         <router-link
           class="header__logout-link"
           to="/"
@@ -36,13 +37,17 @@
 </template>
 
 <script>
+import TheLocaleChanger from '@/components/TheLocaleChanger';
 import { mapMutations } from 'vuex';
 import { navs } from '@/consts/globalParams';
 import AppIcon from '@/components/AppIcon';
 
 export default {
   name: 'AppHeader',
-  components: { AppIcon },
+  components: {
+    AppIcon,
+    TheLocaleChanger,
+  },
   data() {
     return {
       navs,

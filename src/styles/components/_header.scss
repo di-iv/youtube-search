@@ -69,13 +69,18 @@
     }
   }
 
-  &__logout {
+  &__right-side {
+    display: flex;
     margin-left: auto;
     padding-right: 23px;
 
     @include media-breakpoint-down(sm) {
       padding-right: 10px;
     }
+  }
+
+  &__locale-changer {
+    margin-right: 20px;
   }
 
   &__logout-link {
