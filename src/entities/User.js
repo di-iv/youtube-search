@@ -2,6 +2,19 @@ import { authApi } from '@/services/api';
 import LocalStorage from '@/entities/LocalStorage';
 
 export default class User {
+  static isTokenValid() {
+    const nowDateMs = new Date().getTime();
+    const expirationDateMs = LocalStorage.get('expirationDate')?.ms;
+    return expirationDateMs > nowDateMs;
+  }
+
+  static setExpirationTokenDate(expiresIn) {
+    const nowDate = new Date();
+    const expirationDateMs = nowDate.getTime() + expiresIn * 1000;
+    const expirationDate = new Date(expirationDateMs);
+    LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
+  }
+
   static async signIn(email, password) {
     const res = await authApi.post('accounts:signInWithPassword', {
       email,
@@ -18,18 +31,5 @@ export default class User {
       returnSecureToken: true,
     });
     return res.data;
-  }
-
-  static setExpirationTokenDate(expiresIn) {
-    const nowDate = new Date();
-    const expirationDateMs = nowDate.getTime() + expiresIn * 1000;
-    const expirationDate = new Date(expirationDateMs);
-    LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
-  }
-
-  static isTokenValid() {
-    const nowDateMs = new Date().getTime();
-    const expirationDateMs = LocalStorage.get('expirationDate')?.ms;
-    return expirationDateMs > nowDateMs;
   }
 }
