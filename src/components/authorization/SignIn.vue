@@ -8,7 +8,7 @@
           class="login__icon"
           icon-name="Logo"
         />
-        <h3>{{ $t('auth.SignInForm') }}</h3>
+        <h3>{{ $t('auth.signInForm') }}</h3>
         <form @submit.prevent="trySignIn">
           <AppInput
             id="login"
@@ -29,13 +29,13 @@
               class="login__button"
               size="medium"
               style-type="fill"
-              text="Войти"
+              :text="$t('auth.signIn')"
               type="submit"
             />
             <AppButton
               class="login__button login__button--link"
               style-type="link"
-              text="Зарегистрироваться"
+              :text="$t('auth.register')"
               @click="onClick"
             />
           </div>

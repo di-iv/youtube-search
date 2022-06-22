@@ -1,5 +1,10 @@
 export default {
   auth: {
-    SignInForm: 'Вход',
+    signInForm: 'Вход',
+    password: 'Пароль',
+    signIn: 'Войти',
+    register: 'Зарегистрироваться',
+    registrationForm: 'Регистрация',
+    createAccount: 'Создать',
   },
 };

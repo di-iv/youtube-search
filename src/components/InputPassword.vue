@@ -5,7 +5,7 @@
     :icon-name="icon"
     :is-invalid="isInvalid"
     :type="type"
-    label="Пароль"
+    :label="$t('auth.password')"
     label-color="text-grey"
     @on-icon-click="togglePasswordVisibility"
     @update:model-value="updateValue"
