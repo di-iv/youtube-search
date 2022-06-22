@@ -8,7 +8,7 @@
           class="login__icon"
           icon-name="Logo"
         />
-        <h3>Вход</h3>
+        <h3>{{ $t('auth.SignInForm') }}</h3>
         <form @submit.prevent="trySignIn">
           <AppInput
             id="login"
