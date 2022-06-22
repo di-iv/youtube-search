@@ -20,7 +20,7 @@
 import { locales } from '@/consts/globalParams';
 
 export default {
-  name: 'LocaleChanger',
+  name: 'TheLocaleChanger',
   locales,
   computed: {
     isLocaleSelected() {
