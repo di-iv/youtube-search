@@ -15,7 +15,7 @@
       class="search-form__wrapper"
       is-label-hidden
       label="Поиск"
-      placeholder="Что хотите посмотреть?"
+      :placeholder="$t('search.placeholder')"
       size="large"
       @on-icon-click="openModal"
       @update:model-value="updateValue"
@@ -26,19 +26,19 @@
         class="search-form__tooltip"
       >
         <p class="search-form__tooltip-text">
-          Поиск сохранён в разделе «Избранное»
+          {{ $t('favourites.requestSaved') }}
         </p>
         <router-link
           class="search-form__tooltip-link"
           to="/favourites"
         >
-          Перейти в избранное
+          {{ $t('favourites.goToFavourites') }}
         </router-link>
       </div>
     </transition>
     <AppButton
       style-type="fill"
-      text="Найти"
+      :text="$t('search.find')"
       type="submit"
       @click="search"
     />

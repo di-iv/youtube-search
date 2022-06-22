@@ -5,7 +5,7 @@
       class="search__wrapper container"
     >
       <h1 :class="{'search__title': hasResults}">
-        Поиск видео
+        {{ $t('search.searchVideo') }}
       </h1>
       <SearchForm
         ref="searchForm"
@@ -24,7 +24,7 @@
       >
         <div class="search__filter">
           <p class="search__filter-title">
-            Видео по запросу  <b>«{{ oldSearchRequest }}»</b>
+            {{ $t('search.videosByRequest') }}  <b>«{{ oldSearchRequest }}»</b>
           </p>
           <div class="search__view-switcher">
             <AppIcon

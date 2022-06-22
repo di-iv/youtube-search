@@ -3,7 +3,7 @@
     <label
       class="input-range__label"
       for="input"
-    >Максимальное количество</label>
+    >{{ $t('favourites.maxResultsCount') }}</label>
     <div class="input-range__wrapper">
       <input
         v-model.number="value"

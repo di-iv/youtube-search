@@ -5,13 +5,13 @@
     class="modal-favourites"
   >
     <form @submit.prevent="save">
-      <h3>Сохранить запрос</h3>
+      <h3>{{ $t('favourites.saveRequest') }}</h3>
       <AppInput
         id="request"
         v-model="request"
         class="modal-favourites__form-group"
         is-disabled
-        label="Запрос"
+        :label="$t('favourites.request')"
       />
       <AppInput
         id="name"
@@ -19,7 +19,7 @@
         :is-invalid="v$.name.$error"
         class="modal-favourites__form-group"
         is-required
-        label="Название"
+        :label="$t('favourites.name')"
       />
       <AppSelect
         v-model="order"
@@ -38,14 +38,14 @@
           class="modal-favourites__button"
           size="large"
           style-type="outline"
-          text="Не сохранять"
+          :text="$t('favourites.cancel')"
           @click="cancel"
         />
         <AppButton
           class="modal-favourites__button"
           size="large"
           style-type="fill"
-          text="Сохранить"
+          :text="$t('favourites.save')"
           type="submit"
         />
       </div>
