@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import SignIn from '@/components/SignIn';
-import SignUp from '@/components/SignUp';
+import SignIn from '@/components/authorization/SignIn';
+import SignUp from '@/components/authorization/SignUp';
 
 export default {
   name: 'LoginView',
