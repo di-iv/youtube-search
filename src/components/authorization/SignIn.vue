@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import TheLocaleChanger from '@/components/TheLocaleChanger';
 import useVuelidate from '@vuelidate/core';
 import { email, required } from '@vuelidate/validators';
 import { mapActions } from 'vuex';
@@ -58,6 +57,7 @@ import AppIcon from '@/components/AppIcon';
 import AppInput from '@/components/AppInput';
 import AppCard from '@/components/AppCard';
 import InputPassword from '@/components/InputPassword';
+import TheLocaleChanger from '@/components/TheLocaleChanger';
 
 export default {
   name: 'SignIn',
