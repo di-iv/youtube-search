@@ -97,7 +97,7 @@ export default {
       return null;
     },
     isRequestSaved() {
-      return !Favourites.checkRequestUnique(this.favourites, this.searchRequest);
+      return !Favourites.isRequestUnique(this.favourites, this.searchRequest);
     },
     isSearchRequestNotEmpty() {
       return this.searchRequest.length > 0;

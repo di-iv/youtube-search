@@ -112,7 +112,7 @@ export default {
       return Favourites.isNameUnique(this.favouritesExceptThisOne, this.name);
     },
     isRequestUnique() {
-      return Favourites.checkRequestUnique(this.favouritesExceptThisOne, this.request);
+      return Favourites.isRequestUnique(this.favouritesExceptThisOne, this.request);
     },
   },
   methods: {

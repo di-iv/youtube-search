@@ -40,7 +40,7 @@ export default class Favourites {
     return !hasValue(favourites, 'name', value);
   }
 
-  static checkRequestUnique(favourites, value) {
+  static isRequestUnique(favourites, value) {
     return !hasValue(favourites, 'request', value);
   }
 
