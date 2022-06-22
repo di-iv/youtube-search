@@ -23,6 +23,12 @@ export default class User {
     LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
   }
 
+  /**
+   * Api request for sign in
+   * @param {string} email
+   * @param {string} password
+   * @returns {Promise<any>}
+   */
   static async signIn(email, password) {
     const res = await authApi.post('accounts:signInWithPassword', {
       email,
@@ -32,6 +38,12 @@ export default class User {
     return res.data;
   }
 
+  /**
+   * Api request for sign up
+   * @param {string} email
+   * @param {string} password
+   * @returns {Promise<any>}
+   */
   static async signUp(email, password) {
     const res = await authApi.post('accounts:signUp', {
       email,
