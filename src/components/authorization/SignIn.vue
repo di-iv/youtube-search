@@ -39,7 +39,7 @@
               @click="onClick"
             />
           </div>
-          <TheLocaleChanger />
+          <AppLocaleChanger />
         </form>
       </div>
     </app-card>
@@ -57,12 +57,12 @@ import AppIcon from '@/components/app/AppIcon';
 import AppInput from '@/components/app/AppInput';
 import AppCard from '@/components/app/AppCard';
 import AppInputPassword from '@/components/app/AppInputPassword';
-import TheLocaleChanger from '@/components/AppLocaleChanger';
+import AppLocaleChanger from '@/components/app/AppLocaleChanger';
 
 export default {
   name: 'SignIn',
   components: {
-    TheLocaleChanger,
+    AppLocaleChanger,
     AppError,
     AppInputPassword,
     AppIcon,
