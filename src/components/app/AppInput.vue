@@ -2,7 +2,7 @@
   <div class="input">
     <label
       :class="[
-        labelColor ? `input__label--${labelColor}`: null,
+        inputLabelColor,
         {
           'input__label--hidden': isLabelHidden,
           'input__label--required': isRequired,
@@ -128,6 +128,12 @@ export default {
   computed: {
     hasIcon() {
       return Boolean(this.iconName);
+    },
+    inputLabelColor() {
+      if (this.labelColor) {
+        return `input__label--${this.labelColor}`;
+      }
+      return null;
     },
   },
   methods: {
