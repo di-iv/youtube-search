@@ -57,7 +57,7 @@ import AppIcon from '@/components/app/AppIcon';
 import AppInput from '@/components/app/AppInput';
 import AppCard from '@/components/app/AppCard';
 import AppInputPassword from '@/components/app/AppInputPassword';
-import TheLocaleChanger from '@/components/TheLocaleChanger';
+import TheLocaleChanger from '@/components/AppLocaleChanger';
 
 export default {
   name: 'SignIn',

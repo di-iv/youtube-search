@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import TheLocaleChanger from '@/components/TheLocaleChanger';
+import TheLocaleChanger from '@/components/AppLocaleChanger';
 import { mapMutations } from 'vuex';
 import { navs } from '@/consts/globalParams';
 import AppIcon from '@/components/app/AppIcon';
