@@ -1,12 +1,12 @@
 <template>
   <button
+    class="button"
     :class="[
       `button--${styleType}`,
-      size ? `button--${size}` : null,
-      color ? `button--${color}` : null,
+      buttonSize,
+      buttonColor
     ]"
     :type="type"
-    class="button"
   >
     {{ text }}
   </button>
@@ -56,6 +56,20 @@ export default {
         const { types } = button;
         return types.includes(value);
       },
+    },
+  },
+  computed: {
+    buttonSize() {
+      if (this.size) {
+        return `button--${this.size}`;
+      }
+      return null;
+    },
+    buttonColor() {
+      if (this.color) {
+        return `button--${this.color}`;
+      }
+      return null;
     },
   },
 };
