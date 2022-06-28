@@ -50,10 +50,10 @@ export default {
   },
   methods: {
     updateValue() {
-      this.checkValue();
+      this.formatValue();
       this.$emit('update:modelValue', this.value);
     },
-    checkValue() {
+    formatValue() {
       if (this.value > this.$props.max) {
         this.value = this.$props.max;
       }
