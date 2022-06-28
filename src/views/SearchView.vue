@@ -13,7 +13,7 @@
         :class="{'search__control': hasResults}"
         :has-icon="hasIcon"
         :size="formSize"
-        @search="trySearch"
+        @search="search"
         @add-favourite="openModalAddFavourite"
         @remove-favourite="openModalRemoveFavourite"
       />
@@ -119,11 +119,11 @@ export default {
     },
   },
   methods: {
-    ...mapActions('search', ['search']),
+    ...mapActions('search', { searchVideos: 'search' }),
     ...mapMutations('favourites', ['addFavourite']),
     ...mapMutations('favourites', ['removeFavourite']),
-    async trySearch() {
-      await this.search({ request: this.currentSearchRequest });
+    async search() {
+      await this.searchVideos({ request: this.currentSearchRequest });
     },
     switchView(type) {
       this.viewType = type;
