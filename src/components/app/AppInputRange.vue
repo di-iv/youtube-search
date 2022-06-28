@@ -50,9 +50,16 @@ export default {
   },
   methods: {
     updateValue() {
-      if (this.value > this.$props.max) this.value = this.$props.max;
-      if (this.value < this.$props.min) this.value = this.$props.min;
+      this.checkValue();
       this.$emit('update:modelValue', this.value);
+    },
+    checkValue() {
+      if (this.value > this.$props.max) {
+        this.value = this.$props.max;
+      }
+      if (this.value < this.$props.min) {
+        this.value = this.$props.min;
+      }
     },
   },
 };
