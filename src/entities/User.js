@@ -29,12 +29,12 @@ export default class User {
    * @returns {Promise<any>}
    */
   static async signIn(email, password) {
-    const res = await authApi.post('accounts:signInWithPassword', {
+    const result = await authApi.post('accounts:signInWithPassword', {
       email,
       password,
       returnSecureToken: true,
     });
-    return res.data;
+    return result.data;
   }
 
   /**
@@ -44,11 +44,11 @@ export default class User {
    * @returns {Promise<any>}
    */
   static async signUp(email, password) {
-    const res = await authApi.post('accounts:signUp', {
+    const result = await authApi.post('accounts:signUp', {
       email,
       password,
       returnSecureToken: true,
     });
-    return res.data;
+    return result.data;
   }
 }
