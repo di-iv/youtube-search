@@ -8,7 +8,7 @@ export default class User {
    */
   static isTokenValid() {
     const nowDateMs = new Date().getTime();
-    const expirationDateMs = LocalStorage.get('expirationDate')?.ms;
+    const expirationDateMs = LocalStorage.get('expirationDate');
     return expirationDateMs > nowDateMs;
   }
 
@@ -19,8 +19,7 @@ export default class User {
   static setExpirationTokenDate(expiresIn) {
     const nowDate = new Date();
     const expirationDateMs = nowDate.getTime() + expiresIn * 1000;
-    const expirationDate = new Date(expirationDateMs);
-    LocalStorage.set('expirationDate', { date: `${expirationDate}`, ms: expirationDateMs });
+    LocalStorage.set('expirationDate', expirationDateMs);
   }
 
   /**
